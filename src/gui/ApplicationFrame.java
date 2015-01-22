@@ -40,6 +40,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 	public void setStatustext(String s) {
 		// TODO Auto-generated method stub
 		// Dette er Application Som trenger ett løft
+		// mERE mErEW mmERE
 	}
 
 
