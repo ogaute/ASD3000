@@ -26,6 +26,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 		setSize(800,800);
 		setVisible(true);
 		
+		
 	}
 
 	public void exit() {
