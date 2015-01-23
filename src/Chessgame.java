@@ -7,7 +7,7 @@ public class Chessgame {
 
 	public static void main(String[] args) {
 		new ApplicationFrame();
-	
+		new ApplicationFrame();
 		
 	}
 }
