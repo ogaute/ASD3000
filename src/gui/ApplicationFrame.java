@@ -25,6 +25,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 		setLocationRelativeTo(null);
 		setSize(800,800);
 		setVisible(true);
+		System.out.println(" La til denne for Ã¥ teste ");
 		
 		
 	}
@@ -39,7 +40,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
 	public void setStatustext(String s) {
 		// TODO Auto-generated method stub
-		// Dette er Application Som trenger ett løft
+		// Dette er Application Som trenger ett lï¿½ft
 		// mERE mErEW mmERE
 	}
 
