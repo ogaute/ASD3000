@@ -25,7 +25,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 		setLocationRelativeTo(null);
 		setSize(800,800);
 		setVisible(true);
-		System.out.println(" La til denne for å teste ");
+		//System.out.println(" La til denne for å teste ");
 		
 		
 	}
