@@ -1,5 +1,7 @@
 package gui;
 
+import guipiece.Marshalling;
+
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -12,8 +14,10 @@ public class ChessBoard extends JPanel {
 	
 	public ChessBoard() {
 		setLayout(new GridLayout(8,8));
-		
 		makeBoard();
+		//bare for å teste - SLETT
+		squareList.get(1).add(Marshalling.MARSHALLING[0]);
+		
 	}
 	
 	public void makeBoard(){
