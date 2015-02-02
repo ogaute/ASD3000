@@ -16,7 +16,8 @@ public class ChessBoard extends JPanel {
 		setLayout(new GridLayout(8,8));
 		makeBoard();
 		//bare for å teste - SLETT
-		squareList.get(1).add(Marshalling.MARSHALLING[0]);
+		squareList.get(4).add(Marshalling.MARSHALLING[4]);
+		squareList.get(60).add(Marshalling.MARSHALLING[60]);
 		
 	}
 	
