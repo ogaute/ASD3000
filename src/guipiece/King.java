@@ -7,10 +7,10 @@ public class King extends Piece{
 	
 	public King(boolean s, String c) {
 		if(s){
-			setLabel("exit.png");
+			setLabel("img/Black_King.png");
 		}
 		else{
-			setLabel("save.png");
+			setLabel("img/White_King.png");
 		}
 	}
 

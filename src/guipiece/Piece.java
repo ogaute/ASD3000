@@ -17,6 +17,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Piece extends AbstractButton{
+	
+	private boolean playerColor; //true er svart, false er hvit
 
 	public Piece() {
 		super();
@@ -32,6 +34,14 @@ public class Piece extends AbstractButton{
 	
 	public void setLabel(String s){
 		add(new JLabel(new ImageIcon(s)));
+	}
+	
+	public boolean getPlayerColor() {
+		return playerColor;
+	}
+
+	public void setPlayerColor(boolean playerColor) {
+		this.playerColor = playerColor;
 	}
 
 }

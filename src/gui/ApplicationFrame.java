@@ -1,18 +1,24 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import logicpiece.ChessGame;
+
 import controller.Controller;
 import easylib.controller.ISupercontroller;
+import guipiece.Piece;
 
 public class ApplicationFrame extends JFrame implements ISupercontroller {
 
 	private Centerpane centerpane = null;
 	private Southpane southpane = null;
 	private Eastpane eastpane = null;
+	
+	private ChessGame chessgame = null;
 
 	public ApplicationFrame() {
 		Controller.init(this);
@@ -27,6 +33,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 		setVisible(true);
 		//System.out.println(" La til denne for å teste ");
 		
+		chessgame = new ChessGame();
 		
 	}
 
@@ -42,6 +49,11 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 		// TODO Auto-generated method stub
 		// Dette er Application Som trenger ett l�ft
 		// mERE mErEW mmERE
+	}
+
+	@Override
+	public ArrayList<Square> canIMove(Piece p, Square[][] state, int x, int y, boolean c) {
+		return chessgame.canIMove(p, state, x, y, c);
 	}
 
 

@@ -1,9 +1,21 @@
 package guipiece;
 
 public class Pawn extends Piece {
+	
 
-	public Pawn(String s) {
 
+	public Pawn(boolean s, String c) {
+		if(s){
+			setLabel("img/Black_Pawn.png");
+			super.setPlayerColor(true);
+		}
+		else{
+			setLabel("img/White_Pawn.png");
+			super.setPlayerColor(false);
+		}
+		
 	}
+
+
 
 }
