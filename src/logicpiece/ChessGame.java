@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class ChessGame {
 	
 	PawnLogic pawn;
+	boolean currentPlayer = false;
 
 	public ChessGame() {
 		pawn = new PawnLogic();
@@ -16,10 +17,18 @@ public class ChessGame {
 	public ArrayList<Square> canIMove(Piece p, Square[][] state, int x, int y, boolean c){
 		ArrayList<Square> legalMoves = null;
 		
-		if(p.getClass().isInstance(Pawn.class)){
+		if(p instanceof Pawn){
 			legalMoves = pawn.canIMove(state, x, y, c);
 		}
 		
 		return legalMoves;
+	}
+
+	public boolean turn() {
+		return currentPlayer;
+	}
+
+	public void nextTurn() {
+		currentPlayer = !currentPlayer;
 	}
 }

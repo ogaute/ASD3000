@@ -51,10 +51,17 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 		// mERE mErEW mmERE
 	}
 
-	@Override
 	public ArrayList<Square> canIMove(Piece p, Square[][] state, int x, int y, boolean c) {
 		return chessgame.canIMove(p, state, x, y, c);
 	}
 
+	public boolean turn(){
+		return chessgame.turn();
+	}
+
+	@Override
+	public void nextTurn() {
+		chessgame.nextTurn();
+	}
 
 }

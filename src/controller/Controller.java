@@ -19,5 +19,12 @@ public class Controller extends Supercontroller implements IActionlist {
 		return ui.canIMove(p, state, x, y, c);
 	}
 
+	public static boolean turn(){
+		return ui.turn();
+	}
+
+	public static void nextTurn() {
+		ui.nextTurn();
+	}
 
 }

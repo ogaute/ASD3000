@@ -14,7 +14,7 @@ import controller.Controller;
 
 public class Square extends JPanel implements MouseListener{
 	
-	boolean hasChildren;
+	boolean hasChildren = false;
 	int indexX;
 	int indexY;
 	ArrayList<Square> legal = null;
@@ -27,13 +27,17 @@ public class Square extends JPanel implements MouseListener{
 		//System.out.println(indexX + " " + indexY);
 	}
 	
+	public boolean HasChild(){
+		return hasChildren;
+	}
+	
 	public Piece getPiece(){
-		Component compoenet = null;
+		Piece piece = null;
 		if (hasChildren) {
-			compoenet = getComponent(0);
+			piece = (Piece)getComponent(0);
 		}
 		
-		return (Piece)compoenet;
+		return piece;
 	}
 	
 	public ChessBoard getBoard(){
@@ -43,7 +47,7 @@ public class Square extends JPanel implements MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent arg0){
 
-		if (hasChildren) {
+		if (hasChildren && Controller.turn() == getPiece().getPlayerColor()) {
 			Component compoenets = getComponent(0);
 			System.out.println(compoenets.toString());
 			getBoard().fromX = indexX;
@@ -54,7 +58,7 @@ public class Square extends JPanel implements MouseListener{
 					indexX, 
 					indexY, 
 					getPiece().getPlayerColor());
-			legal.toString();
+			//System.out.println(legal.toString());
 		}
 		else{
 			getBoard().toX = indexX;
@@ -65,6 +69,7 @@ public class Square extends JPanel implements MouseListener{
 	}
 	
 	public Component add(Component c){
+		super.removeAll();
 		super.add(c);
 		hasChildren = true;
 		return c;

@@ -12,4 +12,7 @@ public interface ISupercontroller {
 	void setStatustext(String s);
 	
 	ArrayList<Square> canIMove(Piece p, Square[][] state, int x, int y, boolean c);
+	
+	boolean turn();
+	void nextTurn();
 }
