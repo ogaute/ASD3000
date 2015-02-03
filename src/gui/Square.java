@@ -54,6 +54,7 @@ public class Square extends JPanel implements MouseListener{
 					indexX, 
 					indexY, 
 					getPiece().getPlayerColor());
+			legal.toString();
 		}
 		else{
 			getBoard().toX = indexX;
