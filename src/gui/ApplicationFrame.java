@@ -59,7 +59,6 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 		return chessgame.turn();
 	}
 
-	@Override
 	public void nextTurn() {
 		chessgame.nextTurn();
 	}
