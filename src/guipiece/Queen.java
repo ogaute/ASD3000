@@ -9,6 +9,8 @@ public class Queen extends Piece {
 		else{
 			setLabel("img/White_Queen.png");
 		}
+		super.setPlayerColor(s);
+		
 	}
 
 }

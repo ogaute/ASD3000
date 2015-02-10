@@ -16,6 +16,7 @@ import controller.Controller;
 public class ChessBoard extends JPanel {
 	
 	Square[][] squareList = new Square[8][8];
+	ArrayList<Square> legal = null;
 	int fromX = 8;
 	int fromY = 8;
 	int toX = 8;
@@ -28,17 +29,17 @@ public class ChessBoard extends JPanel {
 		//squareList.get(4).add(Marshalling.MARSHALLING[4]);
 		//squareList.get(60).add(Marshalling.MARSHALLING[60]);
 		
-		for (int y = 0; y < 8; y++) {
-			for (int x = 0; x <= 1; x++) {
-				squareList[y][x].add(Marshalling.MARSHALLING[x][y]);
-				//squareList[y][x].add(new JLabel("y: "+ y +", x: " + x));
+		for (int y = 0; y <= 1; y++) {
+			for (int x = 0; x < 8; x++) {
+				squareList[x][y].add(Marshalling.MARSHALLING[y][x]);
+				//squareList[x][y].add(new JLabel("P: y: "+ y +", x: " + x));
 			}
 		}
 		
-		for (int y = 0; y < 8; y++) {
-			for (int x = 6; x <= 7; x++) {
-				squareList[y][x].add(Marshalling.MARSHALLING[x][y]);
-				//squareList[y][x].add(new JLabel("y: "+ y +", x: " + x));
+		for (int y = 6; y <= 7; y++) {
+			for (int x = 0; x < 8; x++) {
+				squareList[x][y].add(Marshalling.MARSHALLING[y][x]);
+				//squareList[x][y].add(new JLabel("P: y: "+ y +", x: " + x));
 			}
 		}
 		
@@ -47,18 +48,20 @@ public class ChessBoard extends JPanel {
 	public void makeBoard(){
 		int c = 0;
 		int index = 0;
-		for (int j = 0; j <= 7; j++) {
-			for (int i = 0; i <= 7; i++) {
+		for (int y = 0; y <= 7; y++) {
+			for (int x = 0; x <= 7; x++) {
 				Square square;
-				if (i % 2 == c){
-					square = new Square(Color.DARK_GRAY, i, j);
+				if (x % 2 == c){
+					square = new Square(Color.DARK_GRAY, x, y);
 					//System.out.println("Sq " + j + " " + i);
+					//square.add(new JLabel("M: y: "+ y +", x: " + x));
 				}
 				else {
-					square = new Square(Color.LIGHT_GRAY, i, j);
+					square = new Square(Color.LIGHT_GRAY, x, y);
+					//square.add(new JLabel("M: y: "+ y +", x: " + x));
 				}
 				
-				squareList[i][j] = square;
+				squareList[x][y] = square;
 				add(square);
 				index++;
 			}
@@ -66,7 +69,7 @@ public class ChessBoard extends JPanel {
 		}
 	}
 	
-	public void move(ArrayList<Square> legal){
+	public void move(){
 		if(legal != null){
 			System.out.println(fromX + " " + fromY + " " + toX + " " + toY);
 			if (toX < 8 && fromX < 8 && fromY < 8 && toY < 8){
@@ -85,6 +88,7 @@ public class ChessBoard extends JPanel {
 						toY = 8;
 						fromX = 8;
 						fromY = 8;
+						legal = null;
 						Controller.nextTurn();
 					}
 				}

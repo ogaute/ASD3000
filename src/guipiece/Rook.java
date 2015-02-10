@@ -9,6 +9,8 @@ public class Rook extends Piece {
 		else{
 			setLabel("img/White_Rook.png");
 		}
+		super.setPlayerColor(s);
+		
 	}
 
 }

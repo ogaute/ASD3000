@@ -12,6 +12,7 @@ public class King extends Piece{
 		else{
 			setLabel("img/White_King.png");
 		}
+		super.setPlayerColor(s);
 	}
 
 }

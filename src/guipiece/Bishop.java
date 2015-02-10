@@ -9,6 +9,7 @@ public class Bishop extends Piece {
 		else{
 			setLabel("img/White_Bishop.png");
 		}
+		super.setPlayerColor(s);
 	}
 
 }

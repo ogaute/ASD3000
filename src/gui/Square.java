@@ -7,8 +7,11 @@ import java.awt.Component;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Iterator;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 import controller.Controller;
 
@@ -18,6 +21,8 @@ public class Square extends JPanel implements MouseListener{
 	int indexX;
 	int indexY;
 	ArrayList<Square> legal = null;
+	boolean legalSquere = false;
+	Border redline = BorderFactory.createLineBorder(Color.red, 4);
 
 	public Square(Color c, int indexX, int indexY) {
 		setBackground(c);
@@ -47,25 +52,6 @@ public class Square extends JPanel implements MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent arg0){
 
-		if (hasChildren && Controller.turn() == getPiece().getPlayerColor()) {
-			Component compoenets = getComponent(0);
-			System.out.println(compoenets.toString());
-			getBoard().fromX = indexX;
-			getBoard().fromY = indexY;
-			legal = Controller.canIMove(
-					getPiece(),
-					getBoard().squareList, 
-					indexX, 
-					indexY, 
-					getPiece().getPlayerColor());
-			//System.out.println(legal.toString());
-		}
-		else{
-			getBoard().toX = indexX;
-			getBoard().toY = indexY;
-		}
-			
-		getBoard().move(legal);
 	}
 	
 	public Component add(Component c){
@@ -101,7 +87,48 @@ public class Square extends JPanel implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+		
+		if (hasChildren && Controller.turn() == getPiece().getPlayerColor()) {
+			
+			if(getBoard().legal != null){
+				for (Iterator iterator = getBoard().legal.iterator(); iterator.hasNext();) {
+					Square legalMove = (Square) iterator.next();
+					legalMove.setLegalSquere(false);
+					legalMove.repaint();
+				}
+			}
+			//Component compoenets = getComponent(0);
+			//System.out.println(compoenets.toString());
+			getBoard().fromX = indexX;
+			getBoard().fromY = indexY;
+			legal = Controller.canIMove(
+					getPiece(),
+					getBoard().squareList, 
+					indexX, 
+					indexY, 
+					getPiece().getPlayerColor());
+			getBoard().legal = legal;
+			
+			for (Iterator iterator = legal.iterator(); iterator.hasNext();) {
+				Square legalMove = (Square) iterator.next();
+				legalMove.setLegalSquere(true);
+				legalMove.repaint();
+			}
+			//System.out.println(legal.toString());
+		}
+		else if(getBoard().legal != null){
+			getBoard().toX = indexX;
+			getBoard().toY = indexY;
+			
+			for (Iterator iterator = getBoard().legal.iterator(); iterator.hasNext();) {
+				Square legalMove = (Square) iterator.next();
+				legalMove.setLegalSquere(false);
+				legalMove.repaint();
+			}
+
+		}
+			
+		getBoard().move();
 		
 	}
 
@@ -109,6 +136,21 @@ public class Square extends JPanel implements MouseListener{
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void setLegalSquere(boolean b){
+		legalSquere = b;
+	}
+	
+	@Override
+	public void repaint() {
+		//System.out.println("repaint");
+		super.repaint();
+		if(legalSquere){
+			this.setBorder(redline);
+		}
+		else
+			this.setBorder(null);
 	}
 	
 }

@@ -9,5 +9,6 @@ public class Knight extends Piece {
 		else{
 			setLabel("img/White_Knight.png");
 		}
+		super.setPlayerColor(s);
 	}
 }
