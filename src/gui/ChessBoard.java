@@ -8,11 +8,10 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import controller.Controller;
-
-import logicpiece.PawnLogic;
 
 public class ChessBoard extends JPanel {
 	
@@ -32,12 +31,14 @@ public class ChessBoard extends JPanel {
 		for (int y = 0; y < 8; y++) {
 			for (int x = 0; x <= 1; x++) {
 				squareList[y][x].add(Marshalling.MARSHALLING[x][y]);
+				//squareList[y][x].add(new JLabel("y: "+ y +", x: " + x));
 			}
 		}
 		
 		for (int y = 0; y < 8; y++) {
 			for (int x = 6; x <= 7; x++) {
 				squareList[y][x].add(Marshalling.MARSHALLING[x][y]);
+				//squareList[y][x].add(new JLabel("y: "+ y +", x: " + x));
 			}
 		}
 		
