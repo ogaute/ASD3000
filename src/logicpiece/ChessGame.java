@@ -26,6 +26,7 @@ public class ChessGame {
 		if(p instanceof Knight){
 			legalMoves = knight.canIMove(state, x, y, c);
 		}
+
 		
 		return legalMoves;
 	}
