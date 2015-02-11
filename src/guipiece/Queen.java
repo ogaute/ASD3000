@@ -13,4 +13,12 @@ public class Queen extends Piece {
 		
 	}
 
+	@Override
+	public char getPieceSymbol() {
+		if(playerColor)
+			return 'q';
+		else
+			return 'Q';
+	}
+
 }

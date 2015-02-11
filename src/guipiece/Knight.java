@@ -11,4 +11,12 @@ public class Knight extends Piece {
 		}
 		super.setPlayerColor(s);
 	}
+
+	@Override
+	public char getPieceSymbol() {
+		if(playerColor)
+			return 'n';
+		else
+			return 'N';
+	}
 }

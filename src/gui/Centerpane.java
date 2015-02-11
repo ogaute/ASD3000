@@ -2,8 +2,8 @@ package gui;
 
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.GridLayout;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 import javax.swing.JPanel;
 
@@ -12,6 +12,7 @@ public class Centerpane extends JPanel {
 	public Centerpane() {
 		setLayout(new BorderLayout());
 		add(new ChessBoard());
+		
 		
 		//makeBoard();
 		

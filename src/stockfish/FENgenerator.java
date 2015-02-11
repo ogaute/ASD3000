@@ -1,11 +1,15 @@
 package stockfish;
 
-import java.util.ArrayList;
+import gui.Square;
+
+import java.awt.Rectangle;
+import java.util.Observable;
+import controller.Controller;
 
 
-public class FENgenerator {
+public class FENgenerator extends Observable {
 			
-	private ArrayList<ArrayList<String>> boardPositions;
+	private Square[][] boardPositions;
 	private String sideToMove = "w";  		//  {'w' | 'b'}
 	private String castlingAbility = ""; 	// 
 	private String enPassant = ""; 			// 
@@ -14,28 +18,29 @@ public class FENgenerator {
 
 	public FENgenerator(){
 		// lager litt dummydata - Arraylist av arraylist av Strings
-		DummyDataCreator ddc = new DummyDataCreator();
-		boardPositions = ddc.getPositions();
+		//DummyDataCreator ddc = new DummyDataCreator();
+		//boardPositions = ddc.getPositions();
 	}
 
-	public String generateFEN() {
+	public String generateFEN(Square[][] b) {
 
-		// generator		
+		// generator	
+		this.boardPositions = b;
 		StringBuilder sb = new StringBuilder();
 		int sumNumbers = 0;
 		
-		for(ArrayList<String> positions : boardPositions){
+		for(int y = 0; y <= 7; y++){
 			
-			for(String position : positions){		
-				char ch = position.charAt(0);
-				if(Character.isDigit(ch)){
-					sumNumbers += Character.getNumericValue(ch);				
+			for(int x = 0; x <= 7; x++){	
+				char ch;
+				if(!boardPositions[x][y].HasChild()){
+					sumNumbers += 1;				
 				} else {
 					if(sumNumbers !=0){
 						sb.append(Integer.toString(sumNumbers));
 					}
 					sumNumbers = 0;
-					sb.append(ch);	
+					sb.append(boardPositions[x][y].getPiece().getPieceSymbol());	
 				}		
 			}
 			if(sumNumbers !=0){
@@ -43,17 +48,29 @@ public class FENgenerator {
 				sumNumbers = 0;
 			}
 			sb.append("/");		
-		}		
-		sb.append(" " + sideToMove);
+		}
+		
+		if(Controller.turn()){
+			sb.append(" " + 'b');
+		}
+		else{
+			sb.append(" " + 'w');
+		}
+		//sb.append(" " + sideToMove);
 		sb.append(" " + castlingAbility);
 		sb.append(" " + enPassant);
 		sb.append(" " + halfmoveClock);
 		sb.append(" " + fullMoveCounter);
-		System.out.println(sb.toString());
-		
+		//System.out.println(sb.toString());
+		setValue(sb.toString());
 
 		return sb.toString();
 	}
 
+	public void setValue(String fen){
+		setChanged();
+		notifyObservers(fen);
+		clearChanged();
+	}
 	
 }

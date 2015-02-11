@@ -6,6 +6,7 @@ import easylib.controller.ISupercontroller;
 import easylib.controller.Supercontroller;
 import gui.ApplicationFrame;
 import gui.Square;
+import gui.StockFishInfo;
 import guipiece.Piece;
 
 public class Controller extends Supercontroller implements IActionlist {
@@ -26,6 +27,10 @@ public class Controller extends Supercontroller implements IActionlist {
 
 	public static void nextTurn() {
 		((ApplicationFrame)ui).nextTurn();
+	}
+	
+	public static StockFishInfo getSFI(){
+		return ((ApplicationFrame)ui).getSFI();
 	}
 
 }

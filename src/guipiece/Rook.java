@@ -13,4 +13,12 @@ public class Rook extends Piece {
 		
 	}
 
+	@Override
+	public char getPieceSymbol() {
+		if(playerColor)
+			return 'r';
+		else
+			return 'R';
+	}
+
 }

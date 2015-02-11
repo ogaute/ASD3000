@@ -1,6 +1,8 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -33,6 +35,15 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 		setVisible(true);
 		//System.out.println(" La til denne for å teste ");
 		
+	    addComponentListener(new ComponentAdapter() {
+	        @Override
+	        public void componentResized(ComponentEvent e) {
+	        System.out.println("Reseized");
+	        //repaint();
+	        setSize(getSize().width, getSize().width);
+	      }
+	    });
+		
 		chessgame = new ChessGame();
 		
 	}
@@ -61,6 +72,16 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
 	public void nextTurn() {
 		chessgame.nextTurn();
+	}
+	
+	@Override
+	public void repaint() {
+		super.repaint();
+		//setSize(getSize().width, getSize().width);
+	}
+	
+	public StockFishInfo getSFI(){
+		return eastpane.getSFI();
 	}
 
 }

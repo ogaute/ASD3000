@@ -16,9 +16,9 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Piece extends AbstractButton{
+public abstract class Piece extends AbstractButton{
 	
-	private boolean playerColor; //true er svart, false er hvit
+	protected boolean playerColor; //true er svart, false er hvit
 
 	public Piece() {
 		super();
@@ -43,6 +43,8 @@ public class Piece extends AbstractButton{
 	public void setPlayerColor(boolean playerColor) {
 		this.playerColor = playerColor;
 	}
+	
+	public abstract char getPieceSymbol();
 
 }
 

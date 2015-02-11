@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  * A simple and efficient client to run Stockfish from Java
@@ -161,4 +163,5 @@ public class StockfishClient {
 		}
 		return evalScore / 100;
 	}
+
 }

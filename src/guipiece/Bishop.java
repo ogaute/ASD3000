@@ -12,4 +12,12 @@ public class Bishop extends Piece {
 		super.setPlayerColor(s);
 	}
 
+	@Override
+	public char getPieceSymbol() {
+		if(playerColor)
+			return 'b';
+		else
+			return 'B';
+	}
+
 }

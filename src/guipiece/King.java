@@ -15,4 +15,12 @@ public class King extends Piece{
 		super.setPlayerColor(s);
 	}
 
+	@Override
+	public char getPieceSymbol() {
+		if(playerColor)
+			return 'k';
+		else
+			return 'K';
+	}
+
 }

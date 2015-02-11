@@ -8,9 +8,9 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import stockfish.FENgenerator;
 import controller.Controller;
 
 public class ChessBoard extends JPanel {
@@ -21,6 +21,7 @@ public class ChessBoard extends JPanel {
 	int fromY = 8;
 	int toX = 8;
 	int toY = 8;
+	FENgenerator fenG = new FENgenerator();
 	
 	public ChessBoard() {
 		setLayout(new GridLayout(8,0));
@@ -42,6 +43,8 @@ public class ChessBoard extends JPanel {
 				//squareList[x][y].add(new JLabel("P: y: "+ y +", x: " + x));
 			}
 		}
+		
+		//System.out.println(fenG.generateFEN(squareList));
 		
 	}
 	
@@ -70,8 +73,8 @@ public class ChessBoard extends JPanel {
 	}
 	
 	public void move(){
-		if(legal != null){
-			System.out.println(fromX + " " + fromY + " " + toX + " " + toY);
+		//if(legal != null){
+			//System.out.println(fromX + " " + fromY + " " + toX + " " + toY);
 			if (toX < 8 && fromX < 8 && fromY < 8 && toY < 8){
 				//System.out.println(legal.toString());
 				for (Iterator iterator = legal.iterator(); iterator.hasNext();) {
@@ -92,8 +95,10 @@ public class ChessBoard extends JPanel {
 						Controller.nextTurn();
 					}
 				}
+				//System.out.println(fenG.generateFEN(squareList));
 			}
-		}
+		//}
+
 	}
 	
 }

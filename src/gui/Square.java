@@ -97,7 +97,6 @@ public class Square extends JPanel implements MouseListener{
 					legalMove.repaint();
 				}
 			}
-			//Component compoenets = getComponent(0);
 			//System.out.println(compoenets.toString());
 			getBoard().fromX = indexX;
 			getBoard().fromY = indexY;
@@ -125,10 +124,11 @@ public class Square extends JPanel implements MouseListener{
 				legalMove.setLegalSquere(false);
 				legalMove.repaint();
 			}
-
+			
+			getBoard().move();
 		}
 			
-		getBoard().move();
+
 		
 	}
 
