@@ -16,7 +16,7 @@ import stockfish.FENgenerator;
 import stockfish.StockFishObservable;
 import controller.Controller;
 
-public class ChessGame {
+public class ChessHelper {
 	
 	PieceLogic pawn;
 	PieceLogic knight;
@@ -28,8 +28,9 @@ public class ChessGame {
 	FENgenerator fenG = new FENgenerator();
 	StockFishObservable sfo;
 	Square[][] state;
+	boolean kingIsCheck = false;
 
-	public ChessGame() {
+	public ChessHelper() {
 		pawn = new PawnLogic();
 		knight = new KnightLogic();
         rook = new RookLogic();

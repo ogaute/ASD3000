@@ -1,15 +1,13 @@
 package gui;
 
 import java.awt.BorderLayout;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import logicpiece.ChessGame;
-
+import logic.ChessCoordinator;
+import logicpiece.ChessHelper;
 import controller.Controller;
 import easylib.controller.ISupercontroller;
 import guipiece.Piece;
@@ -20,31 +18,34 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 	private Southpane southpane = null;
 	private Eastpane eastpane = null;
 	
-	private ChessGame chessgame = null;
+	private ChessCoordinator chessCoordinator = null;
+	private ChessHelper chessHelper = null;
 
 	public ApplicationFrame() {
 		Controller.init(this);
-		setTitle("Chessgame");
+		setTitle("Chessie");
 		setLayout(new BorderLayout());
-		add(centerpane = new Centerpane(), BorderLayout.CENTER);
+		chessCoordinator = new ChessCoordinator();
+		add(centerpane = new Centerpane(chessCoordinator.getBoard()), BorderLayout.CENTER);
 		add(southpane = new Southpane(), BorderLayout.SOUTH);
 		add(eastpane = new Eastpane(), BorderLayout.EAST);
 		setJMenuBar(new MenuController());
 		setLocationRelativeTo(null);
-		setSize(800,800);
+		setSize(1000,800);
 		setVisible(true);
 		//System.out.println(" La til denne for å teste ");
+		setResizable(false);
 		
-	    addComponentListener(new ComponentAdapter() {
+	    /*addComponentListener(new ComponentAdapter() {
 	        @Override
 	        public void componentResized(ComponentEvent e) {
-	        System.out.println("Reseized");
+	        //System.out.println("Reseized");
 	        //repaint();
 	        setSize(getSize().width, getSize().width);
 	      }
-	    });
+	    });*/
 		
-		chessgame = new ChessGame();
+		chessHelper = new ChessHelper();
 		
 	}
 
@@ -63,15 +64,15 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 	}
 
 	public ArrayList<Square> canIMove(Piece p, Square[][] state, int x, int y, boolean c) {
-		return chessgame.canIMove(p, state, x, y, c);
+		return chessHelper.canIMove(p, state, x, y, c);
 	}
 
 	public boolean turn(){
-		return chessgame.turn();
+		return chessHelper.turn();
 	}
 
 	public void nextTurn() {
-		chessgame.nextTurn();
+		chessHelper.nextTurn();
 	}
 	
 	@Override
@@ -82,6 +83,14 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 	
 	public StockFishInfo getSFI(){
 		return eastpane.getSFI();
+	}
+
+	public void pressed(int indexX, int indexY) {
+		chessCoordinator.pressed(indexX, indexY);
+	}
+
+	public void addToHistory() {
+		chessCoordinator.addToHistory();
 	}
 
 }

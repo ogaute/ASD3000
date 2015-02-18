@@ -1,7 +1,7 @@
 package guipiece;
 
 public class Pawn extends Piece {
-	
+
 	public Pawn(boolean s, String c) {
 		if(s){
 			setLabel("img/Black_Pawn.png");

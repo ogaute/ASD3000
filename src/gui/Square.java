@@ -18,9 +18,10 @@ import controller.Controller;
 public class Square extends JPanel implements MouseListener{
 	
 	boolean hasChildren = false;
-	int indexX;
-	int indexY;
-	ArrayList<Square> legal = null;
+	private int indexX;
+	public int getIndexX() { return indexX; }
+	private int indexY;
+	public int getIndexY() { return indexY; }
 	boolean legalSquere = false;
 	Border redline = BorderFactory.createLineBorder(Color.red, 4);
 
@@ -44,7 +45,7 @@ public class Square extends JPanel implements MouseListener{
 		
 		return piece;
 	}
-	
+
 	public ChessBoard getBoard(){
 		return (ChessBoard)getParent();
 	}
@@ -88,50 +89,39 @@ public class Square extends JPanel implements MouseListener{
 	@Override
 	public void mousePressed(MouseEvent arg0) {
 		
+		Controller.pressed(indexX, indexY);
+		/*
 		if (hasChildren && Controller.turn() == getPiece().getPlayerColor()) {
 			
 			if(getBoard().legal != null){
-				for (Iterator iterator = getBoard().legal.iterator(); iterator.hasNext();) {
-					Square legalMove = (Square) iterator.next();
-					legalMove.setLegalSquere(false);
-					legalMove.repaint();
-				}
+				resetLegalSquare(false);
 			}
 			//System.out.println(compoenets.toString());
 			getBoard().fromX = indexX;
 			getBoard().fromY = indexY;
-			legal = Controller.canIMove(
+			getBoard().legal = Controller.canIMove(
 					getPiece(),
 					getBoard().squareList, 
 					indexX, 
 					indexY, 
 					getPiece().getPlayerColor());
-			getBoard().legal = legal;
 			
-			for (Iterator iterator = legal.iterator(); iterator.hasNext();) {
-				Square legalMove = (Square) iterator.next();
-				legalMove.setLegalSquere(true);
-				legalMove.repaint();
-			}
+			resetLegalSquare(true);
 			//System.out.println(legal.toString());
 		}
 		else if(getBoard().legal != null){
 			getBoard().toX = indexX;
 			getBoard().toY = indexY;
 			
-			for (Iterator iterator = getBoard().legal.iterator(); iterator.hasNext();) {
-				Square legalMove = (Square) iterator.next();
-				legalMove.setLegalSquere(false);
-				legalMove.repaint();
-			}
+			resetLegalSquare(false);
 			
 			getBoard().move();
 		}
-			
-
-		
+		*/	
 	}
+	/*
 
+	*/
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub

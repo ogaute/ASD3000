@@ -33,4 +33,12 @@ public class Controller extends Supercontroller implements IActionlist {
 		return ((ApplicationFrame)ui).getSFI();
 	}
 
+	public static void pressed(int indexX, int indexY) {
+		((ApplicationFrame)ui).pressed(indexX, indexY);
+	}
+
+	public static void addToHistory() {
+		((ApplicationFrame)ui).addToHistory();
+	}
+
 }
