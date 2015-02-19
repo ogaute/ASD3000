@@ -19,6 +19,11 @@ import javax.swing.JPanel;
 public abstract class Piece extends AbstractButton{
 	
 	protected boolean playerColor; //true er svart, false er hvit
+	protected String myColorString;
+	public String getMyColorString() {
+		return myColorString;
+	}
+
 	private boolean hasMoved = false;
 	public boolean isHasMoved() { return hasMoved; }
 	public void setHasMoved(boolean hasMoved) { this.hasMoved = hasMoved; }
@@ -48,6 +53,8 @@ public abstract class Piece extends AbstractButton{
 	}
 	
 	public abstract char getPieceSymbol();
+	
+	public abstract String toString();
 
 }
 

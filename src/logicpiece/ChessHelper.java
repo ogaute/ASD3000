@@ -82,5 +82,7 @@ public class ChessHelper {
 		//System.out.println("aloha");
 		kingIsCheck = checkChecker.isKingInCheck(state);
 		System.out.println("Is king in check? " + kingIsCheck);
+
+
 	}
 }

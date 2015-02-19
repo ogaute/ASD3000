@@ -41,6 +41,7 @@ public class PieceMover {
 					move(fromX, fromY, toX, toY, squareList);
 					repaint = true;
 					Controller.nextTurn();
+					break;
 				}
 			}
 		}

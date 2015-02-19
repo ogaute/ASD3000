@@ -3,6 +3,7 @@ package guipiece;
 public class Queen extends Piece {
 
 	public Queen(boolean s, String c) {
+		this.myColorString = c;
 		if(s){
 			setLabel("img/Black_Queen.png");
 		}
@@ -19,6 +20,11 @@ public class Queen extends Piece {
 			return 'q';
 		else
 			return 'Q';
+	}
+	
+	@Override
+	public String toString() {
+		return "Jeg er dronningen og jeg er " + myColorString;
 	}
 
 }

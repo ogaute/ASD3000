@@ -54,7 +54,7 @@ public class PawnLogic extends PieceLogic {
 			if(y == 6)
 				possibleMove.add(state[x][y-2]);
 			if(x > 0){
-				System.out.println("x: " + x);
+				//System.out.println("x: " + x);
 				if(state[x-1][y-1].HasChild()){
 					if(playerColor != state[x-1][y-1].getPiece().getPlayerColor()){
 						possibleMove.add(state[x-1][y-1]);

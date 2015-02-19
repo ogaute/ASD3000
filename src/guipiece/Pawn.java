@@ -3,6 +3,7 @@ package guipiece;
 public class Pawn extends Piece {
 
 	public Pawn(boolean s, String c) {
+		this.myColorString = c;
 		if(s){
 			setLabel("img/Black_Pawn.png");
 		}
@@ -20,6 +21,9 @@ public class Pawn extends Piece {
 			return 'P';
 	}
 
-
+	@Override
+	public String toString() {
+		return "Jeg er en bonde og jeg er " + myColorString;
+	}
 
 }

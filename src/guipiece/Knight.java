@@ -3,6 +3,7 @@ package guipiece;
 public class Knight extends Piece {
 
 	public Knight(boolean s, String c) {
+		this.myColorString = c;
 		if(s){
 			setLabel("img/Black_Knight.png");
 		}
@@ -18,5 +19,10 @@ public class Knight extends Piece {
 			return 'n';
 		else
 			return 'N';
+	}
+	
+	@Override
+	public String toString() {
+		return "Jeg er en hest og jeg er " + myColorString;
 	}
 }

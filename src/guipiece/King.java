@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 public class King extends Piece{
 	
 	public King(boolean s, String c) {
+		this.myColorString = c;
 		if(s){
 			setLabel("img/Black_King.png");
 		}
@@ -23,4 +24,8 @@ public class King extends Piece{
 			return 'K';
 	}
 
+	@Override
+	public String toString() {
+		return "Jeg er kongen og jeg er " + myColorString;
+	}
 }
