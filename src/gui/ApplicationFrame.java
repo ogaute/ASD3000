@@ -93,4 +93,8 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 		chessCoordinator.addToHistory();
 	}
 
+	public ArrayList<Square> getKings() {
+		return chessCoordinator.getKings();
+	}
+
 }

@@ -41,4 +41,8 @@ public class Controller extends Supercontroller implements IActionlist {
 		((ApplicationFrame)ui).addToHistory();
 	}
 
+	public static ArrayList<Square> getKings() {
+		return ((ApplicationFrame)ui).getKings();
+	}
+	
 }

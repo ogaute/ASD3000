@@ -12,7 +12,7 @@ public class KnightLogic extends PieceLogic{
 		boolean playerColor = c;
 		possibleMove.clear();
 		
-		System.out.println("x og y: " + x + " " + y);
+		//System.out.println("x og y: " + x + " " + y);
 
 		int posx[] = { x + 1, x + 1, x + 2, x + 2, x - 1, x - 1, x - 2, x - 2 };
 		int posy[] = { y - 2, y + 2, y - 1, y + 1, y - 2, y + 2, y - 1, y + 1 };

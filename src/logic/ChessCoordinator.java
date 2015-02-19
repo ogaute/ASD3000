@@ -8,6 +8,7 @@ import stockfish.FENgenerator;
 import controller.Controller;
 import gui.ChessBoard;
 import gui.Square;
+import guipiece.King;
 import guipiece.Piece;
 
 public class ChessCoordinator {
@@ -23,10 +24,15 @@ public class ChessCoordinator {
 	PieceMover mover = new PieceMover();
 	MoveHistory moveHistory = new MoveHistory();
 	
+	Square blackKing = null;
+	Square whiteKing = null;
+	
 	public ChessCoordinator() { 
 		board = new ChessBoard(); 
 		squareList = board.addPieces();
 		
+		blackKing = squareList[4][0];
+		whiteKing = squareList[4][7];
 	}
 	
 	public void move() {
@@ -44,8 +50,28 @@ public class ChessCoordinator {
 
 	public void addToHistory() {
 		Piece movedPiece = squareList[fromX][fromY].getPiece();
+		updateKingSquare(movedPiece);
 		Piece capturedPiece = squareList[toX][toY].getPiece();
 		moveHistory.addMove(fromX, fromY, toX, toY, movedPiece, capturedPiece);
+	}
+
+	public Square getBlackKing() {
+		return blackKing;
+	}
+
+	public Square getWhiteKing() {
+		return whiteKing;
+	}
+
+	private void updateKingSquare(Piece movedPiece) {
+		if(movedPiece instanceof King){
+			if(Controller.turn()){
+				blackKing = squareList[toX][toY];
+			}
+			else{
+				whiteKing = squareList[toX][toY];
+			}
+		}
 	}
 
 	public void pressed(int x, int y) {
@@ -83,6 +109,13 @@ public class ChessCoordinator {
 			legalMove.setLegalSquere(resetLegal);
 			legalMove.repaint();
 		}
+	}
+
+	public ArrayList<Square> getKings() {
+		ArrayList<Square> kings = new ArrayList<Square>();
+		kings.add(blackKing);
+		kings.add(whiteKing);
+		return kings;
 	}
 
 }

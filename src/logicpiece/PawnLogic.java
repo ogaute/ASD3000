@@ -11,7 +11,7 @@ public class PawnLogic extends PieceLogic {
 		boolean playerColor = c;
 		possibleMove.clear();
 		
-		System.out.println("x og y: " + x + " " + y);
+		//System.out.println("x og y: " + x + " " + y);
 		/*
 		if(state[x-1][y].getPiece()==null){
 			System.out.println(x + " " + y);
