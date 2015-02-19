@@ -6,6 +6,7 @@ import java.util.Iterator;
 import controller.Controller;
 
 import gui.Square;
+import guipiece.Marshalling;
 
 public class CheckChecker {
 
@@ -21,14 +22,13 @@ public class CheckChecker {
 		}
 		
 		ArrayList<PieceInControll> whoIsInControll = isInControll(state, king);
-		ArrayList<Square> legalMoves = legalMovesWhenKingInCheck(state, king, whoIsInControll);
-		
-		for (Iterator iterator = legalMoves.iterator(); iterator.hasNext();) {
-			Square square = (Square) iterator.next();
-			System.out.println("Checler: x: " + square.getIndexX() + ", y:" + square.getIndexY());
-		}
 		
 		if(!whoIsInControll.isEmpty()){
+			ArrayList<Square> legalMoves = legalMovesWhenKingInCheck(state, king, whoIsInControll);
+			for (Iterator iterator = legalMoves.iterator(); iterator.hasNext();) {
+				Square square = (Square) iterator.next();
+				System.out.println("Checler: " + Marshalling.COORDINATES[square.getIndexY()][square.getIndexX()]);
+			}
 			return true;
 		}
 		
@@ -83,9 +83,48 @@ public class CheckChecker {
 			pieceX = pieceInControll.getPieceInControll().getIndexX();
 			pieceY = pieceInControll.getPieceInControll().getIndexY();
 			
-			if(isKnight(kingX + pieceX, kingY + pieceY)){
-				System.out.println("2");
-				listOfLegalMovesWhenKingInCheck.add(state[pieceX][pieceY]);
+			if(kingX == pieceX || kingY == pieceY){
+				//sjekker om brikker har samme x index, vertikal
+				System.out.println("18");
+				if(kingX == pieceX){
+					System.out.println("19");
+					//sjekker om kongen står nedenfor brikke som truer
+					if(kingY > pieceY){
+						System.out.println("20");
+						for(int i=kingY-1;i>=pieceY;i--){
+							System.out.println("21");
+							listOfLegalMovesWhenKingInCheck.add(state[kingX][i]);
+						}
+					}
+					//hvis kongen står ovenfor brikke som truer
+					else{
+						System.out.println("22");
+						for(int i=kingY+1;i<=pieceY;i++){
+							System.out.println("23");
+							listOfLegalMovesWhenKingInCheck.add(state[kingX][i]);
+						}
+					}
+				}
+				//sjekker om brikker har samme y index, horisontal
+				else if(kingY == pieceY){
+					System.out.println("24");
+					//sjekker om kongen står til høyre for brikke som truer
+					if(kingX > pieceX){
+						System.out.println("25");
+						for(int i=kingX-1;i>=pieceX;i--){
+							System.out.println("26");
+							listOfLegalMovesWhenKingInCheck.add(state[i][kingY]);
+						}
+					}
+					//hvis kongen står til venstre for brikke som truer
+					else{
+						System.out.println("27");
+						for(int i=kingX+1;i<=pieceX;i++){
+							System.out.println("28");
+							listOfLegalMovesWhenKingInCheck.add(state[i][kingY]);
+						}
+					}
+				}
 			}
 			else if( isDiagonal(kingX + pieceX, kingY + pieceY) )
 			{
@@ -96,22 +135,16 @@ public class CheckChecker {
 					//sjekke om kongen står nedenfor
 					if(kingY < pieceY){
 						System.out.println("5");
-						for(int i=kingY+1;i<=pieceY;i++){
-							System.out.println("6");
-							for(int j=kingX-1;j>=pieceX;j--){
-								System.out.println("7");
-								listOfLegalMovesWhenKingInCheck.add(state[j][i]);
-							}
+						int numSquares = pieceY - kingY;
+						for(int i=1;i<=numSquares;i++){
+							listOfLegalMovesWhenKingInCheck.add(state[kingX-i][kingY+i]);
 						}
 					}
 					else{
 						System.out.println("8");
-						for(int i=kingY-1;i>=pieceY;i--){
-							System.out.println("9");
-							for(int j=kingX-1;j>=pieceX;j--){
-								System.out.println("10");
-								listOfLegalMovesWhenKingInCheck.add(state[j][i]);
-							}
+						int numSquares = kingY - pieceY;
+						for(int i=1;i<=numSquares;i++){
+							listOfLegalMovesWhenKingInCheck.add(state[kingX-i][kingY-i]);
 						}
 					}
 				}
@@ -119,59 +152,25 @@ public class CheckChecker {
 					System.out.println("11");
 					if(kingY < pieceY){
 						System.out.println("12");
-						for(int i=kingY+1;i<=pieceY;i++){
-							System.out.println("13");
-							for(int j=kingX+1;j<=pieceX;j++){
-								System.out.println("14");
-								listOfLegalMovesWhenKingInCheck.add(state[j][i]);
-							}
+						int numSquares = pieceY - kingY;
+						for(int i=1;i<=numSquares;i++){
+							listOfLegalMovesWhenKingInCheck.add(state[kingX+i][kingY+i]);
 						}
 					}
 					else{
 						System.out.println("15");
-						for(int i=kingY-1;i>=pieceY;i--){
-							System.out.println("16");
-							for(int j=kingX+1;j<=pieceX;j++){
-								System.out.println("17");
-								listOfLegalMovesWhenKingInCheck.add(state[j][i]);
-							}
+						int numSquares = kingY - pieceY;
+						for(int i=1;i<=numSquares;i++){
+							listOfLegalMovesWhenKingInCheck.add(state[kingX+i][kingY-i]);
 						}
+
 					}
 				}
 			}
 			else{
-				//sjekker om brikker har samme x index, vertikal
-				if(kingX == pieceX){
-					//sjekker om kongen står nedenfor brikke som truer
-					if(kingY > pieceY){
-						for(int i=kingY-1;i>=pieceY;i--){
-							listOfLegalMovesWhenKingInCheck.add(state[kingX][i]);
-						}
-					}
-					//hvis kongen står ovenfor brikke som truer
-					else{
-						for(int i=kingY+1;i<=pieceY;i++){
-							listOfLegalMovesWhenKingInCheck.add(state[kingX][i]);
-						}
-					}
-				}
-				//sjekker om brikker har samme y index, horisontal
-				else if(kingY == pieceY){
-					//sjekker om kongen står til høyre for brikke som truer
-					if(kingX > pieceX){
-						for(int i=kingX-1;i>=pieceX;i--){
-							listOfLegalMovesWhenKingInCheck.add(state[i][kingY]);
-						}
-					}
-					//hvis kongen står til venstre for brikke som truer
-					else{
-						for(int i=kingX+1;i<=pieceX;i++){
-							listOfLegalMovesWhenKingInCheck.add(state[i][kingY]);
-						}
-					}
-				}
+				System.out.println("2");
+				listOfLegalMovesWhenKingInCheck.add(state[pieceX][pieceY]);
 			}
-			//else
 		}
 		
 		return listOfLegalMovesWhenKingInCheck;
@@ -179,7 +178,7 @@ public class CheckChecker {
 
 	private boolean isDiagonal(int xSum, int ySum) {
 		boolean diagonal = false;
-		if((xSum - ySum) == 0){
+		if(((xSum - ySum) % 2) == 0){
 			diagonal = true;
 		}
 
@@ -188,7 +187,7 @@ public class CheckChecker {
 	
 	private boolean isKnight(int xSum, int ySum) {
 		boolean knight = false;
-		if((xSum - ySum) == 1 || (xSum - ySum) == -1){
+		if(!(((xSum - ySum) % 2) == 0)){
 			knight = true;
 		}
 

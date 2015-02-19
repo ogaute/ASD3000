@@ -78,7 +78,7 @@ public class ChessHelper {
 
 	public void nextTurn() {
 		currentPlayer = !currentPlayer;
-		fenG.generateFEN(state);
+		//fenG.generateFEN(state);
 		//System.out.println("aloha");
 		kingIsCheck = checkChecker.isKingInCheck(state);
 		System.out.println("Is king in check? " + kingIsCheck);
