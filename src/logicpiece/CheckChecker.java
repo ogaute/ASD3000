@@ -10,8 +10,8 @@ import guipiece.Marshalling;
 
 public class CheckChecker {
 
-	public boolean isKingInCheck(Square[][] state) {
-		System.out.println("Hei");
+	public ArrayList<Square> isKingInCheck(Square[][] state) {
+		//System.out.println("Hei");
 		ArrayList<Square> kings = Controller.getKings();
 		Square king = null;
 		if(Controller.turn()){
@@ -22,26 +22,28 @@ public class CheckChecker {
 		}
 		
 		ArrayList<PieceInControll> whoIsInControll = isInControll(state, king);
+		ArrayList<Square> legalMoves = legalMovesWhenKingInCheck(state, king, whoIsInControll);
 		
-		if(!whoIsInControll.isEmpty()){
-			ArrayList<Square> legalMoves = legalMovesWhenKingInCheck(state, king, whoIsInControll);
+		/*if(!whoIsInControll.isEmpty()){
+			
 			for (Iterator iterator = legalMoves.iterator(); iterator.hasNext();) {
 				Square square = (Square) iterator.next();
 				System.out.println("Checler: " + Marshalling.COORDINATES[square.getIndexY()][square.getIndexX()]);
 			}
-			return true;
-		}
+		}*/
 		
-		return false;
+		return legalMoves;
 	}
 	
 	public ArrayList<PieceInControll> isInControll(Square[][] state, Square destination){
 		ArrayList<Square> legal = null;
 		ArrayList<PieceInControll> piecesInControll = new ArrayList<PieceInControll>();
+		System.out.println("Feltet som skal sjekkes: " + Marshalling.COORDINATES[destination.getIndexY()][destination.getIndexX()]);
 		for (int i = 0; i <= 7; i++) {
 			for (int j = 0; j <= 7; j++) {
 				if(state[j][i].getPiece() != null && Controller.turn() != state[j][i].getPiece().getPlayerColor()){
-					System.out.println(state[j][i].getPiece().toString());
+					System.out.println("Piece from the other team: " + state[j][i].getPiece().toString());
+					
 					legal = Controller.canIMove(
 							state[j][i].getPiece(), 
 							state, 
@@ -54,8 +56,9 @@ public class CheckChecker {
 							Square controlledSquare = (Square) iterator.next();
 							
 							//System.out.println("Destination: " + destination.getIndexX() + " " + destination.getIndexY());
-							System.out.println("A legal move: " + controlledSquare.getIndexX() + " " + controlledSquare.getIndexY());
-							if(destination == controlledSquare){
+							System.out.println("My legal move: " + Marshalling.COORDINATES[controlledSquare.getIndexY()][controlledSquare.getIndexX()]);
+							if(destination.equals(controlledSquare)){
+								System.out.println("Added piece in controll: " + state[j][i].getPiece().toString());
 								piecesInControll.add(new PieceInControll(state[j][i], legal));
 							}
 						}
@@ -196,15 +199,3 @@ public class CheckChecker {
 
 }
 
-class PieceInControll{
-	Square pieceInControll;
-	ArrayList<Square> legalMoves = null;
-	
-	public PieceInControll(Square pieceInControll, ArrayList<Square> legalMoves) {
-		this.pieceInControll = pieceInControll;
-		this.legalMoves = legalMoves;
-	}
-
-	public Square getPieceInControll() { return pieceInControll; }
-	public ArrayList<Square> getLegalMoves() { return legalMoves; }
-}

@@ -88,40 +88,9 @@ public class Square extends JPanel implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent arg0) {
-		
 		Controller.pressed(indexX, indexY);
-		/*
-		if (hasChildren && Controller.turn() == getPiece().getPlayerColor()) {
-			
-			if(getBoard().legal != null){
-				resetLegalSquare(false);
-			}
-			//System.out.println(compoenets.toString());
-			getBoard().fromX = indexX;
-			getBoard().fromY = indexY;
-			getBoard().legal = Controller.canIMove(
-					getPiece(),
-					getBoard().squareList, 
-					indexX, 
-					indexY, 
-					getPiece().getPlayerColor());
-			
-			resetLegalSquare(true);
-			//System.out.println(legal.toString());
-		}
-		else if(getBoard().legal != null){
-			getBoard().toX = indexX;
-			getBoard().toY = indexY;
-			
-			resetLegalSquare(false);
-			
-			getBoard().move();
-		}
-		*/	
 	}
-	/*
 
-	*/
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub

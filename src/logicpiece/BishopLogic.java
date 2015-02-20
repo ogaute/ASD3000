@@ -9,7 +9,8 @@ import java.util.ArrayList;
  */
 public class BishopLogic extends PieceLogic {
 
-    public ArrayList<Square> canIMove (Square[][] state, int x, int y, boolean c){
+    public ArrayList<Square> canIMove (Square[][] state, int x, int y, boolean c, ArrayList<Square> legaMovesWhenKingInCheck){
+		ArrayList<Square> possibleMove = new ArrayList<Square>();
         boolean playerColor = c;
         possibleMove.clear();
 
@@ -75,6 +76,9 @@ public class BishopLogic extends PieceLogic {
             tempx++;
             tempy++;
         }
+        
+        kingInCheckFilter(legaMovesWhenKingInCheck, possibleMove);
+        
         return possibleMove;
     }
 }

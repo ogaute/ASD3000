@@ -27,7 +27,7 @@ public class PieceMover {
 			for (Iterator iterator = legal.iterator(); iterator.hasNext();) {
 
 				Square legalMove = (Square) iterator.next();
-				System.out.println("Legal move: " + Marshalling.COORDINATES[legalMove.getIndexY()][legalMove.getIndexX()]);
+				//System.out.println("Legal move: " + Marshalling.COORDINATES[legalMove.getIndexY()][legalMove.getIndexX()]);
 
 				if (toY == legalMove.getIndexY() && toX == legalMove.getIndexX()) {
 					

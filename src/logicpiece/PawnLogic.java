@@ -1,5 +1,6 @@
 package logicpiece;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import gui.Square;
 
@@ -7,7 +8,8 @@ public class PawnLogic extends PieceLogic {
 	
 	//ArrayList<Square> possibleMove = new ArrayList<Square>();
 	
-	public ArrayList<Square> canIMove (Square[][] state, int x, int y, boolean c){
+	public ArrayList<Square> canIMove (Square[][] state, int x, int y, boolean c, ArrayList<Square> legaMovesWhenKingInCheck){
+		ArrayList<Square> possibleMove = new ArrayList<Square>();
 		boolean playerColor = c;
 		possibleMove.clear();
 		
@@ -69,6 +71,8 @@ public class PawnLogic extends PieceLogic {
 				}	
 			}	
 		}
+		
+		possibleMove = kingInCheckFilter(legaMovesWhenKingInCheck, possibleMove);
 
 		return possibleMove;
 		

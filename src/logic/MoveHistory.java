@@ -12,7 +12,7 @@ public class MoveHistory {
 
 	public void addMove(int fromX, int fromY, int toX, int toY, Piece movedPieced, Piece capturedPiece) { 
 		moveHistory.add(new Move(fromX, fromY, toX, toY, movedPieced, capturedPiece));
-		System.out.println(moveHistory.get(moveHistory.size() - 1).toString());
+		//System.out.println(moveHistory.get(moveHistory.size() - 1).toString());
 	}
 
 	public MoveHistory() {

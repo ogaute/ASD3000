@@ -2,6 +2,8 @@ package controller;
 
 import java.util.ArrayList;
 
+import logicpiece.PieceInControll;
+
 import easylib.controller.ISupercontroller;
 import easylib.controller.Supercontroller;
 import gui.ApplicationFrame;
@@ -43,6 +45,10 @@ public class Controller extends Supercontroller implements IActionlist {
 
 	public static ArrayList<Square> getKings() {
 		return ((ApplicationFrame)ui).getKings();
+	}
+	
+	public static ArrayList<PieceInControll> isInControll(Square[][] tryState, Square destination){
+		return ((ApplicationFrame)ui).isInControll(tryState, destination);
 	}
 	
 }

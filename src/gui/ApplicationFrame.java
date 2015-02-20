@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import logic.ChessCoordinator;
 import logicpiece.ChessHelper;
+import logicpiece.PieceInControll;
 import controller.Controller;
 import easylib.controller.ISupercontroller;
 import guipiece.Piece;
@@ -95,6 +96,10 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
 	public ArrayList<Square> getKings() {
 		return chessCoordinator.getKings();
+	}
+
+	public ArrayList<PieceInControll> isInControll(Square[][] tryState, Square destination) {
+		return chessHelper.isInControll(tryState,destination);
 	}
 
 }

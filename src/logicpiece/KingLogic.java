@@ -5,6 +5,9 @@ import guipiece.Piece;
 import guipiece.Rook;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import controller.Controller;
 
 /**
  * Created by Anders Borg Larsen on 10.02.2015.
@@ -14,7 +17,8 @@ public class KingLogic extends PieceLogic {
 	boolean castelingBlackCanBeDone = true;
 	boolean castelingWhiteCanBeDone = true;
 
-    public ArrayList<Square> canIMove (Square[][] state, int x, int y, boolean c){
+    public ArrayList<Square> canIMove (Square[][] state, int x, int y, boolean c , ArrayList<Square> legaMovesWhenKingInCheck, boolean moving){
+		ArrayList<Square> possibleMove = new ArrayList<Square>();
         boolean playerColor = c;
         possibleMove.clear();
         boolean casteling = false;
@@ -70,9 +74,74 @@ public class KingLogic extends PieceLogic {
         		}
         	}
         }
+        
+        //kingInCheckFilter(legaMovesWhenKingInCheck);
+        if(moving){
+        	possibleMove = kingInCheckFilter(state, possibleMove);
+        }
         	
         return possibleMove;
     }
+
+	private ArrayList<Square> kingInCheckFilter(Square[][] state, ArrayList<Square> possibleMove) {
+		ArrayList<Square> copy = (ArrayList<Square>)possibleMove.clone();
+		
+		ArrayList<Square> kings = Controller.getKings();
+		Square king = null;
+		if(Controller.turn()){
+			king = kings.get(0);
+		}
+		else {
+			king = kings.get(1);
+		}
+		System.out.println("Konge trykket på: " + king.getPiece().toString());
+		
+		/*for (int i = 0; i < state.length; i++) {
+			for (int k = 0; k < state[i].length; k++) {
+				if(state[k][i].HasChild())
+					System.out.println(state[k][i].getPiece().toString());
+			}
+		}
+		System.out.println("--------------------------");*/
+		
+		Square[][] tryState = state.clone();
+		Piece kingPiece = tryState[king.getIndexX()][king.getIndexY()].getPiece();
+		tryState[king.getIndexX()][king.getIndexY()].removeAll();
+		
+		if(tryState[king.getIndexX()][king.getIndexY()].getPiece() != null){
+			System.out.println("Konge er der enda");
+		}
+		else{
+			System.out.println("Konge er ikke der");
+		}
+		
+		for (Iterator iterator = copy.iterator(); iterator.hasNext();) {
+			Square destination = (Square) iterator.next();
+			
+			ArrayList<PieceInControll> piecesInControll = Controller.isInControll(tryState, destination);
+			
+			for (Iterator iterator2 = piecesInControll.iterator(); iterator2.hasNext();) {
+				PieceInControll pieceInControll = (PieceInControll) iterator2.next();
+				System.out.println(pieceInControll.getPieceInControll().getPiece().toString());
+			}
+			
+			if(!piecesInControll.isEmpty()){
+				possibleMove.remove(destination);
+			}
+		}
+		
+		tryState[king.getIndexX()][king.getIndexY()].add(kingPiece);
+		
+		return possibleMove;
+		
+		/*for (int i = 0; i < state.length; i++) {
+			for (int k = 0; k < state[i].length; k++) {
+				if(state[k][i].HasChild())
+					System.out.println(state[k][i].getPiece().toString());
+			}
+		}*/
+		
+	}
 
 
 }

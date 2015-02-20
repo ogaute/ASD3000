@@ -10,7 +10,8 @@ import java.util.ArrayList;
 public class QueenLogic extends PieceLogic {
 
 
-    public ArrayList<Square> canIMove (Square[][] state, int x, int y, boolean c){
+    public ArrayList<Square> canIMove (Square[][] state, int x, int y, boolean c, ArrayList<Square> legaMovesWhenKingInCheck){
+		ArrayList<Square> possibleMove = new ArrayList<Square>();
         boolean playerColor = c;
         possibleMove.clear();
 
@@ -137,6 +138,9 @@ public class QueenLogic extends PieceLogic {
             tempx++;
             tempy++;
         }
+        
+        possibleMove = kingInCheckFilter(legaMovesWhenKingInCheck, possibleMove);
+        
         return possibleMove;
     }
 }
