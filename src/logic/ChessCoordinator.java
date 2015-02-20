@@ -118,4 +118,8 @@ public class ChessCoordinator {
 		return kings;
 	}
 
+	public MoveHistory getHistory() {
+		return moveHistory;
+	}
+
 }

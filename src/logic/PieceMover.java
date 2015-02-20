@@ -62,6 +62,7 @@ public class PieceMover {
 	}
 
 	public void move(int fromX, int fromY, int toX, int toY, Square[][] squareList) {
+		
 		Controller.addToHistory();
 		Piece c = squareList[fromX][fromY].getPiece();
 		if (!c.isHasMoved()) {

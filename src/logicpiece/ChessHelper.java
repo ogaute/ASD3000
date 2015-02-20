@@ -52,7 +52,12 @@ public class ChessHelper {
 		//if()
 		
 		if(p instanceof Pawn){
-			legalMoves = pawn.canIMove(state, x, y, pieceColor, legaMovesWhenKingInCheck);
+        	if(pieceColor == colorOfThisTurnsPlayer){
+        		legalMoves = pawn.canIMove(state, x, y, pieceColor, legaMovesWhenKingInCheck);
+        	}
+        	else{
+        		legalMoves = ((PawnLogic)pawn).whatIHaveControllOver(state,x,y,pieceColor, legaMovesWhenKingInCheck);
+        	}
 		}
 		if(p instanceof Knight){
             legalMoves = knight.canIMove(state, x, y, pieceColor, legaMovesWhenKingInCheck);

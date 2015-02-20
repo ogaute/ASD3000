@@ -2,6 +2,8 @@ package controller;
 
 import java.util.ArrayList;
 
+import logic.Move;
+import logic.MoveHistory;
 import logicpiece.PieceInControll;
 
 import easylib.controller.ISupercontroller;
@@ -49,6 +51,10 @@ public class Controller extends Supercontroller implements IActionlist {
 	
 	public static ArrayList<PieceInControll> isInControll(Square[][] tryState, Square destination){
 		return ((ApplicationFrame)ui).isInControll(tryState, destination);
+	}
+	
+	public static MoveHistory getHistory(){
+		return ((ApplicationFrame)ui).getHistory();
 	}
 	
 }

@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import logic.ChessCoordinator;
+import logic.Move;
+import logic.MoveHistory;
 import logicpiece.ChessHelper;
 import logicpiece.PieceInControll;
 import controller.Controller;
@@ -100,6 +102,10 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
 	public ArrayList<PieceInControll> isInControll(Square[][] tryState, Square destination) {
 		return chessHelper.isInControll(tryState,destination);
+	}
+
+	public MoveHistory getHistory() {
+		return chessCoordinator.getHistory();
 	}
 
 }
