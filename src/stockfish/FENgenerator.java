@@ -1,8 +1,11 @@
 package stockfish;
 
+import gui.Marshalling;
 import gui.Square;
 
 import java.util.Observable;
+
+import controller.Controller;
 
 
 public class FENgenerator extends Observable {
@@ -48,13 +51,13 @@ public class FENgenerator extends Observable {
 			sb.append("/");		
 		}
 		// TODO fikses senere
-		/*
-		if(Controller.turn()){
+		
+		if(Controller.getPlayerInTurn() == Marshalling.BLACK){
 			sb.append(" " + 'b');
 		}
 		else{
 			sb.append(" " + 'w');
-		}*/
+		}
 		
 		//sb.append(" " + sideToMove);
 		sb.append(" " + castlingAbility);

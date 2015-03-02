@@ -6,7 +6,7 @@ import java.util.Observer;
 public class StockFishObservable extends Observable implements Observer{
 
 	String FEN = "";
-	String bestMove = "";
+	String[] stockFishInfo = new String[3];
 	float score = 0;
 	StockfishClient sc;
 	
@@ -28,15 +28,16 @@ public class StockFishObservable extends Observable implements Observer{
 	
 	public void setValue(){
 		setChanged();
-		bestMove = sc.getBestMove(FEN, 100);
-		score = sc.getEvalScore(FEN, 1000);
-		notifyObservers("Best move: " + bestMove + "\nScore: " + score);
+		stockFishInfo[0] = sc.getBestMove(FEN, 100);
+		stockFishInfo[1] = "" + sc.getEvalScore(FEN, 1000);
+		stockFishInfo[2] = sc.getLegalMoves(FEN);
+		notifyObservers(stockFishInfo);
 		clearChanged();
 	}
 	
 	@Override
-	public void update(Observable arg0, Object arg1) {
-		FEN = (String)arg1;
+	public void update(Observable observable, Object fen) {
+		FEN = (String)fen;
 		setValue();
 	}
 

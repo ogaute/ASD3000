@@ -1,5 +1,7 @@
 package logic.pieceLogic;
 
+import gui.Marshalling;
+
 import java.util.ArrayList;
 
 import controller.Controller;
@@ -9,6 +11,7 @@ public class PawnLogic extends PieceLogic{
 	private String pieceColor;
 	private String pieceSymbol;
 	private int direction;
+	private boolean hasMoved = false;
 	//private ArrayList<Point> moveList;
 	
 	public PawnLogic(String pieceColor) {
@@ -38,6 +41,15 @@ public class PawnLogic extends PieceLogic{
 			int toRow = row + 1*direction;
 			
 			Controller.canIMoveTo(toColumn, toRow);
+			
+			if(!hasMoved){
+				toRow = row + 2*direction;
+				
+				Controller.canIMoveTo(toColumn, toRow);
+				hasMoved = true;
+			}
+			
+
 		}
 	}
 	

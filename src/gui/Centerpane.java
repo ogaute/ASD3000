@@ -2,25 +2,71 @@ package gui;
 
 
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import logic.ChessCoordinator;
 
 public class Centerpane extends JPanel {
 	
 	private ChessCoordinator coordinator;
+	JPanel boardPanel;
+	JPanel southCoordinates;
+	JPanel eastCoordinates;
+	JPanel northCoordinates;
+	JPanel westCoordinates;
 
 	public Centerpane() {
 		setLayout(new BorderLayout());
 		ChessBoard board;
 		add(board = new ChessBoard());
 		
+		southCoordinates = new JPanel();
+		southCoordinates.setLayout(new GridLayout(0, 8));
+		add(southCoordinates, BorderLayout.SOUTH);
+
+		northCoordinates = new JPanel();
+		northCoordinates.setLayout(new GridLayout(0, 8));
+		add(northCoordinates, BorderLayout.NORTH);
+
+		eastCoordinates = new JPanel();
+		eastCoordinates.setLayout(new GridLayout(8, 0));
+		add(eastCoordinates, BorderLayout.EAST);
+
+		westCoordinates = new JPanel();
+		westCoordinates.setLayout(new GridLayout(8, 0));
+		add(westCoordinates, BorderLayout.WEST);
+		
+		makeCoordinates();
+		
 		coordinator = new ChessCoordinator(board);
 		//makeBoard();
 		
 	}
 
+	public void makeCoordinates() {
+		String[] letters = { "A", "B", "C", "D", "E", "F", "G", "H" };
+		for (int j = 0; j <= 9; j++) {
+
+			if (j != 9 && j != 0) {
+				southCoordinates.add(new JLabel(letters[j - 1],
+						SwingConstants.CENTER));
+				northCoordinates.add(new JLabel(letters[j - 1],
+						SwingConstants.CENTER));
+				eastCoordinates.add(new JLabel("  " + (9 - j) + "  ",
+						SwingConstants.CENTER));
+				westCoordinates.add(new JLabel("  " + (9 - j) + "  ",
+						SwingConstants.CENTER));
+			}
+
+		}
+
+	}
+	
+	
 	public boolean canIMoveTo(int column, int row) {
 		return coordinator.canIMoveTo(column, row);
 	}

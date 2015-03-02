@@ -20,7 +20,7 @@ public class ChessBoard extends JPanel {
 		
 		makeBoard();
 		
-	    addComponentListener(new ComponentAdapter() {
+	    /*addComponentListener(new ComponentAdapter() {
 	        @Override
 	        public void componentResized(ComponentEvent e) {
 	        	int W = 1;  
@@ -28,7 +28,7 @@ public class ChessBoard extends JPanel {
 	            Rectangle b = e.getComponent().getBounds();
 	            e.getComponent().setBounds(b.x, b.y, b.width, b.width*H/W);
 	        }
-	    });
+	    });*/
 	}
 	
 	public Square[][] addPieces(){

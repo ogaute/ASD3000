@@ -29,15 +29,16 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 		setSize(1000,800);
 		setVisible(true);
 		//System.out.println(" La til denne for å teste ");
+		setResizable(false);
 		
-	    addComponentListener(new ComponentAdapter() {
+	    /*addComponentListener(new ComponentAdapter() {
 	        @Override
 	        public void componentResized(ComponentEvent e) {
 	        //System.out.println("Reseized");
 	        //repaint();
 	        setSize(getSize().width, getSize().width);
 	      }
-	    });
+	    });*/
 		
 		
 	}
