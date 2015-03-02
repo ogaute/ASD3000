@@ -1,6 +1,5 @@
 package easylib.controller;
 
-import guipiece.Piece;
 
 
 public interface ISupercontroller {	
