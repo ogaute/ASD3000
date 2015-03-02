@@ -1,6 +1,8 @@
 package logic.pieceLogic;
 
-public class KingLogic {
+import controller.Controller;
+
+public class KingLogic extends PieceLogic{
 
 	private String pieceColor;
 	private String pieceSymbol;
@@ -11,7 +13,7 @@ public class KingLogic {
 	}
 	
 	// dette er nødvendig for å generere FEN streng basert på brettets stilling
-	public String getPieceSymbol(){
+	public String getFENSymbol(){
 			return pieceSymbol;
 	}
 	
@@ -21,6 +23,15 @@ public class KingLogic {
 		}
 		else {
 			pieceSymbol = "K";
+		}
+	}
+	
+	public void pressed(int column, int row) {
+		if(pieceColor.equals(Controller.getPlayerInTurn())){
+			int toColumn = column + 1;
+			int toRow = row + 1;
+			
+			Controller.canIMoveTo(toColumn, toRow);
 		}
 	}
 }

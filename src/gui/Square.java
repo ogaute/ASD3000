@@ -13,25 +13,25 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+import controller.Controller;
+
 public class Square extends JPanel implements MouseListener{
 	
 	boolean hasChildren = false;
-	int indexX;
-	int indexY;
-	ArrayList<Square> legal = null;
-	boolean legalSquere = false;
-	Border redline = BorderFactory.createLineBorder(Color.red, 4);
+	int column;
+	int row;
+	boolean legalSquare = false;
+	Border legalBorder = BorderFactory.createLineBorder(Color.green, 4);
 
-	public Square(Color c, int indexX, int indexY) {
+	public Square(Color c, int column, int row) {
 		setBackground(c);
 		addMouseListener(this);
-		this.indexX = indexX;
-		this.indexY = indexY;
-		//System.out.println(indexX + " " + indexY);
+		this.column = column;
+		this.row = row;
 		setLayout(new BorderLayout());
 	}
 	
-	public boolean HasChild(){
+	public boolean hasChild(){
 		return hasChildren;
 	}
 	
@@ -42,10 +42,6 @@ public class Square extends JPanel implements MouseListener{
 		}
 		
 		return piece;
-	}
-	
-	public ChessBoard getBoard(){
-		return (ChessBoard)getParent();
 	}
 
 	@Override
@@ -86,9 +82,23 @@ public class Square extends JPanel implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent arg0) {
+		Piece child = getPiece();
+		if(isLegalSquare()){
+			Controller.moveTo(column, row);
+			Controller.changePlayerInTurn();
+		}
+		else if(child != null){
+			Controller.resetSquares();
+			Controller.setLastPressed(column, row);
+			child.pressed(column, row);
+		}
+		else
+			Controller.resetSquares();
 		
+	}
 
-		
+	public boolean isLegalSquare() {
+		return legalSquare;
 	}
 
 	@Override
@@ -97,19 +107,21 @@ public class Square extends JPanel implements MouseListener{
 		
 	}
 	
-	public void setLegalSquere(boolean b){
-		legalSquere = b;
+	public void setLegalSquare(boolean b){
+		legalSquare = b;
+		repaint();
 	}
 	
 	@Override
 	public void repaint() {
 		//System.out.println("repaint");
 		super.repaint();
-		if(legalSquere){
-			this.setBorder(redline);
+		if(legalSquare){
+			this.setBorder(legalBorder);
 		}
 		else
 			this.setBorder(null);
 	}
+
 	
 }

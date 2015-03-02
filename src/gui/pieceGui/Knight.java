@@ -19,9 +19,13 @@ public class Knight extends Piece {
 	}
 
 	@Override
-	public String getSymbol() {
-		return knightLogic.getPieceSymbol();
+	public String getFENSymbol() {
+		return knightLogic.getFENSymbol();
 	}
 
+	@Override
+	public void pressed(int column, int row) {
+		knightLogic.pressed(column, row);
+	}
 
 }

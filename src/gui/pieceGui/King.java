@@ -19,8 +19,12 @@ public class King extends Piece{
 	}
 
 	@Override
-	public String getSymbol() {
-		return kingLogic.getPieceSymbol();
+	public String getFENSymbol() {
+		return kingLogic.getFENSymbol();
 	}
 
+	@Override
+	public void pressed(int column, int row) {
+		kingLogic.pressed(column, row);
+	}
 }

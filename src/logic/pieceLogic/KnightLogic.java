@@ -1,6 +1,8 @@
 package logic.pieceLogic;
 
-public class KnightLogic {
+import controller.Controller;
+
+public class KnightLogic extends PieceLogic{
 
 	private String pieceColor;
 	private String pieceSymbol;
@@ -11,7 +13,7 @@ public class KnightLogic {
 	}
 	
 	// dette er nødvendig for å generere FEN streng basert på brettets stilling
-	public String getPieceSymbol(){
+	public String getFENSymbol(){
 			return pieceSymbol;
 	}
 	
@@ -21,6 +23,15 @@ public class KnightLogic {
 		}
 		else {
 			pieceSymbol = "N";
+		}
+	}
+	
+	public void pressed(int column, int row) {
+		if(pieceColor.equals(Controller.getPlayerInTurn())){
+			int toColumn = column + 1;
+			int toRow = row + 1;
+			
+			Controller.canIMoveTo(toColumn, toRow);
 		}
 	}
 }

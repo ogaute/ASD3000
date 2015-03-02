@@ -17,9 +17,13 @@ public class Bishop extends Piece {
 	}
 
 	@Override
-	public String getSymbol() {
-		return bishopLogic.getPieceSymbol();
+	public String getFENSymbol() {
+		return bishopLogic.getFENSymbol();
 	}
 
-
+	@Override
+	public void pressed(int column, int row) {
+		bishopLogic.pressed(column, row);
+	}
+	
 }

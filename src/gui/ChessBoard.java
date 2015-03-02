@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 public class ChessBoard extends JPanel {
 	
-Square[][] squareList = new Square[8][8];
+	Square[][] squareList = new Square[8][8];
 	
 	public ChessBoard() {
 		setLayout(new GridLayout(8,0));
@@ -19,7 +19,6 @@ Square[][] squareList = new Square[8][8];
 		setRequestFocusEnabled(false);
 		
 		makeBoard();
-		addPieces();
 		
 	    addComponentListener(new ComponentAdapter() {
 	        @Override

@@ -67,4 +67,28 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 		return eastpane.getSFI();
 	}
 
+	public boolean canIMoveTo(int column, int row) {
+		return centerpane.canIMoveTo(column, row);
+	}
+
+	public void resetSquares() {
+		centerpane.resetSquares();
+	}
+
+	public void moveTo(int column, int row) {
+		centerpane.moveTo(column, row);
+	}
+
+	public void setLastPressed(int column, int row) {
+		centerpane.setLastPressed(column, row);
+	}
+
+	public void changePlayerInTurn() {
+		centerpane.changePlayerInTurn();
+	}
+
+	public String getPlayerInTurn() {
+		return centerpane.getPlayerInTurn();
+	}
+
 }

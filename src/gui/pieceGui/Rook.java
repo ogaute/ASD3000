@@ -18,9 +18,13 @@ public class Rook extends Piece {
 	}
 
 	@Override
-	public String getSymbol() {
-		return rookLogic.getPieceSymbol();
+	public String getFENSymbol() {
+		return rookLogic.getFENSymbol();
 	}
 
+	@Override
+	public void pressed(int column, int row) {
+		rookLogic.pressed(column, row);
+	}
 
 }

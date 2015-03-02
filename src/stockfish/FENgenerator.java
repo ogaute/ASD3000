@@ -31,14 +31,14 @@ public class FENgenerator extends Observable {
 			
 			for(int x = 0; x <= 7; x++){	
 				char ch;
-				if(!boardPositions[x][y].HasChild()){
+				if(!boardPositions[x][y].hasChild()){
 					sumNumbers += 1;				
 				} else {
 					if(sumNumbers !=0){
 						sb.append(Integer.toString(sumNumbers));
 					}
 					sumNumbers = 0;
-					sb.append(boardPositions[x][y].getPiece().getSymbol());	
+					sb.append(boardPositions[x][y].getPiece().getFENSymbol());	
 				}		
 			}
 			if(sumNumbers !=0){

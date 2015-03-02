@@ -18,12 +18,14 @@ public class Pawn extends Piece {
 	}
 
 	@Override
-	public String getSymbol() {
-		return pawnLogic.getPieceSymbol();
+	public String getFENSymbol() {
+		return pawnLogic.getFENSymbol();
+	}
+
+	@Override
+	public void pressed(int column, int row) {
+		pawnLogic.pressed(column, row);
 	}
 	
-
-
-
 
 }

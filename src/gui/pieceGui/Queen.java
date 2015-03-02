@@ -18,10 +18,14 @@ public class Queen extends Piece {
 	}
 
 	@Override
-	public String getSymbol() {
-		return queenLogic.getPieceSymbol();
+	public String getFENSymbol() {
+		return queenLogic.getFENSymbol();
 	}
 
+	@Override
+	public void pressed(int column, int row) {
+		queenLogic.pressed(column, row);
+	}
 	
 
 }

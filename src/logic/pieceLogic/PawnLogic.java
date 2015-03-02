@@ -1,10 +1,15 @@
 package logic.pieceLogic;
 
-public class PawnLogic {
+import java.util.ArrayList;
+
+import controller.Controller;
+
+public class PawnLogic extends PieceLogic{
 
 	private String pieceColor;
 	private String pieceSymbol;
 	private int direction;
+	//private ArrayList<Point> moveList;
 	
 	public PawnLogic(String pieceColor) {
 		this.pieceColor = pieceColor;
@@ -12,7 +17,7 @@ public class PawnLogic {
 	}
 	
 	// dette er nødvendig for å generere FEN streng basert på brettets stilling
-	public String getPieceSymbol(){
+	public String getFENSymbol(){
 			return pieceSymbol;
 	}
 	
@@ -24,6 +29,15 @@ public class PawnLogic {
 		else {
 			pieceSymbol = "P";
 			direction = -1;
+		}
+	}
+
+	public void pressed(int column, int row) {
+		if(pieceColor.equals(Controller.getPlayerInTurn())){
+			int toColumn = column;
+			int toRow = row + 1*direction;
+			
+			Controller.canIMoveTo(toColumn, toRow);
 		}
 	}
 	
