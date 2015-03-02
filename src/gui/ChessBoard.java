@@ -3,6 +3,9 @@ package gui;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Rectangle;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 import javax.swing.JPanel;
 
@@ -16,6 +19,17 @@ Square[][] squareList = new Square[8][8];
 		setRequestFocusEnabled(false);
 		
 		makeBoard();
+		addPieces();
+		
+	    addComponentListener(new ComponentAdapter() {
+	        @Override
+	        public void componentResized(ComponentEvent e) {
+	        	int W = 1;  
+	            int H = 1;  
+	            Rectangle b = e.getComponent().getBounds();
+	            e.getComponent().setBounds(b.x, b.y, b.width, b.width*H/W);
+	        }
+	    });
 	}
 	
 	public Square[][] addPieces(){

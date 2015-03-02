@@ -1,6 +1,10 @@
 package gui.pieceGui;
 
+import logic.pieceLogic.BishopLogic;
+
 public class Bishop extends Piece {
+	
+	private BishopLogic bishopLogic;
 	
 	public Bishop(boolean s, String c) {
 		if(s){
@@ -9,15 +13,13 @@ public class Bishop extends Piece {
 		else{
 			setImage("img/White_Bishop.png");
 		}
-		super.setPlayerColor(s);
+		this.bishopLogic = new BishopLogic(c);
 	}
 
 	@Override
-	public char getPieceSymbol() {
-		if(playerColor)
-			return 'b';
-		else
-			return 'B';
+	public String getSymbol() {
+		return bishopLogic.getPieceSymbol();
 	}
+
 
 }

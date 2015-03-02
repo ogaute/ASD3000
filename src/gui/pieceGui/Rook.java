@@ -1,6 +1,10 @@
 package gui.pieceGui;
 
+import logic.pieceLogic.RookLogic;
+
 public class Rook extends Piece {
+	
+	private RookLogic rookLogic;
 
 	public Rook(boolean s, String c) {
 		if(s){
@@ -9,16 +13,14 @@ public class Rook extends Piece {
 		else{
 			setImage("img/White_Rook.png");
 		}
-		super.setPlayerColor(s);
+		this.rookLogic = new RookLogic(c);
 		
 	}
 
 	@Override
-	public char getPieceSymbol() {
-		if(playerColor)
-			return 'r';
-		else
-			return 'R';
+	public String getSymbol() {
+		return rookLogic.getPieceSymbol();
 	}
+
 
 }

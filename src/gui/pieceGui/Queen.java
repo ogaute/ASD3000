@@ -1,6 +1,10 @@
 package gui.pieceGui;
 
+import logic.pieceLogic.QueenLogic;
+
 public class Queen extends Piece {
+	
+	private QueenLogic queenLogic;
 
 	public Queen(boolean s, String c) {
 		if(s){
@@ -9,16 +13,15 @@ public class Queen extends Piece {
 		else{
 			setImage("img/White_Queen.png");
 		}
-		super.setPlayerColor(s);
+		this.queenLogic = new QueenLogic(c);
 		
 	}
 
 	@Override
-	public char getPieceSymbol() {
-		if(playerColor)
-			return 'q';
-		else
-			return 'Q';
+	public String getSymbol() {
+		return queenLogic.getPieceSymbol();
 	}
+
+	
 
 }

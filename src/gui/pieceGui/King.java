@@ -1,7 +1,11 @@
 package gui.pieceGui;
 
+import logic.pieceLogic.KingLogic;
+
 
 public class King extends Piece{
+	
+	private KingLogic kingLogic;
 	
 	public King(boolean s, String c) {
 		if(s){
@@ -10,15 +14,13 @@ public class King extends Piece{
 		else{
 			setImage("img/White_King.png");
 		}
-		super.setPlayerColor(s);
+		this.kingLogic = new KingLogic(c);
+		
 	}
 
 	@Override
-	public char getPieceSymbol() {
-		if(playerColor)
-			return 'k';
-		else
-			return 'K';
+	public String getSymbol() {
+		return kingLogic.getPieceSymbol();
 	}
 
 }

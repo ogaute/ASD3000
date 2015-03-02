@@ -38,7 +38,7 @@ public class FENgenerator extends Observable {
 						sb.append(Integer.toString(sumNumbers));
 					}
 					sumNumbers = 0;
-					sb.append(boardPositions[x][y].getPiece().getPieceSymbol());	
+					sb.append(boardPositions[x][y].getPiece().getSymbol());	
 				}		
 			}
 			if(sumNumbers !=0){

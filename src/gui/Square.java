@@ -2,6 +2,7 @@ package gui;
 
 import gui.pieceGui.Piece;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.MouseEvent;
@@ -27,6 +28,7 @@ public class Square extends JPanel implements MouseListener{
 		this.indexX = indexX;
 		this.indexY = indexY;
 		//System.out.println(indexX + " " + indexY);
+		setLayout(new BorderLayout());
 	}
 	
 	public boolean HasChild(){

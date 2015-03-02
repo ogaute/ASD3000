@@ -26,14 +26,14 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 		add(eastpane = new Eastpane(), BorderLayout.EAST);
 		setJMenuBar(new MenuController());
 		setLocationRelativeTo(null);
-		setSize(800,800);
+		setSize(1000,800);
 		setVisible(true);
 		//System.out.println(" La til denne for å teste ");
 		
 	    addComponentListener(new ComponentAdapter() {
 	        @Override
 	        public void componentResized(ComponentEvent e) {
-	        System.out.println("Reseized");
+	        //System.out.println("Reseized");
 	        //repaint();
 	        setSize(getSize().width, getSize().width);
 	      }
