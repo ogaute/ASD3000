@@ -2,7 +2,6 @@ package controller;
 
 import java.util.ArrayList;
 
-import logic.Move;
 import logic.MoveHistory;
 import logicpiece.PieceInControll;
 

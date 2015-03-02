@@ -2,7 +2,6 @@ package stockfish;
 
 import gui.Square;
 
-import java.awt.Rectangle;
 import java.util.Observable;
 import controller.Controller;
 

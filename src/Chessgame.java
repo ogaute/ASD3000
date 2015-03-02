@@ -1,5 +1,3 @@
-import javax.swing.JButton;
-
 import gui.ApplicationFrame;
 
 

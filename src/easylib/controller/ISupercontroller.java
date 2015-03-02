@@ -1,9 +1,6 @@
 package easylib.controller;
 
-import gui.Square;
 import guipiece.Piece;
-
-import java.util.ArrayList;
 
 
 public interface ISupercontroller {	
