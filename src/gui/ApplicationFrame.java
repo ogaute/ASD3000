@@ -25,7 +25,8 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 		add(southpane = new Southpane(), BorderLayout.SOUTH);
 		add(eastpane = new Eastpane(), BorderLayout.EAST);
 		setJMenuBar(new MenuController());
-		setLocationRelativeTo(null);
+		//setLocationRelativeTo(null);
+		setLocationByPlatform(true);
 		setSize(1000,800);
 		setVisible(true);
 		//System.out.println(" La til denne for å teste ");
