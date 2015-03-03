@@ -28,7 +28,7 @@ public class ChessCoordinator implements Observer {
         fenG.addObserver(sfo); //observer
         sfo.addObserver(this); //observer
         
-        //fenG.generateFEN(squareList);
+        fenG.generateFEN(squareList);
 	}
 
 	public boolean canIMoveTo(int column, int row) {
@@ -56,9 +56,6 @@ public class ChessCoordinator implements Observer {
 	public void moveTo(int column, int row) {
 
 		Piece lastPressedPiece = lastPressedSquare.getPiece();
-		/*if (!lastPressedPiece.isHasMoved()) {
-			lastPressedPiece.setHasMoved(true);
-		}*/
 		lastPressedSquare.removeAll();
 		squareList[column][row].add(lastPressedPiece);
 		

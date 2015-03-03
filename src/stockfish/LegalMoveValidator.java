@@ -21,7 +21,8 @@ public class LegalMoveValidator {
 		
 		for (int i = 0; i < splitedLegalMoves.length; i++) {
 			
-			if(splitedLegalMoves[i].matches("/(^[a-h]{1}[1-8]{1}[^+])/")){
+			if(splitedLegalMoves[i].matches("(^[a-h]{1}[1-8]{1}[^+])")){
+				System.out.println("matches");
 				if(coordinate == splitedLegalMoves[i]){
 					isLegal = true;
 					System.out.println(coordinate + " is legal move");

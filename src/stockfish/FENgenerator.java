@@ -16,6 +16,8 @@ public class FENgenerator extends Observable {
 	private String enPassant = ""; 			// 
 	private String halfmoveClock = "";		
 	private String fullMoveCounter ="";		// 
+	
+	private boolean firstMove = true;
 
 	public FENgenerator(){
 		// lager litt dummydata - Arraylist av arraylist av Strings
@@ -52,11 +54,15 @@ public class FENgenerator extends Observable {
 		}
 		// TODO fikses senere
 		
-		if(Controller.getPlayerInTurn() == Marshalling.BLACK){
-			sb.append(" " + 'b');
+		if(firstMove){
+			sb.append(" " + 'w');
+			firstMove = false;
+		}
+		else if(Controller.getPlayerInTurn() == Marshalling.WHITE){
+			sb.append(" " + 'w');
 		}
 		else{
-			sb.append(" " + 'w');
+			sb.append(" " + 'b');
 		}
 		
 		//sb.append(" " + sideToMove);
