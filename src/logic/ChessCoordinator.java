@@ -35,14 +35,27 @@ public class ChessCoordinator implements Observer {
 		boolean canMove = false;
 		
 		String uppercaseSymbol = lastPressedSquare.getPiece().getFENSymbol().toUpperCase();
+		System.out.println(uppercaseSymbol);
 		
 		if(legalMoveValidator.isLegalForStockfish(column, row, uppercaseSymbol)){
 			canMove = true;
 			squareList[column][row].setLegalSquare(true);
 		}
-		System.out.println("asked for " + column + "(c) and " + row +"(r), ansvar:" + canMove);
+		//System.out.println("asked for " + column + "(c) and " + row + "(r), svar: " + canMove);
 		
 		return canMove;
+	}
+	
+	public boolean canICapture(int toColumn, int toRow) {
+		boolean canCapture = false;
+		
+		if(legalMoveValidator.isPawnCaptureLegalForStockfish(toColumn, toRow)){
+			canCapture = true;
+			squareList[toColumn][toRow].setLegalSquare(true);
+		}
+		System.out.println("asked for " + toColumn + "(c) and " + toRow + "(r), svar: " + canCapture);
+		
+		return canCapture;
 	}
 	
 	public void resetSquares(){
@@ -83,5 +96,6 @@ public class ChessCoordinator implements Observer {
 		legalMoveValidator.setlegalMovesFromStockfish(legalMovesFromStockfish);
 		System.out.println(legalMovesFromStockfish);
 	}
+
 
 }

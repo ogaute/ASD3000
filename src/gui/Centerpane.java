@@ -91,4 +91,8 @@ public class Centerpane extends JPanel {
 		return coordinator.whoIsInTurn();
 	}
 
+	public boolean canICapture(int toColumn, int toRow) {
+		return coordinator.canICapture(toColumn, toRow);
+	}
+
 }

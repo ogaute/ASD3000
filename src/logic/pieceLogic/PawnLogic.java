@@ -49,6 +49,13 @@ public class PawnLogic extends PieceLogic{
 				hasMoved = true;
 			}
 			
+			toColumn = column - 1;
+			toRow = row + 1*direction;
+			Controller.canICapture(toColumn, toRow);
+			
+			toColumn = column + 1;
+			toRow = row + 1*direction;
+			Controller.canICapture(toColumn, toRow);
 
 		}
 	}

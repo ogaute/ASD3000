@@ -93,4 +93,8 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 		return centerpane.getPlayerInTurn();
 	}
 
+	public boolean canICapture(int toColumn, int toRow) {
+		return centerpane.canICapture(toColumn, toRow);
+	}
+
 }
