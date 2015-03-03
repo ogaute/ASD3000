@@ -28,10 +28,12 @@ public class RookLogic extends PieceLogic{
 	
 	public void pressed(int column, int row) {
 		if(pieceColor.equals(Controller.getPlayerInTurn())){
-			int toColumn = column + 1;
-			int toRow = row + 1;
 			
-			Controller.canIMoveTo(toColumn, toRow);
+			checkNorth(column, row, DEFAULTSTEPS);
+			checkEast(column, row, DEFAULTSTEPS);
+			checkSouth(column, row, DEFAULTSTEPS);
+			checkWest(column, row, DEFAULTSTEPS);
+			
 		}
 	}
 	

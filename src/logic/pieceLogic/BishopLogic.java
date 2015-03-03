@@ -28,10 +28,11 @@ public class BishopLogic extends PieceLogic{
 
 	public void pressed(int column, int row) {
 		if(pieceColor.equals(Controller.getPlayerInTurn())){
-			int toColumn = column + 1;
-			int toRow = row + 1;
 			
-			Controller.canIMoveTo(toColumn, toRow);
+			checkNorthEast(column, row, DEFAULTSTEPS);
+			checkSouthEast(column, row, DEFAULTSTEPS);
+			checkSouthWest(column, row, DEFAULTSTEPS);
+			checkNorthWest(column, row, DEFAULTSTEPS);
 		}
 		
 	}

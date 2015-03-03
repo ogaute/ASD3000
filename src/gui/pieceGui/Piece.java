@@ -50,6 +50,10 @@ public abstract class Piece extends AbstractButton{
 	public abstract String getFENSymbol();
 
 	public abstract void pressed(int column, int row);
+	
+	public void setHasMoved(){
+		
+	}
 
 }
 

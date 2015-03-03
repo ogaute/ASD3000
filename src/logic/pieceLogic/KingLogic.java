@@ -28,10 +28,16 @@ public class KingLogic extends PieceLogic{
 	
 	public void pressed(int column, int row) {
 		if(pieceColor.equals(Controller.getPlayerInTurn())){
-			int toColumn = column + 1;
-			int toRow = row + 1;
 			
-			Controller.canIMoveTo(toColumn, toRow);
+			checkNorth(column, row, KINGSTEPS);
+			checkNorthEast(column, row, KINGSTEPS);
+			checkEast(column, row, KINGSTEPS);
+			checkSouthEast(column, row, KINGSTEPS);
+			checkSouth(column, row, KINGSTEPS);
+			checkSouthWest(column, row, KINGSTEPS);
+			checkWest(column, row, KINGSTEPS);
+			checkNorthWest(column, row, KINGSTEPS);
+			
 		}
 	}
 }

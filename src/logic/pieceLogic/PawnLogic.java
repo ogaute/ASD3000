@@ -11,7 +11,7 @@ public class PawnLogic extends PieceLogic{
 	private String pieceColor;
 	private String pieceSymbol;
 	private int direction;
-	private boolean hasMoved = false;
+	private int defaultRow;
 	//private ArrayList<Point> moveList;
 	
 	public PawnLogic(String pieceColor) {
@@ -28,10 +28,12 @@ public class PawnLogic extends PieceLogic{
 		if(pieceColor == "svart"){
 			pieceSymbol = "p";
 			direction = 1;
+			defaultRow = 1;
 		}
 		else {
 			pieceSymbol = "P";
 			direction = -1;
+			defaultRow = 6;
 		}
 	}
 
@@ -42,11 +44,10 @@ public class PawnLogic extends PieceLogic{
 			
 			Controller.canIMoveTo(toColumn, toRow);
 			
-			if(!hasMoved){
+			if(row == defaultRow){
 				toRow = row + 2*direction;
 				
 				Controller.canIMoveTo(toColumn, toRow);
-				hasMoved = true;
 			}
 			
 			toColumn = column - 1;

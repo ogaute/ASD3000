@@ -28,8 +28,8 @@ public class StockFishObservable extends Observable implements Observer{
 	
 	public void setValue(){
 		setChanged();
-		stockFishInfo[0] = sc.getBestMove(FEN, 100);
-		stockFishInfo[1] = "" + sc.getEvalScore(FEN, 1000);
+		//stockFishInfo[0] = sc.getBestMove(FEN, 200);
+		//stockFishInfo[1] = "" + sc.getEvalScore(FEN, 1000);
 		stockFishInfo[2] = sc.getLegalMoves(FEN);
 		notifyObservers(stockFishInfo);
 		clearChanged();

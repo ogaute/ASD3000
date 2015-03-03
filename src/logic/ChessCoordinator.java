@@ -53,7 +53,6 @@ public class ChessCoordinator implements Observer {
 			canCapture = true;
 			squareList[toColumn][toRow].setLegalSquare(true);
 		}
-		System.out.println("asked for " + toColumn + "(c) and " + toRow + "(r), svar: " + canCapture);
 		
 		return canCapture;
 	}

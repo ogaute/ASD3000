@@ -29,7 +29,7 @@ public class LegalMoveValidator {
 				}
 			}
 			
-			else if(splitedLegalMoves[i].matches("[BKNRQ][x]*[a-h][1-8][+]*")){
+			else if(splitedLegalMoves[i].matches("[BKNRQ][x]*[a-h][1-8][+#]*")){
 				if(splitedLegalMoves[i].contains(FENSymbol)&& splitedLegalMoves[i].contains(coordinate) ){
 					isLegal = true;
 					//System.out.println(coordinate + " is legal move - 3");
