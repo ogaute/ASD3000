@@ -23,34 +23,29 @@ public class Centerpane extends JPanel {
 		setLayout(new BorderLayout());
 		ChessBoard board;
 		add(board = new ChessBoard());
-		
-		southCoordinates = new JPanel();
-		southCoordinates.setLayout(new GridLayout(0, 8));
-		add(southCoordinates, BorderLayout.SOUTH);
-
-		northCoordinates = new JPanel();
-		northCoordinates.setLayout(new GridLayout(0, 8));
-		add(northCoordinates, BorderLayout.NORTH);
-
-		eastCoordinates = new JPanel();
-		eastCoordinates.setLayout(new GridLayout(8, 0));
-		add(eastCoordinates, BorderLayout.EAST);
-
-		westCoordinates = new JPanel();
-		westCoordinates.setLayout(new GridLayout(8, 0));
-		add(westCoordinates, BorderLayout.WEST);
-		
 		makeCoordinates();
-		
 		coordinator = new ChessCoordinator(board);
-		//makeBoard();
-		
-	}
+    }
 
 	public void makeCoordinates() {
+        southCoordinates = new JPanel();
+        southCoordinates.setLayout(new GridLayout(0, 8));
+        add(southCoordinates, BorderLayout.SOUTH);
+
+        northCoordinates = new JPanel();
+        northCoordinates.setLayout(new GridLayout(0, 8));
+        add(northCoordinates, BorderLayout.NORTH);
+
+        eastCoordinates = new JPanel();
+        eastCoordinates.setLayout(new GridLayout(8, 0));
+        add(eastCoordinates, BorderLayout.EAST);
+
+        westCoordinates = new JPanel();
+        westCoordinates.setLayout(new GridLayout(8, 0));
+        add(westCoordinates, BorderLayout.WEST);
+
 		String[] letters = { "A", "B", "C", "D", "E", "F", "G", "H" };
 		for (int j = 0; j <= 9; j++) {
-
 			if (j != 9 && j != 0) {
 				southCoordinates.add(new JLabel(letters[j - 1],
 						SwingConstants.CENTER));
@@ -61,13 +56,11 @@ public class Centerpane extends JPanel {
 				westCoordinates.add(new JLabel("  " + (9 - j) + "  ",
 						SwingConstants.CENTER));
 			}
-
 		}
-
 	}
-	
-	
-	public boolean canIMoveTo(int column, int row) {
+
+    // CoR meldingsstier
+    public boolean canIMoveTo(int column, int row) {
 		return coordinator.canIMoveTo(column, row);
 	}
 

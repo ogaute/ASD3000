@@ -11,6 +11,8 @@ import java.util.Observer;
  * A simple and efficient client to run Stockfish from Java
  * 
  * @author Rahul A R
+ *
+ * Denne Klassen er ikke endret på fra vår side
  * 
  */
 public class StockfishClient {

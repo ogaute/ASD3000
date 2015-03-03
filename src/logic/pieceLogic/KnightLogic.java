@@ -6,21 +6,16 @@ import controller.Controller;
 
 public class KnightLogic extends PieceLogic{
 
+
 	private String pieceColor;
-	private String pieceSymbol;
-	
+
 	public KnightLogic(String pieceColor) {
 		this.pieceColor = pieceColor;
 		setPieceProperties();
 	}
 	
-	// dette er nødvendig for å generere FEN streng basert på brettets stilling
-	public String getFENSymbol(){
-			return pieceSymbol;
-	}
-	
 	private void setPieceProperties(){
-		if(pieceColor == "svart"){
+		if(pieceColor == Marshalling.BLACK){
 			pieceSymbol = "n";
 		}
 		else {
@@ -41,4 +36,6 @@ public class KnightLogic extends PieceLogic{
 			
 		}
 	}
+
+
 }

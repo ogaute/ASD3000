@@ -8,24 +8,18 @@ import controller.Controller;
 
 public class PawnLogic extends PieceLogic{
 
+
 	private String pieceColor;
-	private String pieceSymbol;
 	private int direction;
 	private int defaultRow;
-	//private ArrayList<Point> moveList;
-	
+
 	public PawnLogic(String pieceColor) {
 		this.pieceColor = pieceColor;
 		setPieceProperties();
 	}
 	
-	// dette er nødvendig for å generere FEN streng basert på brettets stilling
-	public String getFENSymbol(){
-			return pieceSymbol;
-	}
-	
 	private void setPieceProperties(){
-		if(pieceColor == "svart"){
+		if(pieceColor == Marshalling.BLACK){
 			pieceSymbol = "p";
 			direction = 1;
 			defaultRow = 1;
@@ -41,12 +35,10 @@ public class PawnLogic extends PieceLogic{
 		if(pieceColor.equals(Controller.getPlayerInTurn())){
 			int toColumn = column;
 			int toRow = row + 1*direction;
-			
 			Controller.canIMoveTo(toColumn, toRow);
 			
 			if(row == defaultRow){
 				toRow = row + 2*direction;
-				
 				Controller.canIMoveTo(toColumn, toRow);
 			}
 			
@@ -60,5 +52,6 @@ public class PawnLogic extends PieceLogic{
 
 		}
 	}
-	
+
+
 }

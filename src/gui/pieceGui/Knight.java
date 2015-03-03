@@ -7,15 +7,15 @@ public class Knight extends Piece {
 	
 	private KnightLogic knightLogic;
 
-	public Knight(boolean s, String c) {
+	public Knight(boolean isBlack, String color) {
 		super();
-		if(s){
+		if(isBlack){
 			setImage("img/Black_Knight.png");
 		}
 		else{
 			setImage("img/White_Knight.png");
 		}
-		this.knightLogic = new KnightLogic(c);
+		this.knightLogic = new KnightLogic(color);
 	}
 
 	@Override

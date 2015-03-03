@@ -12,63 +12,41 @@ import easylib.controller.ISupercontroller;
 
 public class ApplicationFrame extends JFrame implements ISupercontroller {
 
+
 	private Centerpane centerpane = null;
-	private Southpane southpane = null;
-	private Eastpane eastpane = null;
-	
+
 
 	public ApplicationFrame() {
 		Controller.init(this);
 		setTitle("Chessgame");
 		setLayout(new BorderLayout());
-		add(centerpane = new Centerpane(), BorderLayout.CENTER);
-		add(southpane = new Southpane(), BorderLayout.SOUTH);
-		add(eastpane = new Eastpane(), BorderLayout.EAST);
+		add(centerpane = new Centerpane());
 		setJMenuBar(new MenuController());
-		//setLocationRelativeTo(null);
 		setLocationByPlatform(true);
-		setSize(1000,800);
+		setSize(800,800);
 		setVisible(true);
-		//System.out.println(" La til denne for å teste ");
 		setResizable(false);
-		
-	    /*addComponentListener(new ComponentAdapter() {
-	        @Override
-	        public void componentResized(ComponentEvent e) {
-	        //System.out.println("Reseized");
-	        //repaint();
-	        setSize(getSize().width, getSize().width);
-	      }
-	    });*/
-		
-		
-	}
+    }
 
 	public void exit() {
 		System.exit(0);
 	}
 
-	public void about() {
-		JOptionPane.showMessageDialog(this, "Chessgame 0.1");
+    @Override
+    public void setStatustext(String s) {
+        // FRA easylib
+    }
+
+    public void about() {
+        JOptionPane.showMessageDialog(this, "Chessie 1.0 RC Client");
 	}
 
-	public void setStatustext(String s) {
-		// TODO Auto-generated method stub
-		// Dette er Application Som trenger ett l�ft
-		// mERE mErEW mmERE
-	}
-
-	
-	@Override
+    @Override
 	public void repaint() {
 		super.repaint();
-		//setSize(getSize().width, getSize().width);
-	}
-	
-	public StockFishInfo getSFI(){
-		return eastpane.getSFI();
 	}
 
+    // CoR meldingsstier
 	public boolean canIMoveTo(int column, int row) {
 		return centerpane.canIMoveTo(column, row);
 	}
@@ -96,5 +74,6 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 	public boolean canICapture(int toColumn, int toRow) {
 		return centerpane.canICapture(toColumn, toRow);
 	}
+
 
 }

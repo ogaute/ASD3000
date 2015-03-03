@@ -6,14 +6,14 @@ public class Rook extends Piece {
 	
 	private RookLogic rookLogic;
 
-	public Rook(boolean s, String c) {
-		if(s){
+	public Rook(boolean isBlack, String color) {
+		if(isBlack){
 			setImage("img/Black_Rook.png");
 		}
 		else{
 			setImage("img/White_Rook.png");
 		}
-		this.rookLogic = new RookLogic(c);
+		this.rookLogic = new RookLogic(color);
 		
 	}
 

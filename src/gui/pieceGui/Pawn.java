@@ -6,14 +6,14 @@ public class Pawn extends Piece {
 	
 	private PawnLogic pawnLogic;
 	
-	public Pawn(boolean s, String c) {
-		if(s){
+	public Pawn(boolean isBlack, String color) {
+		if(isBlack){
 			setImage("img/Black_Pawn.png");
 		}
 		else{
 			setImage("img/White_Pawn.png");
 		}
-		this.pawnLogic = new PawnLogic(c);
+		this.pawnLogic = new PawnLogic(color);
 		
 	}
 

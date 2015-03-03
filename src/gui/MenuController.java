@@ -16,7 +16,6 @@ public class MenuController extends JMenuBar {
 	public MenuController() {
 		// Horisontal meny elements
 		MMenu file = new MMenu("Fil");
-		MMenu tool = new MMenu("Verktøy");
 		MMenu help = new MMenu("Hjelp");
 
 		// vertical file menu elements
@@ -27,7 +26,6 @@ public class MenuController extends JMenuBar {
 
 		// fix vertical menu elements to this horizontal bar
 		add(file);		
-		add(tool);
 		add(help);
 	}
 

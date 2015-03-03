@@ -10,37 +10,28 @@ import java.awt.event.ComponentEvent;
 import javax.swing.JPanel;
 
 public class ChessBoard extends JPanel {
-	
+
+
 	Square[][] squareList = new Square[8][8];
 	
 	public ChessBoard() {
 		setLayout(new GridLayout(8,0));
 		setPreferredSize(new Dimension(800, 800));
 		setRequestFocusEnabled(false);
-		
 		makeBoard();
-		
-	    /*addComponentListener(new ComponentAdapter() {
-	        @Override
-	        public void componentResized(ComponentEvent e) {
-	        	int W = 1;  
-	            int H = 1;  
-	            Rectangle b = e.getComponent().getBounds();
-	            e.getComponent().setBounds(b.x, b.y, b.width, b.width*H/W);
-	        }
-	    });*/
 	}
 	
 	public Square[][] addPieces(){
-		for (int y = 0; y <= 1; y++) {
-			for (int x = 0; x < 8; x++) {
-				squareList[x][y].add(Marshalling.MARSHALLING[y][x]);
+        // Sorte brikker
+		for (int row = 0; row <= 1; row++) {
+			for (int column = 0; column <= Marshalling.NUMCOLUMNS; column++) {
+				squareList[column][row].add(Marshalling.MARSHALLING[row][column]);
 			}
 		}
-		
-		for (int y = 6; y <= 7; y++) {
-			for (int x = 0; x < 8; x++) {
-				squareList[x][y].add(Marshalling.MARSHALLING[y][x]);
+		// hvite brikker
+		for (int row = 6; row <= 7; row++) {
+			for (int column = 0; column <= Marshalling.NUMCOLUMNS; column++) {
+				squareList[column][row].add(Marshalling.MARSHALLING[row][column]);
 			}
 		}
 		
@@ -48,29 +39,24 @@ public class ChessBoard extends JPanel {
 	}
 	
 	private void makeBoard(){
-		int c = 0;
-		int index = 0;
-		for (int y = 0; y <= 7; y++) {
-			for (int x = 0; x <= 7; x++) {
+		int squareColorChanger = 0;
+		for (int row = 0; row <= Marshalling.NUMROWS; row++) {
+			for (int column = 0; column <= Marshalling.NUMCOLUMNS; column++) {
 				Square square;
-				if (x % 2 == c){
-					square = new Square(Color.DARK_GRAY, x, y);
-					//System.out.println("Sq " + j + " " + i);
-					//square.add(new JLabel("M: y: "+ y +", x: " + x));
+				if (column % 2 == squareColorChanger){
+					square = new Square(Color.DARK_GRAY, column, row);
 				}
 				else {
-					square = new Square(Color.LIGHT_GRAY, x, y);
-					//square.add(new JLabel("M: y: "+ y +", x: " + x));
+					square = new Square(Color.LIGHT_GRAY, column, row);
 				}
 				
-				squareList[x][y] = square;
+				squareList[column][row] = square;
 				add(square);
-				index++;
+
 			}
-			if(c == 0){ c = 1; } else{ c = 0;}
+			if(squareColorChanger == 0){ squareColorChanger = 1; } else{ squareColorChanger = 0;}
 		}
 	}
-	
 
-	
+
 }

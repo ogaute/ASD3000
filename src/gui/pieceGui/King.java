@@ -7,14 +7,14 @@ public class King extends Piece{
 	
 	private KingLogic kingLogic;
 	
-	public King(boolean s, String c) {
-		if(s){
+	public King(boolean isBlack, String color) {
+		if(isBlack){
 			setImage("img/Black_King.png");
 		}
 		else{
 			setImage("img/White_King.png");
 		}
-		this.kingLogic = new KingLogic(c);
+		this.kingLogic = new KingLogic(color);
 		
 	}
 

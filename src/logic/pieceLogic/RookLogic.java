@@ -1,24 +1,20 @@
 package logic.pieceLogic;
 
 import controller.Controller;
+import gui.Marshalling;
 
 public class RookLogic extends PieceLogic{
+
 	
 	private String pieceColor;
-	private String pieceSymbol;
-	
+
 	public RookLogic(String pieceColor) {
 		this.pieceColor = pieceColor;
 		setPieceProperties();
 	}
 	
-	// dette er nødvendig for å generere FEN streng basert på brettets stilling
-	public String getFENSymbol(){
-			return pieceSymbol;
-	}
-	
 	private void setPieceProperties(){
-		if(pieceColor == "svart"){
+		if(pieceColor == Marshalling.BLACK){
 			pieceSymbol = "r";
 		}
 		else {
@@ -36,5 +32,6 @@ public class RookLogic extends PieceLogic{
 			
 		}
 	}
-	
+
+
 }

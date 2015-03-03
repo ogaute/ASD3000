@@ -2,78 +2,64 @@ package stockfish;
 
 import gui.Marshalling;
 import gui.Square;
-
 import java.util.Observable;
-
 import controller.Controller;
 
 
 public class FENgenerator extends Observable {
-			
+
+
 	private Square[][] boardPositions;
-	private String sideToMove = "w";  		//  {'w' | 'b'}
-	private String castlingAbility = ""; 	// 
-	private String enPassant = ""; 			// 
+	private String castlingAbility = "";
+	private String enPassant = "";
 	private String halfmoveClock = "";		
-	private String fullMoveCounter ="";		// 
-	
+	private String fullMoveCounter ="";
 	private boolean firstMove = true;
 
-	public FENgenerator(){
-		// lager litt dummydata - Arraylist av arraylist av Strings
-		//DummyDataCreator ddc = new DummyDataCreator();
-		//boardPositions = ddc.getPositions();
-	}
-
 	public String generateFEN(Square[][] b) {
-
-		// generator	
 		this.boardPositions = b;
-		StringBuilder sb = new StringBuilder();
+		StringBuilder stringBuilder = new StringBuilder();
 		int sumNumbers = 0;
 		
-		for(int y = 0; y <= 7; y++){
-			
-			for(int x = 0; x <= 7; x++){	
-				char ch;
-				if(!boardPositions[x][y].hasChild()){
+		for(int row = 0; row <= Marshalling.NUMROWS; row++){
+		    for(int column = 0; column <= Marshalling.NUMCOLUMNS; column++){
+
+                if(!boardPositions[column][row].hasChild()){
 					sumNumbers += 1;				
 				} else {
 					if(sumNumbers !=0){
-						sb.append(Integer.toString(sumNumbers));
+						stringBuilder.append(Integer.toString(sumNumbers));
 					}
 					sumNumbers = 0;
-					sb.append(boardPositions[x][y].getPiece().getFENSymbol());	
+					stringBuilder.append(boardPositions[column][row].getPiece().getFENSymbol());
 				}		
 			}
+
 			if(sumNumbers !=0){
-				sb.append(Integer.toString(sumNumbers));
+				stringBuilder.append(Integer.toString(sumNumbers));
 				sumNumbers = 0;
 			}
-			sb.append("/");		
+			stringBuilder.append("/");
 		}
-		// TODO fikses senere
-		
-		if(firstMove){
-			sb.append(" " + 'w');
+
+        if(firstMove){
+			stringBuilder.append(" " + 'w');
 			firstMove = false;
 		}
 		else if(Controller.getPlayerInTurn() == Marshalling.WHITE){
-			sb.append(" " + 'w');
+			stringBuilder.append(" " + 'w');
 		}
 		else{
-			sb.append(" " + 'b');
+			stringBuilder.append(" " + 'b');
 		}
-		
-		//sb.append(" " + sideToMove);
-		sb.append(" " + castlingAbility);
-		sb.append(" " + enPassant);
-		sb.append(" " + halfmoveClock);
-		sb.append(" " + fullMoveCounter);
-		//System.out.println(sb.toString());
-		setValue(sb.toString());
+		//For senere utvidelse av funksjonalitet i spillet
+		stringBuilder.append(" " + castlingAbility);
+		stringBuilder.append(" " + enPassant);
+		stringBuilder.append(" " + halfmoveClock);
+		stringBuilder.append(" " + fullMoveCounter);
+		setValue(stringBuilder.toString());
 
-		return sb.toString();
+		return stringBuilder.toString();
 	}
 
 	public void setValue(String fen){
@@ -81,5 +67,6 @@ public class FENgenerator extends Observable {
 		notifyObservers(fen);
 		clearChanged();
 	}
-	
+
+
 }

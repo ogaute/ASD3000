@@ -5,8 +5,7 @@ import controller.Controller;
 
 public abstract class PieceLogic {
 	
-	public abstract String getFENSymbol();
-	
+
     private int north;
     private int east;
     private int south;
@@ -16,8 +15,10 @@ public abstract class PieceLogic {
 	private int toRow;
 	protected int DEFAULTSTEPS = 7;
 	protected int KINGSTEPS = 1;
-	
-	public void checkNorth(int column, int row, int steps){
+    protected String pieceSymbol;
+
+
+    public void checkNorth(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
 		
@@ -180,5 +181,10 @@ public abstract class PieceLogic {
         	iteration++;
         }
 	}
+
+    // dette er nødvendig for å generere FEN streng basert på brettets stilling
+    public String getFENSymbol(){
+        return pieceSymbol;
+    }
 	
 }

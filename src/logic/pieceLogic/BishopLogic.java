@@ -1,24 +1,20 @@
 package logic.pieceLogic;
 
 import controller.Controller;
+import gui.Marshalling;
 
 public class BishopLogic extends PieceLogic{
-	
+
+
 	private String pieceColor;
-	private String pieceSymbol;
-	
+
 	public BishopLogic(String pieceColor) {
 		this.pieceColor = pieceColor;
 		setPieceProperties();
 	}
 	
-	// dette er nødvendig for å generere FEN streng basert på brettets stilling
-	public String getFENSymbol(){
-			return pieceSymbol;
-	}
-	
 	private void setPieceProperties(){
-		if(pieceColor == "svart"){
+		if(pieceColor == Marshalling.BLACK){
 			pieceSymbol = "b";
 		}
 		else {
@@ -34,6 +30,7 @@ public class BishopLogic extends PieceLogic{
 			checkSouthWest(column, row, DEFAULTSTEPS);
 			checkNorthWest(column, row, DEFAULTSTEPS);
 		}
-		
 	}
+
+
 }

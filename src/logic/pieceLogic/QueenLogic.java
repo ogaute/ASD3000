@@ -1,25 +1,21 @@
 package logic.pieceLogic;
 
+import gui.Marshalling;
 import logic.OutOfBoardFilter;
 import controller.Controller;
 
 public class QueenLogic extends PieceLogic{
-	
+
+
 	private String pieceColor;
-	private String pieceSymbol;
-	
+
 	public QueenLogic(String pieceColor) {
 		this.pieceColor = pieceColor;
 		setPieceProperties();
 	}
-	
-	// dette er nødvendig for å generere FEN streng basert på brettets stilling
-	public String getFENSymbol(){
-			return pieceSymbol;
-	}
-	
+
 	private void setPieceProperties(){
-		if(pieceColor == "svart"){
+		if(pieceColor == Marshalling.BLACK){
 			pieceSymbol = "q";
 		}
 		else {
@@ -41,4 +37,6 @@ public class QueenLogic extends PieceLogic{
 			
 		}
 	}
+
+
 }

@@ -6,14 +6,14 @@ public class Queen extends Piece {
 	
 	private QueenLogic queenLogic;
 
-	public Queen(boolean s, String c) {
-		if(s){
+	public Queen(boolean isBlack, String color) {
+		if(isBlack){
 			setImage("img/Black_Queen.png");
 		}
 		else{
 			setImage("img/White_Queen.png");
 		}
-		this.queenLogic = new QueenLogic(c);
+		this.queenLogic = new QueenLogic(color);
 		
 	}
 

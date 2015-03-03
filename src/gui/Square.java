@@ -1,27 +1,24 @@
 package gui;
 
 import gui.pieceGui.Piece;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
-
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
-
 import controller.Controller;
 
 public class Square extends JPanel implements MouseListener{
-	
-	boolean hasChildren = false;
-	int column;
-	int row;
-	boolean legalSquare = false;
-	Border legalBorder = BorderFactory.createLineBorder(Color.green, 4);
+
+
+	private boolean hasChildren = false;
+    private int column;
+    private int row;
+    private boolean legalSquare = false;
+    private Border legalBorder = BorderFactory.createLineBorder(Color.green, 4);
 
 	public Square(Color c, int column, int row) {
 		setBackground(c);
@@ -40,15 +37,9 @@ public class Square extends JPanel implements MouseListener{
 		if (hasChildren) {
 			piece = (Piece)getComponent(0);
 		}
-		
 		return piece;
 	}
 
-	@Override
-	public void mouseClicked(MouseEvent arg0){
-
-	}
-	
 	public Component add(Component c){
 		super.removeAll();
 		super.add(c);
@@ -67,19 +58,6 @@ public class Square extends JPanel implements MouseListener{
 		hasChildren = false;
 	}
 	
-
-	@Override
-	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	@Override
 	public void mousePressed(MouseEvent arg0) {
 		Piece child = getPiece();
@@ -101,12 +79,6 @@ public class Square extends JPanel implements MouseListener{
 		return legalSquare;
 	}
 
-	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	public void setLegalSquare(boolean b){
 		legalSquare = b;
 		repaint();
@@ -114,7 +86,6 @@ public class Square extends JPanel implements MouseListener{
 	
 	@Override
 	public void repaint() {
-		//System.out.println("repaint");
 		super.repaint();
 		if(legalSquare){
 			this.setBorder(legalBorder);
@@ -122,6 +93,14 @@ public class Square extends JPanel implements MouseListener{
 		else
 			this.setBorder(null);
 	}
+    @Override
+    public void mouseReleased(MouseEvent arg0) {}
+    @Override
+    public void mouseEntered(MouseEvent arg0) {}
+    @Override
+    public void mouseExited(MouseEvent arg0) {}
+    @Override
+    public void mouseClicked(MouseEvent arg0){}
 
 	
 }

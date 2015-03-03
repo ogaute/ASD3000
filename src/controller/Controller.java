@@ -3,6 +3,7 @@ package controller;
 import logic.OutOfBoardFilter;
 import easylib.controller.ISupercontroller;
 import easylib.controller.Supercontroller;
+
 import gui.ApplicationFrame;
 
 public class Controller extends Supercontroller implements IActionlist {
@@ -10,7 +11,6 @@ public class Controller extends Supercontroller implements IActionlist {
 
 	public static void init(ISupercontroller frame) {
 		superinit(frame);
-
 	}
 
 	public static boolean canIMoveTo(int column, int row) {

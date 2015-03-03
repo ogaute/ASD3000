@@ -2,7 +2,6 @@ package logic;
 
 import java.util.Observable;
 import java.util.Observer;
-
 import stockfish.FENgenerator;
 import stockfish.LegalMoveValidator;
 import stockfish.StockFishObservable;
@@ -12,48 +11,40 @@ import gui.Square;
 import gui.pieceGui.Piece;
 
 public class ChessCoordinator implements Observer {
+
+
 	private Square[][] squareList;
 	private Square lastPressedSquare;
 	private String playerInTurn = Marshalling.WHITE;
 	private String legalMovesFromStockfish = "";
 	private LegalMoveValidator legalMoveValidator = new LegalMoveValidator();
-	
-	private FENgenerator fenG = new FENgenerator(); //observer
-	private StockFishObservable sfo; //observer
+	private FENgenerator fenGenerator = new FENgenerator(); //observer
+	private StockFishObservable stockFishObservable; //observer
 	
 	public ChessCoordinator(ChessBoard board) {
 		squareList = board.addPieces();
-		
-        sfo = new StockFishObservable(); //observer
-        fenG.addObserver(sfo); //observer
-        sfo.addObserver(this); //observer
-        
-        fenG.generateFEN(squareList);
+		stockFishObservable = new StockFishObservable(); //observer
+        fenGenerator.addObserver(stockFishObservable); //observer
+        stockFishObservable.addObserver(this); //observer
+        fenGenerator.generateFEN(squareList);
 	}
 
 	public boolean canIMoveTo(int column, int row) {
 		boolean canMove = false;
-		
 		String uppercaseSymbol = lastPressedSquare.getPiece().getFENSymbol().toUpperCase();
-		System.out.println(uppercaseSymbol);
-		
 		if(legalMoveValidator.isLegalForStockfish(column, row, uppercaseSymbol)){
 			canMove = true;
 			squareList[column][row].setLegalSquare(true);
 		}
-		//System.out.println("asked for " + column + "(c) and " + row + "(r), svar: " + canMove);
-		
 		return canMove;
 	}
 	
 	public boolean canICapture(int toColumn, int toRow) {
 		boolean canCapture = false;
-		
 		if(legalMoveValidator.isPawnCaptureLegalForStockfish(toColumn, toRow)){
 			canCapture = true;
 			squareList[toColumn][toRow].setLegalSquare(true);
 		}
-		
 		return canCapture;
 	}
 	
@@ -66,11 +57,9 @@ public class ChessCoordinator implements Observer {
 	}
 
 	public void moveTo(int column, int row) {
-
 		Piece lastPressedPiece = lastPressedSquare.getPiece();
 		lastPressedSquare.removeAll();
 		squareList[column][row].add(lastPressedPiece);
-		
 		lastPressedSquare.repaint();
 		squareList[column][row].repaint();
 		resetSquares();
@@ -86,7 +75,7 @@ public class ChessCoordinator implements Observer {
 	
 	public void changePlayerInTurn(){
 		playerInTurn = (playerInTurn == Marshalling.WHITE) ? Marshalling.BLACK : Marshalling.WHITE;
-		fenG.generateFEN(squareList);
+		fenGenerator.generateFEN(squareList);
 	}
 
 	@Override
