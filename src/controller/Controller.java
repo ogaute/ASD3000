@@ -1,10 +1,9 @@
 package controller;
 
-import logic.OutOfBoardFilter;
 import easylib.controller.ISupercontroller;
 import easylib.controller.Supercontroller;
-
 import gui.ApplicationFrame;
+import logic.OutOfBoardFilter;
 
 public class Controller extends Supercontroller implements IActionlist {
 

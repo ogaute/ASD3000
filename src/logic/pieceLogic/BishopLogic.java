@@ -15,10 +15,10 @@ public class BishopLogic extends PieceLogic{
 	
 	private void setPieceProperties(){
 		if(pieceColor == Marshalling.BLACK){
-			pieceSymbol = "b";
+			pieceSymbol = Marshalling.SYMBOLBLACKBISHOP;
 		}
 		else {
-			pieceSymbol = "B";
+			pieceSymbol = Marshalling.SYMBOLWHITEBISHOP;
 		}
 	}
 

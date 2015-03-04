@@ -6,10 +6,10 @@
  */
 package gui;
 
-import javax.swing.JMenuBar;
-
 import controller.Controller;
 import easylib.gui.MMenu;
+
+import javax.swing.*;
 
 public class MenuController extends JMenuBar {
 

@@ -1,17 +1,11 @@
 package gui.pieceGui;
 
-import java.awt.Graphics;
-import java.awt.Image;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-
-import javax.imageio.ImageIO;
-import javax.swing.AbstractButton;
-import javax.swing.JButton;
-
-import logic.pieceLogic.PawnLogic;
-import logic.pieceLogic.PieceLogic;
 
 public abstract class Piece extends AbstractButton{
 	

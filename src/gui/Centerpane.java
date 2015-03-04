@@ -1,14 +1,10 @@
 package gui;
 
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-
 import logic.ChessCoordinator;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class Centerpane extends JPanel {
 	

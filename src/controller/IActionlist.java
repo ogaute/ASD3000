@@ -1,10 +1,5 @@
 package controller;
 
-import easylib.controller.Usecase;
-
-
-
-
 /*
  * Det er behov for en lett tilgjengelig liste 
  * over brukstilfeller og ikoner
