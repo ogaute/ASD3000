@@ -8,34 +8,26 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 
 public abstract class Piece extends AbstractButton{
+
 	
 	protected Image piecePicture;
 
 	public Piece() {
 		super();
-		//setSize(100, 100);
-		repaint();
 	}
 	
 	public void setImage(String s){
 		try {
 			piecePicture = ImageIO.read(new File(s));
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
-	public void repaint(Graphics g){
-		g.drawImage(piecePicture, 0, 0, null);
-	}
-	
+
 	@Override
 	protected void paintComponent(Graphics g) {
-		//super.paintComponent(arg0);
 		int x = (this.getWidth() - piecePicture.getWidth(null)) / 2;
 	    int y = (this.getHeight() - piecePicture.getHeight(null)) / 2;
 		g.drawImage(piecePicture, x, y, null);
@@ -45,9 +37,6 @@ public abstract class Piece extends AbstractButton{
 
 	public abstract void pressed(int column, int row);
 	
-	public void setHasMoved(){
-		
-	}
 
 }
 
