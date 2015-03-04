@@ -1,21 +1,21 @@
 package logic;
 
-import gui.Marshalling;
+import gui.ApplicationConstants;
 
 public class PlayerCoordinator {
 	
-	private String playerInTurn = Marshalling.WHITE;
+	private String playerInTurn = ApplicationConstants.WHITE;
 	
 	public String whoIsInTurn(){
 		return playerInTurn;
 	}
 	
 	public String whoWon(){
-		return (playerInTurn == Marshalling.WHITE) ? Marshalling.BLACK : Marshalling.WHITE;
+		return (playerInTurn == ApplicationConstants.WHITE) ? ApplicationConstants.BLACK : ApplicationConstants.WHITE;
 	}
 	
 	public void changePlayerInTurn(){
-		playerInTurn = (playerInTurn == Marshalling.WHITE) ? Marshalling.BLACK : Marshalling.WHITE;
+		playerInTurn = (playerInTurn == ApplicationConstants.WHITE) ? ApplicationConstants.BLACK : ApplicationConstants.WHITE;
 	}
 
 }
