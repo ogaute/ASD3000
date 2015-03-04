@@ -1,13 +1,7 @@
 package gui;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.awt.Rectangle;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
 public class ChessBoard extends JPanel {
 

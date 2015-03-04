@@ -1,14 +1,15 @@
 package logic;
 
-import java.util.Observable;
-import java.util.Observer;
-import stockfish.FENgenerator;
-import stockfish.LegalMoveValidator;
-import stockfish.StockFishObservable;
 import gui.ChessBoard;
 import gui.Marshalling;
 import gui.Square;
 import gui.pieceGui.Piece;
+import stockfish.FENgenerator;
+import stockfish.LegalMoveValidator;
+import stockfish.StockFishObservable;
+
+import java.util.Observable;
+import java.util.Observer;
 
 public class ChessCoordinator implements Observer {
 

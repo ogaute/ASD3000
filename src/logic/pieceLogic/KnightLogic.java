@@ -1,8 +1,8 @@
 package logic.pieceLogic;
 
-import logic.OutOfBoardFilter;
-import gui.Marshalling;
 import controller.Controller;
+import gui.Marshalling;
+import logic.OutOfBoardFilter;
 
 public class KnightLogic extends PieceLogic{
 
@@ -16,10 +16,10 @@ public class KnightLogic extends PieceLogic{
 	
 	private void setPieceProperties(){
 		if(pieceColor == Marshalling.BLACK){
-			pieceSymbol = "n";
+			pieceSymbol = Marshalling.SYMBOLBLACKKNIGHT;
 		}
 		else {
-			pieceSymbol = "N";
+			pieceSymbol = Marshalling.SYMBOLWHITEKNIGHT;
 		}
 	}
 	

@@ -1,7 +1,6 @@
 package gui.pieceGui;
 
 import logic.pieceLogic.KnightLogic;
-import logic.pieceLogic.PawnLogic;
 
 public class Knight extends Piece {
 	

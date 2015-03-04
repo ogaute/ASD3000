@@ -1,14 +1,10 @@
 package gui;
 
-import java.awt.BorderLayout;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
 import controller.Controller;
 import easylib.controller.ISupercontroller;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class ApplicationFrame extends JFrame implements ISupercontroller {
 

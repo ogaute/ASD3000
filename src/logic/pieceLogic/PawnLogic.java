@@ -1,10 +1,7 @@
 package logic.pieceLogic;
 
-import gui.Marshalling;
-
-import java.util.ArrayList;
-
 import controller.Controller;
+import gui.Marshalling;
 
 public class PawnLogic extends PieceLogic{
 
@@ -20,12 +17,12 @@ public class PawnLogic extends PieceLogic{
 	
 	private void setPieceProperties(){
 		if(pieceColor == Marshalling.BLACK){
-			pieceSymbol = "p";
+			pieceSymbol = Marshalling.SYMBOLBLACKPAWN;
 			direction = 1;
 			defaultRow = 1;
 		}
 		else {
-			pieceSymbol = "P";
+			pieceSymbol = Marshalling.SYMBOLWHITEPAWN;
 			direction = -1;
 			defaultRow = 6;
 		}

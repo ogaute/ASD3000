@@ -1,12 +1,6 @@
 package gui;
 
-import gui.pieceGui.Bishop;
-import gui.pieceGui.King;
-import gui.pieceGui.Knight;
-import gui.pieceGui.Pawn;
-import gui.pieceGui.Piece;
-import gui.pieceGui.Queen;
-import gui.pieceGui.Rook;
+import gui.pieceGui.*;
 
 
 public interface Marshalling {
@@ -14,6 +8,19 @@ public interface Marshalling {
 
 	String WHITE  = "hvit";
 	String BLACK = "svart";
+
+    String SYMBOLBLACKROOK = "r";
+    String SYMBOLWHITEROOK = "R";
+    String SYMBOLBLACKKING = "k";
+    String SYMBOLWHITEKING = "K";
+    String SYMBOLBLACKBISHOP ="b";
+    String SYMBOLWHITEBISHOP ="B";
+    String SYMBOLBLACKKNIGHT ="n";
+    String SYMBOLWHITEKNIGHT ="N";
+    String SYMBOLBLACKQUEEN ="q";
+    String SYMBOLWHITEQUEEN ="Q";
+    String SYMBOLBLACKPAWN ="p";
+    String SYMBOLWHITEPAWN ="P";
 	
 	/*0 til 7, antall 8*/
 	int NUMCOLUMNS = 7;

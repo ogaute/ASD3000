@@ -1,15 +1,13 @@
 package gui;
 
+import controller.Controller;
 import gui.pieceGui.Piece;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.BorderFactory;
-import javax.swing.JPanel;
-import javax.swing.border.Border;
-import controller.Controller;
 
 public class Square extends JPanel implements MouseListener{
 

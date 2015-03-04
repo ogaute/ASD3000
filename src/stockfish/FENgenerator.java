@@ -1,9 +1,10 @@
 package stockfish;
 
+import controller.Controller;
 import gui.Marshalling;
 import gui.Square;
+
 import java.util.Observable;
-import controller.Controller;
 
 
 public class FENgenerator extends Observable {

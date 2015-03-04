@@ -15,10 +15,10 @@ public class KingLogic extends PieceLogic{
 	
 	private void setPieceProperties(){
 		if(pieceColor == Marshalling.BLACK){
-			pieceSymbol = "k";
+			pieceSymbol = Marshalling.SYMBOLBLACKKING;
 		}
 		else {
-			pieceSymbol = "K";
+			pieceSymbol = Marshalling.SYMBOLWHITEKING;
 		}
 	}
 	

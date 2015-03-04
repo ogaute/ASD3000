@@ -15,10 +15,10 @@ public class RookLogic extends PieceLogic{
 	
 	private void setPieceProperties(){
 		if(pieceColor == Marshalling.BLACK){
-			pieceSymbol = "r";
+			pieceSymbol = Marshalling.SYMBOLBLACKROOK;
 		}
 		else {
-			pieceSymbol = "R";
+			pieceSymbol = Marshalling.SYMBOLWHITEROOK;
 		}
 	}
 	

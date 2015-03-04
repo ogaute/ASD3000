@@ -1,7 +1,7 @@
 package logic.pieceLogic;
 
-import logic.OutOfBoardFilter;
 import controller.Controller;
+import logic.OutOfBoardFilter;
 
 public abstract class PieceLogic {
 	
