@@ -1,5 +1,7 @@
 package gui;
 
+import gui.pieceGui.Piece;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -50,6 +52,19 @@ public class ChessBoard extends JPanel {
 			}
 			if(squareColorChanger == 0){ squareColorChanger = 1; } else{ squareColorChanger = 0;}
 		}
+	}
+	
+	public Square[][] changeGameState(Square[][] savedSquareList){
+		for (int row = 0; row <= ApplicationConstants.NUMROWS; row++) {
+			for (int column = 0; column <= ApplicationConstants.NUMCOLUMNS; column++) {
+				Piece pieceToAdd = savedSquareList[column][row].getPiece();
+				if(pieceToAdd != null){
+					squareList[column][row].add(pieceToAdd);
+				}
+			}
+		}
+
+		return squareList;
 	}
 
 
