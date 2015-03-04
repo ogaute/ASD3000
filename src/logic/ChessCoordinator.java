@@ -81,6 +81,9 @@ public class ChessCoordinator implements Observer {
 	@Override
 	public void update(Observable arg0, Object stockFishInfo) {
 		legalMovesFromStockfish = ((String[])stockFishInfo)[2];
+		if(legalMovesFromStockfish == null || legalMovesFromStockfish.equals("")){
+			
+		}
 		legalMoveValidator.setlegalMovesFromStockfish(legalMovesFromStockfish);
 		System.out.println(legalMovesFromStockfish);
 	}

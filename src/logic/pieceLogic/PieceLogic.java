@@ -13,8 +13,8 @@ public abstract class PieceLogic {
     private int iteration;
 	private int toColumn;
 	private int toRow;
-	protected int DEFAULTSTEPS = 7;
-	protected int KINGSTEPS = 1;
+	protected final int DEFAULTSTEPS = 7;
+	protected final int KINGSTEPS = 1;
     protected String pieceSymbol;
 
 
