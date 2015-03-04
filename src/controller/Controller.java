@@ -58,6 +58,8 @@ public class Controller extends Supercontroller implements IActionlist {
 	public static String whoWon() {
 		return ((ApplicationFrame)ui).whoWon();
 	}
-	
+	public static void test(){
+		
+	}
 	
 }
