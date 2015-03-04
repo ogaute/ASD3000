@@ -1,9 +1,8 @@
 package gui;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
 import controller.Controller;
+
+import javax.swing.*;
 
 public class GameOverDialog {
 	

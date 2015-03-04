@@ -1,7 +1,7 @@
 package logic;
 
 import gui.ChessBoard;
-import gui.Marshalling;
+import gui.ApplicationConstants;
 import gui.Square;
 import gui.pieceGui.Piece;
 import stockfish.FENgenerator;
@@ -16,7 +16,7 @@ public class ChessCoordinator implements Observer {
 
 	private Square[][] squareList;
 	private Square lastPressedSquare;
-	private String playerInTurn = Marshalling.WHITE;
+	private String playerInTurn = ApplicationConstants.WHITE;
 	private String legalMovesFromStockfish = "";
 	private LegalMoveValidator legalMoveValidator = new LegalMoveValidator();
 	private FENgenerator fenGenerator = new FENgenerator(); //observer
@@ -50,8 +50,8 @@ public class ChessCoordinator implements Observer {
 	}
 	
 	public void resetSquares(){
-		for (int row = 0; row <= Marshalling.NUMCOLUMNS; row++) {
-			for (int column = 0; column <= Marshalling.NUMROWS; column++) {
+		for (int row = 0; row <= ApplicationConstants.NUMCOLUMNS; row++) {
+			for (int column = 0; column <= ApplicationConstants.NUMROWS; column++) {
 				squareList[column][row].setLegalSquare(false);
 			}
 		}
@@ -75,7 +75,7 @@ public class ChessCoordinator implements Observer {
 	}
 	
 	public void changePlayerInTurn(){
-		playerInTurn = (playerInTurn == Marshalling.WHITE) ? Marshalling.BLACK : Marshalling.WHITE;
+		playerInTurn = (playerInTurn == ApplicationConstants.WHITE) ? ApplicationConstants.BLACK : ApplicationConstants.WHITE;
 		fenGenerator.generateFEN(squareList);
 	}
 

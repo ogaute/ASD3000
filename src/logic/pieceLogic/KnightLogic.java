@@ -1,7 +1,7 @@
 package logic.pieceLogic;
 
 import controller.Controller;
-import gui.Marshalling;
+import gui.ApplicationConstants;
 import logic.OutOfBoardFilter;
 
 public class KnightLogic extends PieceLogic{
@@ -15,11 +15,11 @@ public class KnightLogic extends PieceLogic{
 	}
 	
 	private void setPieceProperties(){
-		if(pieceColor == Marshalling.BLACK){
-			pieceSymbol = Marshalling.SYMBOLBLACKKNIGHT;
+		if(pieceColor == ApplicationConstants.BLACK){
+			pieceSymbol = ApplicationConstants.SYMBOLBLACKKNIGHT;
 		}
 		else {
-			pieceSymbol = Marshalling.SYMBOLWHITEKNIGHT;
+			pieceSymbol = ApplicationConstants.SYMBOLWHITEKNIGHT;
 		}
 	}
 	
@@ -27,7 +27,7 @@ public class KnightLogic extends PieceLogic{
 		if(pieceColor.equals(Controller.getPlayerInTurn())){
 			int posColumns[] = { column + 1, column + 1, column + 2, column + 2, column - 1, column - 1, column - 2, column - 2 };
 			int posRows[] = { row - 2, row + 2, row - 1, row + 1, row - 2, row + 2, row - 1, row + 1 };
-			for (int i = 0; i <= Marshalling.NUMCOLUMNS; i++)
+			for (int i = 0; i <= ApplicationConstants.NUMCOLUMNS; i++)
 			{
 				if(OutOfBoardFilter.isOutOfBoard(posColumns[i], posRows[i]))
 					continue;

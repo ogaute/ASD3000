@@ -3,7 +3,7 @@ package gui;
 import gui.pieceGui.*;
 
 
-public interface Marshalling {
+public interface ApplicationConstants {
 
 
 	String WHITE  = "hvit";

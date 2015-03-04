@@ -1,7 +1,7 @@
 package stockfish;
 
 import controller.Controller;
-import gui.Marshalling;
+import gui.ApplicationConstants;
 import gui.Square;
 
 import java.util.Observable;
@@ -22,8 +22,8 @@ public class FENgenerator extends Observable {
 		StringBuilder stringBuilder = new StringBuilder();
 		int sumNumbers = 0;
 		
-		for(int row = 0; row <= Marshalling.NUMROWS; row++){
-		    for(int column = 0; column <= Marshalling.NUMCOLUMNS; column++){
+		for(int row = 0; row <= ApplicationConstants.NUMROWS; row++){
+		    for(int column = 0; column <= ApplicationConstants.NUMCOLUMNS; column++){
 
                 if(!boardPositions[column][row].hasChild()){
 					sumNumbers += 1;				
@@ -47,7 +47,7 @@ public class FENgenerator extends Observable {
 			stringBuilder.append(" " + 'w');
 			firstMove = false;
 		}
-		else if(Controller.getPlayerInTurn() == Marshalling.WHITE){
+		else if(Controller.getPlayerInTurn() == ApplicationConstants.WHITE){
 			stringBuilder.append(" " + 'w');
 		}
 		else{
