@@ -18,14 +18,14 @@ public class ChessBoard extends JPanel {
 	public Square[][] addPieces(){
         // Sorte brikker
 		for (int row = 0; row <= 1; row++) {
-			for (int column = 0; column <= Marshalling.NUMCOLUMNS; column++) {
-				squareList[column][row].add(Marshalling.MARSHALLING[row][column]);
+			for (int column = 0; column <= ApplicationConstants.NUMCOLUMNS; column++) {
+				squareList[column][row].add(ApplicationConstants.MARSHALLING[row][column]);
 			}
 		}
 		// hvite brikker
 		for (int row = 6; row <= 7; row++) {
-			for (int column = 0; column <= Marshalling.NUMCOLUMNS; column++) {
-				squareList[column][row].add(Marshalling.MARSHALLING[row][column]);
+			for (int column = 0; column <= ApplicationConstants.NUMCOLUMNS; column++) {
+				squareList[column][row].add(ApplicationConstants.MARSHALLING[row][column]);
 			}
 		}
 		
@@ -34,8 +34,8 @@ public class ChessBoard extends JPanel {
 	
 	private void makeBoard(){
 		int squareColorChanger = 0;
-		for (int row = 0; row <= Marshalling.NUMROWS; row++) {
-			for (int column = 0; column <= Marshalling.NUMCOLUMNS; column++) {
+		for (int row = 0; row <= ApplicationConstants.NUMROWS; row++) {
+			for (int column = 0; column <= ApplicationConstants.NUMCOLUMNS; column++) {
 				Square square;
 				if (column % 2 == squareColorChanger){
 					square = new Square(Color.DARK_GRAY, column, row);

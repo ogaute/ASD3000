@@ -1,7 +1,7 @@
 package logic.pieceLogic;
 
 import controller.Controller;
-import gui.Marshalling;
+import gui.ApplicationConstants;
 
 public class PawnLogic extends PieceLogic{
 
@@ -16,13 +16,13 @@ public class PawnLogic extends PieceLogic{
 	}
 	
 	private void setPieceProperties(){
-		if(pieceColor == Marshalling.BLACK){
-			pieceSymbol = Marshalling.SYMBOLBLACKPAWN;
+		if(pieceColor == ApplicationConstants.BLACK){
+			pieceSymbol = ApplicationConstants.SYMBOL_BLACK_PAWN;
 			direction = 1;
 			defaultRow = 1;
 		}
 		else {
-			pieceSymbol = Marshalling.SYMBOLWHITEPAWN;
+			pieceSymbol = ApplicationConstants.SYMBOL_WHITE_PAWN;
 			direction = -1;
 			defaultRow = 6;
 		}

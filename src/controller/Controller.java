@@ -11,6 +11,10 @@ public class Controller extends Supercontroller implements IActionlist {
 	public static void init(ISupercontroller frame) {
 		superinit(frame);
 	}
+	
+	public static void exit() {
+		((ApplicationFrame)ui).exit();
+	}
 
 	public static boolean canIMoveTo(int column, int row) {
 		if(OutOfBoardFilter.isOutOfBoard(column, row))
@@ -46,6 +50,18 @@ public class Controller extends Supercontroller implements IActionlist {
 		else
 			return ((ApplicationFrame)ui).canICapture(toColumn, toRow);
 	}
+
+	public static void checkMate() {
+		((ApplicationFrame)ui).checkMate();
+	}
+
+	public static String whoWon() {
+		return ((ApplicationFrame)ui).whoWon();
+	}
 	
+	/*ndhsjafbvhsdavhdvfgdsvgfvdhgfvdavfgdsfds
+	 * gdagfsdgdsjgghfdkgbjlfnfdsg'
+	 * fdgjdsjgbhfdsbvhfdsjvbhgv
+	 */
 	
 }

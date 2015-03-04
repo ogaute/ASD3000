@@ -4,13 +4,13 @@ import controller.Controller;
 import easylib.controller.ISupercontroller;
 
 import javax.swing.*;
+
 import java.awt.*;
 
 public class ApplicationFrame extends JFrame implements ISupercontroller {
 
 
 	private Centerpane centerpane = null;
-
 
 	public ApplicationFrame() {
 		Controller.init(this);
@@ -71,5 +71,13 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 		return centerpane.canICapture(toColumn, toRow);
 	}
 
+	public void checkMate() {
+		new GameOverDialog(this);
+	}
+
+	public String whoWon() {
+		return centerpane.whoWon();
+	}
+	
 
 }

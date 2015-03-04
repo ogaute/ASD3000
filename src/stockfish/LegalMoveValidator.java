@@ -1,6 +1,6 @@
 package stockfish;
 
-import gui.Marshalling;
+import gui.ApplicationConstants;
 
 public class LegalMoveValidator {
 
@@ -13,7 +13,7 @@ public class LegalMoveValidator {
 
 	public boolean isLegalForStockfish(int column, int row, String FENSymbol){
 		boolean isLegal = false;
-		String coordinate = Marshalling.CHESSCOORDINATES[row][column];
+		String coordinate = ApplicationConstants.CHESSCOORDINATES[row][column];
 		String[] splitedLegalMoves = legalMovesFromStockfish.split(" ");
 		
 		for (int i = 0; i < splitedLegalMoves.length; i++) {
@@ -39,7 +39,7 @@ public class LegalMoveValidator {
 	// Sjekker om Bonde kan slå til siden
 	public boolean isPawnCaptureLegalForStockfish(int column, int row){
 		boolean isLegal = false;
-		String coordinate = Marshalling.CHESSCOORDINATES[row][column];
+		String coordinate = ApplicationConstants.CHESSCOORDINATES[row][column];
 		String[] splitedLegalMoves = legalMovesFromStockfish.split(" ");
 		
 		for (int i = 0; i < splitedLegalMoves.length; i++) {

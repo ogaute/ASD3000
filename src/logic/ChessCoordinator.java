@@ -1,32 +1,28 @@
 package logic;
 
 import gui.ChessBoard;
-import gui.Marshalling;
+import gui.ApplicationConstants;
 import gui.Square;
 import gui.pieceGui.Piece;
 import stockfish.FENgenerator;
 import stockfish.LegalMoveValidator;
-import stockfish.StockFishObservable;
-
 import java.util.Observable;
 import java.util.Observer;
+import controller.Controller;
 
 public class ChessCoordinator implements Observer {
 
 
 	private Square[][] squareList;
 	private Square lastPressedSquare;
-	private String playerInTurn = Marshalling.WHITE;
 	private String legalMovesFromStockfish = "";
 	private LegalMoveValidator legalMoveValidator = new LegalMoveValidator();
-	private FENgenerator fenGenerator = new FENgenerator(); //observer
-	private StockFishObservable stockFishObservable; //observer
+	private FENgenerator fenGenerator; //observer
+	private PlayerCoordinator playerCoordinator = new PlayerCoordinator();
 	
 	public ChessCoordinator(ChessBoard board) {
 		squareList = board.addPieces();
-		stockFishObservable = new StockFishObservable(); //observer
-        fenGenerator.addObserver(stockFishObservable); //observer
-        stockFishObservable.addObserver(this); //observer
+		fenGenerator = new FENgenerator(this);
         fenGenerator.generateFEN(squareList);
 	}
 
@@ -50,8 +46,8 @@ public class ChessCoordinator implements Observer {
 	}
 	
 	public void resetSquares(){
-		for (int row = 0; row <= Marshalling.NUMCOLUMNS; row++) {
-			for (int column = 0; column <= Marshalling.NUMROWS; column++) {
+		for (int row = 0; row <= ApplicationConstants.NUMCOLUMNS; row++) {
+			for (int column = 0; column <= ApplicationConstants.NUMROWS; column++) {
 				squareList[column][row].setLegalSquare(false);
 			}
 		}
@@ -71,22 +67,27 @@ public class ChessCoordinator implements Observer {
 	}
 	
 	public String whoIsInTurn(){
-		return playerInTurn;
+		return playerCoordinator.whoIsInTurn();
 	}
 	
 	public void changePlayerInTurn(){
-		playerInTurn = (playerInTurn == Marshalling.WHITE) ? Marshalling.BLACK : Marshalling.WHITE;
+		playerCoordinator.changePlayerInTurn();
 		fenGenerator.generateFEN(squareList);
 	}
 
 	@Override
 	public void update(Observable arg0, Object stockFishInfo) {
 		legalMovesFromStockfish = ((String[])stockFishInfo)[2];
-		if(legalMovesFromStockfish == null || legalMovesFromStockfish.equals("")){
-			
+		String trimedLegalMoves = legalMovesFromStockfish.replaceAll("\\s+","");
+		if(trimedLegalMoves == null || trimedLegalMoves.equals("") || trimedLegalMoves.endsWith(" ")){
+			Controller.checkMate();
 		}
 		legalMoveValidator.setlegalMovesFromStockfish(legalMovesFromStockfish);
 		System.out.println(legalMovesFromStockfish);
+	}
+
+	public String whoWon() {
+		return playerCoordinator.whoWon();
 	}
 
 

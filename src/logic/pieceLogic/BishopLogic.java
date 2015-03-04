@@ -1,7 +1,7 @@
 package logic.pieceLogic;
 
 import controller.Controller;
-import gui.Marshalling;
+import gui.ApplicationConstants;
 
 public class BishopLogic extends PieceLogic{
 
@@ -14,11 +14,11 @@ public class BishopLogic extends PieceLogic{
 	}
 	
 	private void setPieceProperties(){
-		if(pieceColor == Marshalling.BLACK){
-			pieceSymbol = Marshalling.SYMBOLBLACKBISHOP;
+		if(pieceColor == ApplicationConstants.BLACK){
+			pieceSymbol = ApplicationConstants.SYMBOL_BLACK_BISHOP;
 		}
 		else {
-			pieceSymbol = Marshalling.SYMBOLWHITEBISHOP;
+			pieceSymbol = ApplicationConstants.SYMBOL_WHITE_BISHOP;
 		}
 	}
 

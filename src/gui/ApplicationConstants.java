@@ -3,24 +3,24 @@ package gui;
 import gui.pieceGui.*;
 
 
-public interface Marshalling {
+public interface ApplicationConstants {
 
 
 	String WHITE  = "hvit";
 	String BLACK = "svart";
 
-    String SYMBOLBLACKROOK = "r";
-    String SYMBOLWHITEROOK = "R";
-    String SYMBOLBLACKKING = "k";
-    String SYMBOLWHITEKING = "K";
-    String SYMBOLBLACKBISHOP ="b";
-    String SYMBOLWHITEBISHOP ="B";
-    String SYMBOLBLACKKNIGHT ="n";
-    String SYMBOLWHITEKNIGHT ="N";
-    String SYMBOLBLACKQUEEN ="q";
-    String SYMBOLWHITEQUEEN ="Q";
-    String SYMBOLBLACKPAWN ="p";
-    String SYMBOLWHITEPAWN ="P";
+    String SYMBOL_BLACK_ROOK = "r";
+    String SYMBOL_WHITE_ROOK = "R";
+    String SYMBOL_BLACK_KING = "k";
+    String SYMBOL_WHITE_KING = "K";
+    String SYMBOL_BLACK_BISHOP = "b";
+    String SYMBOL_WHITE_BISHOP = "B";
+    String SYMBOL_BLACK_KNIGHT = "n";
+    String SYMBOL_WHITE_KNIGHT = "N";
+    String SYMBOL_BLACK_QUEEN = "q";
+    String SYMBOL_WHITE_QUEEN = "Q";
+    String SYMBOL_BLACK_PAWN = "p";
+    String SYMBOL_WHITE_PAWN = "P";
 	
 	/*0 til 7, antall 8*/
 	int NUMCOLUMNS = 7;
@@ -52,5 +52,10 @@ public interface Marshalling {
 			{"a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1"}
 	};
 
+	/*hdszvhgxvhgxhgdzvhdzhgdsxzzvdb
+	 * dxzvxdvxafd
+	 * vzdgvfdvbdfbgfsfsg
+	 */
+	
 
 }

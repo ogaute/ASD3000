@@ -84,4 +84,8 @@ public class Centerpane extends JPanel {
 		return coordinator.canICapture(toColumn, toRow);
 	}
 
+	public String whoWon() {
+		return coordinator.whoWon();
+	}
+
 }

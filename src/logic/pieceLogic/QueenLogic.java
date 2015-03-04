@@ -1,7 +1,7 @@
 package logic.pieceLogic;
 
 import controller.Controller;
-import gui.Marshalling;
+import gui.ApplicationConstants;
 
 public class QueenLogic extends PieceLogic{
 
@@ -14,11 +14,11 @@ public class QueenLogic extends PieceLogic{
 	}
 
 	private void setPieceProperties(){
-		if(pieceColor == Marshalling.BLACK){
-			pieceSymbol = Marshalling.SYMBOLBLACKQUEEN;
+		if(pieceColor == ApplicationConstants.BLACK){
+			pieceSymbol = ApplicationConstants.SYMBOL_BLACK_QUEEN;
 		}
 		else {
-			pieceSymbol = Marshalling.SYMBOLWHITEQUEEN;
+			pieceSymbol = ApplicationConstants.SYMBOL_WHITE_QUEEN;
 		}
 	}
 	
