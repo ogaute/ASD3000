@@ -59,9 +59,5 @@ public class Controller extends Supercontroller implements IActionlist {
 		return ((ApplicationFrame)ui).whoWon();
 	}
 	
-	/*ndhsjafbvhsdavhdvfgdsvgfvdhgfvdavfgdsfds
-	 * gdagfsdgdsjgghfdkgbjlfnfdsg'
-	 * fdgjdsjgbhfdsbvhfdsjvbhgv
-	 */
 	
 }
