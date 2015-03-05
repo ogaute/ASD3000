@@ -48,11 +48,20 @@ public class BoardHistory {
 	}
 
 	private void setEnableOnUndo() {
+		if(listIndex == (careTaker.length() - 1)){
+			Controller.setRedoEnable(false);
+		}
+		else{
+			Controller.setRedoEnable(true);
+		}
+	
 		if(listIndex == 0){
 			Controller.setUndoEnable(false);
+			Controller.setRedoEnable(false);
 		}
-		else
+		else{
 			Controller.setUndoEnable(true);
+		}
 	}
 	
 	public void undo(){
@@ -73,11 +82,13 @@ public class BoardHistory {
 	}
 	
 	public void redo(){
-		listIndex++;
+		if((careTaker.length()- 1) > listIndex)
+			listIndex++;
 		if (indexFilter(listIndex)) {
 			originator.setState(careTaker.get(listIndex).getState());
 			board.removePieces();
 			board.changeGameState(originator.getState());
+			setEnableOnUndo();
 		}
 	}
 	

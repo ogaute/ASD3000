@@ -63,9 +63,6 @@ public class Controller extends Supercontroller implements IActionlist {
 	public static String whoWon() {
 		return ((ApplicationFrame)ui).whoWon();
 	}
-	public static void test(){
-		
-	}
 
 	public static void undoMove() {
 		((ApplicationFrame)ui).undoMove();
@@ -78,5 +75,10 @@ public class Controller extends Supercontroller implements IActionlist {
 	public static void setRedoEnable(boolean b) {
 		((ApplicationFrame)ui).setRedoEnable(b);
 	}
+
+	public static void redoMove() {
+		((ApplicationFrame)ui).redoMove();
+	}
+
 	
 }

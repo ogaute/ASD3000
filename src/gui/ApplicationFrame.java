@@ -92,6 +92,10 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 	public void setRedoEnable(boolean b) {
 		eastpane.setRedoEnable(b);
 	}
+
+	public void redoMove() {
+		centerpane.redoMove();
+	}
 	
 
 }

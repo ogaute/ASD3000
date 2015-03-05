@@ -16,6 +16,6 @@ public class ARedo extends SuperAction {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		Controller.undoMove();
+		Controller.redoMove();
 	}
 }
