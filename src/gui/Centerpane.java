@@ -88,4 +88,8 @@ public class Centerpane extends JPanel {
 		return coordinator.whoWon();
 	}
 
+	public void undoMove() {
+		coordinator.undoMove();
+	}
+
 }

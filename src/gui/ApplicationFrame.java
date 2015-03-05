@@ -11,15 +11,17 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
 
 	private Centerpane centerpane = null;
+	private Eastpane eastpane = null;
 
 	public ApplicationFrame() {
 		Controller.init(this);
 		setTitle("Chessgame");
 		setLayout(new BorderLayout());
-		add(centerpane = new Centerpane());
+		add(eastpane = new Eastpane(), BorderLayout.EAST);
+		add(centerpane = new Centerpane(), BorderLayout.CENTER);
 		setJMenuBar(new MenuController());
 		setLocationByPlatform(true);
-		setSize(800,800);
+		setSize(1000,800);
 		setVisible(true);
 		setResizable(false);
     }
@@ -77,6 +79,18 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
 	public String whoWon() {
 		return centerpane.whoWon();
+	}
+
+	public void undoMove() {
+		centerpane.undoMove();
+	}
+
+	public void setUndoEnable(boolean b) {
+		eastpane.setUndoEnable(b);
+	}
+
+	public void setRedoEnable(boolean b) {
+		eastpane.setRedoEnable(b);
 	}
 	
 

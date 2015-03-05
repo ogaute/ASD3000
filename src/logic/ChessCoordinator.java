@@ -19,11 +19,14 @@ public class ChessCoordinator implements Observer {
 	private LegalMoveValidator legalMoveValidator = new LegalMoveValidator();
 	private FENgenerator fenGenerator; //observer
 	private PlayerCoordinator playerCoordinator = new PlayerCoordinator();
+	private BoardHistory boardController;
 	
 	public ChessCoordinator(ChessBoard board) {
 		squareList = board.addPieces();
 		fenGenerator = new FENgenerator(this);
         fenGenerator.generateFEN(squareList);
+        boardController = new BoardHistory(board, squareList);
+		boardController.saveState();
 	}
 
 	public boolean canIMoveTo(int column, int row) {
@@ -60,6 +63,7 @@ public class ChessCoordinator implements Observer {
 		lastPressedSquare.repaint();
 		squareList[column][row].repaint();
 		resetSquares();
+		boardController.saveState();
 	}
 
 	public void setLastPressed(int column, int row) {
@@ -88,6 +92,10 @@ public class ChessCoordinator implements Observer {
 
 	public String whoWon() {
 		return playerCoordinator.whoWon();
+	}
+
+	public void undoMove() {
+		boardController.undo();
 	}
 
 

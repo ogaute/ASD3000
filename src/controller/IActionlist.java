@@ -1,5 +1,7 @@
 package controller;
 
+import easylib.controller.Usecase;
+
 /*
  * Det er behov for en lett tilgjengelig liste 
  * over brukstilfeller og ikoner
@@ -14,5 +16,6 @@ package controller;
  */
 
 interface IActionlist {
-
+	Usecase UNDO = new Usecase("tilbake", null);
+	Usecase REDO = new Usecase("fremover", null);
 }

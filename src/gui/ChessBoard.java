@@ -54,16 +54,29 @@ public class ChessBoard extends JPanel {
 		}
 	}
 	
-	public Square[][] changeGameState(Square[][] savedSquareList){
+	public void removePieces(){
+		System.out.println("remover");
 		for (int row = 0; row <= ApplicationConstants.NUMROWS; row++) {
 			for (int column = 0; column <= ApplicationConstants.NUMCOLUMNS; column++) {
-				Piece pieceToAdd = savedSquareList[column][row].getPiece();
+				if(squareList[column][row].hasChild()){
+					squareList[column][row].removeAll();
+				}
+			}
+		}
+		updateUI();
+	}
+	
+	public Square[][] changeGameState(Piece[][] savedPieceList){
+		System.out.println("forandrer");
+		for (int row = 0; row <= ApplicationConstants.NUMROWS; row++) {
+			for (int column = 0; column <= ApplicationConstants.NUMCOLUMNS; column++) {
+				Piece pieceToAdd = savedPieceList[column][row];
 				if(pieceToAdd != null){
 					squareList[column][row].add(pieceToAdd);
 				}
 			}
 		}
-
+		updateUI();
 		return squareList;
 	}
 

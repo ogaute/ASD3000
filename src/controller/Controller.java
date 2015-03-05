@@ -1,15 +1,20 @@
 package controller;
 
 import easylib.controller.ISupercontroller;
+import easylib.controller.SuperAction;
 import easylib.controller.Supercontroller;
 import gui.ApplicationFrame;
 import logic.OutOfBoardFilter;
 
 public class Controller extends Supercontroller implements IActionlist {
 
+	public static SuperAction actionundo;
+	public static SuperAction actionredo;
 
 	public static void init(ISupercontroller frame) {
 		superinit(frame);
+		actionundo = new AUndo(UNDO);
+		actionredo = new ARedo(REDO);
 	}
 	
 	public static void exit() {
@@ -60,6 +65,18 @@ public class Controller extends Supercontroller implements IActionlist {
 	}
 	public static void test(){
 		
+	}
+
+	public static void undoMove() {
+		((ApplicationFrame)ui).undoMove();
+	}
+
+	public static void setUndoEnable(boolean b) {
+		((ApplicationFrame)ui).setUndoEnable(b);
+	}
+	
+	public static void setRedoEnable(boolean b) {
+		((ApplicationFrame)ui).setRedoEnable(b);
 	}
 	
 }
