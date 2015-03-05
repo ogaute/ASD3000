@@ -57,7 +57,6 @@ public class BoardHistory {
 	
 		if(listIndex == 0){
 			Controller.setUndoEnable(false);
-			Controller.setRedoEnable(false);
 		}
 		else{
 			Controller.setUndoEnable(true);
@@ -88,6 +87,11 @@ public class BoardHistory {
 			originator.setState(careTaker.get(listIndex).getState());
 			board.removePieces();
 			board.changeGameState(originator.getState());
+			Controller.changePlayerInTurn();
+			System.out.println("BoardListory" + 
+					" index " + listIndex +
+					" størrelsen er " + careTaker.length() +
+					" Listen: " + originator.getState());
 			setEnableOnUndo();
 		}
 	}

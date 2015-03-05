@@ -23,6 +23,7 @@ public class Eastpane extends JPanel{
 		undo = new JButton("Undo");
 		undo.addActionListener(Controller.actionundo);
 		redo = new JButton("Redo");
+		redo.addActionListener(Controller.actionredo);
 		add(undo);
 		add(redo);
 	}

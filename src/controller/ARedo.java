@@ -16,6 +16,7 @@ public class ARedo extends SuperAction {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		System.out.println("redo");
 		Controller.redoMove();
 	}
 }
