@@ -36,7 +36,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
     }
 
     public void about() {
-        JOptionPane.showMessageDialog(this, "Chessie 1.0 RC Client");
+        JOptionPane.showMessageDialog(this, "Chessie 1.1 RC Client");
 	}
 
     @Override
