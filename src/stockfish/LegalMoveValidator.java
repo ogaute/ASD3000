@@ -18,7 +18,7 @@ public class LegalMoveValidator {
 		
 		for (int i = 0; i < splitedLegalMoves.length; i++) {
 			// Validerer lovlige trekk for bonde i spillets stilling
-			if(splitedLegalMoves[i].matches("[a-h x]*[a-h][1-8][=]*[Q]*[+#]*") && FENSymbol.equals("P")){
+			if(splitedLegalMoves[i].matches("[a-h]*[a-h][1-8][=]*[Q]*[+#]*") && FENSymbol.equals("P")){
 				if(splitedLegalMoves[i].contains(coordinate)){
 					isLegal = true;
 					break;

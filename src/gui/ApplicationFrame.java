@@ -96,6 +96,9 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 	public void redoMove() {
 		centerpane.redoMove();
 	}
-	
 
+
+    public void addFenInfo(String fen) {
+        eastpane.addFenInfo(fen);
+    }
 }

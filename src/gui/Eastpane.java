@@ -1,12 +1,11 @@
 package gui;
 
-import java.awt.Dimension;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
+import javax.swing.*;
+import javax.swing.text.Document;
 import javax.swing.undo.UndoableEdit;
 
 import controller.Controller;
@@ -16,16 +15,38 @@ public class Eastpane extends JPanel{
 	
 	private JButton undo;
 	private JButton redo;
+    private JTextArea infobox;
+    private String infoText;
+
 	
 	public Eastpane() {
-		// info.setSize(200, 800);
-		setPreferredSize(new Dimension(200, 800));
-		undo = new JButton("Undo");
-		undo.addActionListener(Controller.actionundo);
-		redo = new JButton("Redo");
-		redo.addActionListener(Controller.actionredo);
-		add(undo);
-		add(redo);
+        setLayout(new BorderLayout());
+        setPreferredSize(new Dimension(200, 800));
+
+        undo = new JButton("Undo");
+        undo.addActionListener(Controller.actionundo);
+        redo = new JButton("Redo");
+        redo.addActionListener(Controller.actionredo);
+        infobox = new JTextArea();
+        JScrollPane jScrollPane = new JScrollPane(infobox);
+        infobox.setSize(180,200);
+        infobox.setVisible(true);
+        infobox.setEditable(false);
+        infobox.setText(infoText);
+
+        JPanel northpanel = new JPanel();
+        JPanel southpanel = new JPanel(new BorderLayout());
+        northpanel.add(undo);
+        northpanel.add(redo);
+
+
+        southpanel.add(jScrollPane);
+        add(northpanel, BorderLayout.NORTH);
+        add(southpanel,BorderLayout.CENTER);
+
+
+
+
 	}
 	
 	public void setUndoEnable(boolean enable){
@@ -37,4 +58,7 @@ public class Eastpane extends JPanel{
 	}
 
 
+    public void addFenInfo(String fen) {
+        infobox.append(fen + "\n");
+    }
 }

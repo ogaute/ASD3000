@@ -80,5 +80,8 @@ public class Controller extends Supercontroller implements IActionlist {
 		((ApplicationFrame)ui).redoMove();
 	}
 
-	
+
+    public static void addFenInfo(String fen) {
+        ((ApplicationFrame)ui).addFenInfo(fen);
+    }
 }
