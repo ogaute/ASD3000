@@ -18,8 +18,8 @@ public class LegalMoveValidator {
 
         for (String splitedLegalMove : splitedLegalMoves) {
             // Validerer lovlige trekk for bonde i spillets stilling
-            if (splitedLegalMove.matches("[a-h]*[a-h][1-8][=]*[QRNB]*[+#]*") && FENSymbol.equals("P")) {
-                if (splitedLegalMove.contains(coordinate)) {
+            if (splitedLegalMove.matches("[a-h]*[a-h][1-8][=]*[QRNB]*[+#]*") && FENSymbol.equals("P")) {     
+            	if (splitedLegalMove.contains(coordinate)) {
                     isLegal = true;
                     break;
                 }
