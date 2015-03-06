@@ -12,6 +12,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
 	private Centerpane centerpane = null;
 	private Eastpane eastpane = null;
+    private MenuController menuController;
 
 	public ApplicationFrame() {
 		Controller.init(this);
@@ -19,7 +20,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 		setLayout(new BorderLayout());
 		add(eastpane = new Eastpane(), BorderLayout.EAST);
 		add(centerpane = new Centerpane(), BorderLayout.CENTER);
-		setJMenuBar(new MenuController());
+		setJMenuBar(menuController = new MenuController());
 		setLocationByPlatform(true);
 		setSize(1000,800);
 		setVisible(true);
@@ -83,12 +84,14 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 	}
 
 	public void setUndoEnable(boolean b) {
-		eastpane.setUndoEnable(b);
+        		eastpane.setUndoEnable(b);
+
 	}
 
 	public void setRedoEnable(boolean b) {
 		eastpane.setRedoEnable(b);
-	}
+
+    }
 
 	public void redoMove() {
 		centerpane.redoMove();

@@ -64,10 +64,12 @@ public class Controller extends Supercontroller implements IActionlist {
 
 	public static void setUndoEnable(boolean b) {
 		((ApplicationFrame)ui).setUndoEnable(b);
+        actionundo.setEnabled(b);
 	}
 	
 	public static void setRedoEnable(boolean b) {
 		((ApplicationFrame)ui).setRedoEnable(b);
+        actionredo.setEnabled(b);
 	}
 
 	public static void redoMove() {
