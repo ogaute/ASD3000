@@ -2,13 +2,17 @@ package logic;
 
 import gui.ChessBoard;
 import gui.ApplicationConstants;
+import gui.Chessie;
 import gui.Square;
 import gui.pieceGui.Piece;
+import gui.pieceGui.Queen;
 import stockfish.FENgenerator;
 import stockfish.LegalMoveValidator;
 import java.util.Observable;
 import java.util.Observer;
 import controller.Controller;
+
+import javax.swing.*;
 
 public class ChessCoordinator implements Observer {
 
@@ -61,8 +65,23 @@ public class ChessCoordinator implements Observer {
 		lastPressedSquare.removeAll();
 		squareList[column][row].add(lastPressedPiece);
 		lastPressedSquare.repaint();
-		squareList[column][row].repaint();
-		resetSquares();
+
+
+        if(row == 0 || row == 7){
+            if(lastPressedPiece.getFENSymbol().equals("p") && row == 7){
+                String promotionType = Controller.promotionDialog();
+                if(promotionType.equalsIgnoreCase("Queen"));
+                squareList[column][row].add(new Queen(true));
+            }
+            else if(lastPressedPiece.getFENSymbol().equals("P") && row == 0){
+                String promotionType = Controller.promotionDialog();
+                if(promotionType.equalsIgnoreCase("Queen"));
+                squareList[column][row].add(new Queen(false));
+            }
+        }
+
+        squareList[column][row].repaint();
+        resetSquares();
 		boardHistory.saveState();
 	}
 

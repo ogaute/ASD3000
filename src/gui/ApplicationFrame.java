@@ -84,13 +84,11 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 	}
 
 	public void setUndoEnable(boolean b) {
-        		eastpane.setUndoEnable(b);
-
+        eastpane.setUndoEnable(b);
 	}
 
 	public void setRedoEnable(boolean b) {
 		eastpane.setRedoEnable(b);
-
     }
 
 	public void redoMove() {
@@ -100,5 +98,9 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
     public void addFenInfo(String fen) {
         eastpane.addFenInfo(fen);
+    }
+
+    public String promotionDialog() { return new PromotionDialog().makePromotionWindow(this);
+
     }
 }

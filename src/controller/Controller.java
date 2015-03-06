@@ -80,4 +80,9 @@ public class Controller extends Supercontroller implements IActionlist {
     public static void addFenInfo(String fen) {
         ((ApplicationFrame)ui).addFenInfo(fen);
     }
+
+    public static String promotionDialog() {
+        return ((ApplicationFrame)ui).promotionDialog();
+
+    }
 }
