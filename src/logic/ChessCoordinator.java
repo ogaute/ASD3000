@@ -4,8 +4,7 @@ import gui.ChessBoard;
 import gui.ApplicationConstants;
 import gui.Chessie;
 import gui.Square;
-import gui.pieceGui.Piece;
-import gui.pieceGui.Queen;
+import gui.pieceGui.*;
 import stockfish.FENgenerator;
 import stockfish.LegalMoveValidator;
 import java.util.Observable;
@@ -70,13 +69,41 @@ public class ChessCoordinator implements Observer {
         if(row == 0 || row == 7){
             if(lastPressedPiece.getFENSymbol().equals("p") && row == 7){
                 String promotionType = Controller.promotionDialog();
-                if(promotionType.equalsIgnoreCase("Queen"));
-                squareList[column][row].add(new Queen(true));
+                if(promotionType.equalsIgnoreCase("Queen"))
+                {
+                    squareList[column][row].add(new Queen(true));
+                }
+                 if(promotionType.equalsIgnoreCase("Bishop"))
+                {
+                    squareList[column][row].add(new Bishop(true));
+                }
+                if(promotionType.equalsIgnoreCase("Rook"))
+                {
+                    squareList[column][row].add(new Rook(true));
+                }
+                if(promotionType.equalsIgnoreCase("Knight"))
+                {
+                    squareList[column][row].add(new Knight(true));
+                }
             }
             else if(lastPressedPiece.getFENSymbol().equals("P") && row == 0){
                 String promotionType = Controller.promotionDialog();
-                if(promotionType.equalsIgnoreCase("Queen"));
-                squareList[column][row].add(new Queen(false));
+                if(promotionType.equalsIgnoreCase("Queen"))
+                {
+                    squareList[column][row].add(new Queen(false));
+                }
+                if(promotionType.equalsIgnoreCase("Bishop"))
+                {
+                    squareList[column][row].add(new Bishop(false));
+                }
+                if(promotionType.equalsIgnoreCase("Rook"))
+                {
+                    squareList[column][row].add(new Rook(false));
+                }
+                if(promotionType.equalsIgnoreCase("Knight"))
+                {
+                    squareList[column][row].add(new Knight(false));
+                }
             }
         }
 
