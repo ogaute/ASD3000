@@ -23,6 +23,7 @@ public class ChessCoordinator implements Observer {
 	private FENgenerator fenGenerator; //observer
 	private PlayerCoordinator playerCoordinator = new PlayerCoordinator();
 	private BoardHistory boardHistory;
+	private Promoter promoter = new Promoter();
 	
 	public ChessCoordinator(ChessBoard board) {
 		squareList = board.addPieces();
@@ -65,47 +66,8 @@ public class ChessCoordinator implements Observer {
 		squareList[column][row].add(lastPressedPiece);
 		lastPressedSquare.repaint();
 
-
-        if(row == 0 || row == 7){
-            if(lastPressedPiece.getFENSymbol().equals("p") && row == 7){
-                String promotionType = Controller.promotionDialog();
-                if(promotionType.equalsIgnoreCase("Queen"))
-                {
-                    squareList[column][row].add(new Queen(true));
-                }
-                 if(promotionType.equalsIgnoreCase("Bishop"))
-                {
-                    squareList[column][row].add(new Bishop(true));
-                }
-                if(promotionType.equalsIgnoreCase("Rook"))
-                {
-                    squareList[column][row].add(new Rook(true));
-                }
-                if(promotionType.equalsIgnoreCase("Knight"))
-                {
-                    squareList[column][row].add(new Knight(true));
-                }
-            }
-            else if(lastPressedPiece.getFENSymbol().equals("P") && row == 0){
-                String promotionType = Controller.promotionDialog();
-                if(promotionType.equalsIgnoreCase("Queen"))
-                {
-                    squareList[column][row].add(new Queen(false));
-                }
-                if(promotionType.equalsIgnoreCase("Bishop"))
-                {
-                    squareList[column][row].add(new Bishop(false));
-                }
-                if(promotionType.equalsIgnoreCase("Rook"))
-                {
-                    squareList[column][row].add(new Rook(false));
-                }
-                if(promotionType.equalsIgnoreCase("Knight"))
-                {
-                    squareList[column][row].add(new Knight(false));
-                }
-            }
-        }
+		if(promoter.isItTimeForPromotion(row, lastPressedPiece.getFENSymbol()))
+			squareList[column][row].add(promoter.getPromoted(lastPressedPiece.getFENSymbol()));
 
         squareList[column][row].repaint();
         resetSquares();
