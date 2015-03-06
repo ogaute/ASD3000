@@ -66,7 +66,7 @@ public class ChessBoard extends JPanel {
 		updateUI();
 	}
 	
-	public Square[][] changeGameState(Piece[][] savedPieceList){
+	public void changeGameState(Piece[][] savedPieceList){
 		System.out.println("forandrer");
 		for (int row = 0; row <= ApplicationConstants.NUMROWS; row++) {
 			for (int column = 0; column <= ApplicationConstants.NUMCOLUMNS; column++) {
@@ -77,7 +77,6 @@ public class ChessBoard extends JPanel {
 			}
 		}
 		updateUI();
-		return squareList;
 	}
 
 

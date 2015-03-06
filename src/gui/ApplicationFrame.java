@@ -39,10 +39,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
         JOptionPane.showMessageDialog(this, "Chessie 1.1 RC Client");
 	}
 
-    @Override
-	public void repaint() {
-		super.repaint();
-	}
+
 
     // CoR meldingsstier
 	public boolean canIMoveTo(int column, int row) {

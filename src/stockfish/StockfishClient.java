@@ -63,7 +63,7 @@ public class StockfishClient {
 	 * @return Raw output from Stockfish
 	 */
 	public String getOutput(int waitTime) {
-		StringBuffer buffer = new StringBuffer();
+		StringBuilder buffer = new StringBuilder();
 		try {
 			Thread.sleep(waitTime);
 			sendCommand("isready");
@@ -105,6 +105,7 @@ public class StockfishClient {
 			processReader.close();
 			processWriter.close();
 		} catch (IOException e) {
+            System.out.println("Stop Engien !!! ");
 		}
 	}
 

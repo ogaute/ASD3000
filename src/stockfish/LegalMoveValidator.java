@@ -15,24 +15,24 @@ public class LegalMoveValidator {
 		boolean isLegal = false;
 		String coordinate = ApplicationConstants.CHESSCOORDINATES[row][column];
 		String[] splitedLegalMoves = legalMovesFromStockfish.split(" ");
-		
-		for (int i = 0; i < splitedLegalMoves.length; i++) {
-			// Validerer lovlige trekk for bonde i spillets stilling
-			if(splitedLegalMoves[i].matches("[a-h]*[a-h][1-8][=]*[Q]*[+#]*") && FENSymbol.equals("P")){
-				if(splitedLegalMoves[i].contains(coordinate)){
-					isLegal = true;
-					break;
-				}
-			}
+
+        for (String splitedLegalMove : splitedLegalMoves) {
+            // Validerer lovlige trekk for bonde i spillets stilling
+            if (splitedLegalMove.matches("[a-h]*[a-h][1-8][=]*[Q]*[+#]*") && FENSymbol.equals("P")) {
+                if (splitedLegalMove.contains(coordinate)) {
+                    isLegal = true;
+                    break;
+                }
+            }
             // Validerer lovlige trekk for offiserer i spillets stilling
-            else if(splitedLegalMoves[i].matches("[BKNRQ][x]*[a-h][1-8][+#]*")){
-				if(splitedLegalMoves[i].contains(FENSymbol)&& splitedLegalMoves[i].contains(coordinate) ){
-					isLegal = true;
-					break;
-				}
-			}
-			
-		}
+            else if (splitedLegalMove.matches("[BKNRQ][x]*[a-h][1-8][+#]*")) {
+                if (splitedLegalMove.contains(FENSymbol) && splitedLegalMove.contains(coordinate)) {
+                    isLegal = true;
+                    break;
+                }
+            }
+
+        }
 		
 		return isLegal;
 	}
@@ -41,16 +41,16 @@ public class LegalMoveValidator {
 		boolean isLegal = false;
 		String coordinate = ApplicationConstants.CHESSCOORDINATES[row][column];
 		String[] splitedLegalMoves = legalMovesFromStockfish.split(" ");
-		
-		for (int i = 0; i < splitedLegalMoves.length; i++) {
+
+        for (String splitedLegalMove : splitedLegalMoves) {
             // Validerer lovlige trekk for bonde i spillets stilling
-            if(splitedLegalMoves[i].matches("^[a-h]{1}[x]{1}[a-h]{1}[1-8]{1}$")){
-				if( splitedLegalMoves[i].contains(coordinate) ){
-					isLegal = true;
-					break;
-				}
-			}
-		}
+            if (splitedLegalMove.matches("^[a-h]{1}[x]{1}[a-h]{1}[1-8]{1}$")) {
+                if (splitedLegalMove.contains(coordinate)) {
+                    isLegal = true;
+                    break;
+                }
+            }
+        }
 		return isLegal;
 	}
 

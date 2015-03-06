@@ -25,7 +25,7 @@ public class FENgenerator extends Observable {
         stockFishObservable.addObserver(observer); //observer
 	}
 
-	public String generateFEN(Square[][] b) {
+	public void generateFEN(Square[][] b) {
 		this.boardPositions = b;
 		StringBuilder stringBuilder = new StringBuilder();
 		int sumNumbers = 0;
@@ -55,7 +55,7 @@ public class FENgenerator extends Observable {
 			stringBuilder.append(" " + 'w');
 			firstMove = false;
 		}
-		else if(Controller.getPlayerInTurn() == ApplicationConstants.WHITE){
+		else if(Controller.getPlayerInTurn().equals(ApplicationConstants.WHITE)){
 			stringBuilder.append(" " + 'w');
 		}
 		else{
@@ -68,7 +68,7 @@ public class FENgenerator extends Observable {
 		stringBuilder.append(" " + fullMoveCounter);
 		setValue(stringBuilder.toString());
 
-		return stringBuilder.toString();
+
 	}
 
 	public void setValue(String fen){

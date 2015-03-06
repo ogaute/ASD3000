@@ -1,13 +1,7 @@
 package gui;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.*;
-import javax.swing.text.Document;
-import javax.swing.undo.UndoableEdit;
-
 import controller.Controller;
 
 public class Eastpane extends JPanel{
@@ -16,7 +10,7 @@ public class Eastpane extends JPanel{
 	private JButton undo;
 	private JButton redo;
     private JTextArea infobox;
-    private String infoText;
+    private String infoText = "";
 
 	
 	public Eastpane() {

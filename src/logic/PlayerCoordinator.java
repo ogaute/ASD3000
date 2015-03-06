@@ -11,11 +11,11 @@ public class PlayerCoordinator {
 	}
 	
 	public String whoWon(){
-		return (playerInTurn == ApplicationConstants.WHITE) ? ApplicationConstants.BLACK : ApplicationConstants.WHITE;
+		return (playerInTurn.equals(ApplicationConstants.WHITE)) ? ApplicationConstants.BLACK : ApplicationConstants.WHITE;
 	}
 	
 	public void changePlayerInTurn(){
-		playerInTurn = (playerInTurn == ApplicationConstants.WHITE) ? ApplicationConstants.BLACK : ApplicationConstants.WHITE;
+		playerInTurn = (playerInTurn.equals(ApplicationConstants.WHITE)) ? ApplicationConstants.BLACK : ApplicationConstants.WHITE;
 	}
 
 }

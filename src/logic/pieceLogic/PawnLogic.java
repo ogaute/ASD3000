@@ -17,7 +17,7 @@ class PawnLogic extends PieceLogic implements PieceMessage{
 	}
 	
 	private void setPieceProperties(){
-		if(pieceColor == ApplicationConstants.BLACK){
+		if(pieceColor.equals(ApplicationConstants.BLACK)){
 			pieceSymbol = ApplicationConstants.SYMBOL_BLACK_PAWN;
 			direction = 1;
 			defaultRow = 1;
@@ -34,7 +34,7 @@ class PawnLogic extends PieceLogic implements PieceMessage{
 	public void pressed(int column, int row) {
 		if(pieceColor.equals(Controller.getPlayerInTurn())){
 			int toColumn = column;
-			int toRow = row + 1*direction;
+			int toRow = row + direction;
 			Controller.canIMoveTo(toColumn, toRow);
 			
 			if(row == defaultRow){
@@ -43,17 +43,17 @@ class PawnLogic extends PieceLogic implements PieceMessage{
 			}
 			
 			toColumn = column - 1;
-			toRow = row + 1*direction;
+			toRow = row + direction;
 			Controller.canICapture(toColumn, toRow);
 			
 			toColumn = column + 1;
-			toRow = row + 1*direction;
+			toRow = row + direction;
 			Controller.canICapture(toColumn, toRow);
 			
-			if(row == passantRow){
+			//if(row == passantRow){
 				//Controller.enPassant(coumn+1, row+direction);
 				//Controller.enPassant(coumn-1, row+direction);
-			}
+			//}
 
 		}
 	}

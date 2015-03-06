@@ -15,7 +15,7 @@ class KnightLogic extends PieceLogic implements PieceMessage{
 	}
 	
 	private void setPieceProperties(){
-		if(pieceColor == ApplicationConstants.BLACK){
+		if(pieceColor.equals(ApplicationConstants.BLACK)){
 			pieceSymbol = ApplicationConstants.SYMBOL_BLACK_KNIGHT;
 		}
 		else {

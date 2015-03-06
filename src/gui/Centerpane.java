@@ -9,7 +9,6 @@ import java.awt.*;
 public class Centerpane extends JPanel {
 	
 	private ChessCoordinator coordinator;
-	JPanel boardPanel;
 	JPanel southCoordinates;
 	JPanel eastCoordinates;
 	JPanel northCoordinates;

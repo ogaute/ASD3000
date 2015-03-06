@@ -27,16 +27,16 @@ public class King extends Piece{
 		}
 	}
 	
-	public static King getWhiteKingInstance(boolean isBlack){
-		if (!isBlack && num_white_king == 0){
-			whiteKing = new King(isBlack);
+	public static King getWhiteKingInstance(){
+		if (num_white_king == 0){
+			whiteKing = new King(false);
 		}
 		return whiteKing;
 	}
 	
-	public static King getBlackKingInstance(boolean isBlack){
-		if (isBlack && num_black_king == 0){
-			blackKing = new King(isBlack);
+	public static King getBlackKingInstance(){
+		if (num_black_king == 0){
+			blackKing = new King(true);
 		}
 		return blackKing;
 	}

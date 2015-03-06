@@ -27,7 +27,7 @@ public interface ApplicationConstants {
 	int NUMROWS = 7;
 	
 	Piece[][] MARSHALLING = {
-			{new Rook(true), new Knight(true), new Bishop(true), new Queen(true), King.getBlackKingInstance(true), new Bishop(true), new Knight(true), new Rook(true)},
+			{new Rook(true), new Knight(true), new Bishop(true), new Queen(true), King.getBlackKingInstance(), new Bishop(true), new Knight(true), new Rook(true)},
 			{new Pawn(true), new Pawn(true), new Pawn(true), new Pawn(true), new Pawn(true), new Pawn(true), new Pawn(true), new Pawn(true)},
 			
 			{null,null, null, null, null, null, null, null}, 
@@ -36,7 +36,7 @@ public interface ApplicationConstants {
 			{null,null, null, null, null, null, null, null}, 
 			
 			{new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false)},
-			{new Rook(false), new Knight(false), new Bishop(false), new Queen(false), King.getWhiteKingInstance(false), new Bishop(false), new Knight(false), new Rook(false)}
+			{new Rook(false), new Knight(false), new Bishop(false), new Queen(false), King.getWhiteKingInstance(), new Bishop(false), new Knight(false), new Rook(false)}
 	};
 	
 	String[][] CHESSCOORDINATES = {
