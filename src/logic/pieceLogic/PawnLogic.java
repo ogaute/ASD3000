@@ -3,14 +3,15 @@ package logic.pieceLogic;
 import controller.Controller;
 import gui.ApplicationConstants;
 
-public class PawnLogic extends PieceLogic{
+class PawnLogic extends PieceLogic implements PieceMessage{
 
 
 	private String pieceColor;
 	private int direction;
 	private int defaultRow;
+	private int passantRow;
 
-	public PawnLogic(String pieceColor) {
+	protected PawnLogic(String pieceColor) {
 		this.pieceColor = pieceColor;
 		setPieceProperties();
 	}
@@ -20,11 +21,13 @@ public class PawnLogic extends PieceLogic{
 			pieceSymbol = ApplicationConstants.SYMBOL_BLACK_PAWN;
 			direction = 1;
 			defaultRow = 1;
+			passantRow = 4;
 		}
 		else {
 			pieceSymbol = ApplicationConstants.SYMBOL_WHITE_PAWN;
 			direction = -1;
 			defaultRow = 6;
+			passantRow = 5;
 		}
 	}
 
@@ -46,6 +49,11 @@ public class PawnLogic extends PieceLogic{
 			toColumn = column + 1;
 			toRow = row + 1*direction;
 			Controller.canICapture(toColumn, toRow);
+			
+			if(row == passantRow){
+				//Controller.enPassant(coumn+1, row+direction);
+				//Controller.enPassant(coumn-1, row+direction);
+			}
 
 		}
 	}

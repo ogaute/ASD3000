@@ -1,20 +1,23 @@
 package gui.pieceGui;
 
-import logic.pieceLogic.PawnLogic;
+import gui.ApplicationConstants;
+import logic.pieceLogic.PieceLogicFactory;
+import logic.pieceLogic.PieceMessage;
 
 public class Pawn extends Piece {
 	
-	private PawnLogic pawnLogic;
 	
-	public Pawn(boolean isBlack, String color) {
+	private PieceMessage pawnLogic;
+	
+	public Pawn(boolean isBlack) {
 		if(isBlack){
 			setImage("img/Black_Pawn.png");
+			this.pawnLogic = new PieceLogicFactory().getPiece("PAWN", ApplicationConstants.BLACK);
 		}
 		else{
 			setImage("img/White_Pawn.png");
+			this.pawnLogic = new PieceLogicFactory().getPiece("PAWN", ApplicationConstants.WHITE);
 		}
-		this.pawnLogic = new PawnLogic(color);
-		
 	}
 
 	@Override

@@ -3,12 +3,12 @@ package logic.pieceLogic;
 import controller.Controller;
 import gui.ApplicationConstants;
 
-public class QueenLogic extends PieceLogic{
+class QueenLogic extends PieceLogic implements PieceMessage{
 
 
 	private String pieceColor;
 
-	public QueenLogic(String pieceColor) {
+	protected QueenLogic(String pieceColor) {
 		this.pieceColor = pieceColor;
 		setPieceProperties();
 	}

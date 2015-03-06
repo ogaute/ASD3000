@@ -3,12 +3,12 @@ package logic.pieceLogic;
 import controller.Controller;
 import gui.ApplicationConstants;
 
-public class RookLogic extends PieceLogic{
+class RookLogic extends PieceLogic implements PieceMessage{
 
 	
 	private String pieceColor;
 
-	public RookLogic(String pieceColor) {
+	protected RookLogic(String pieceColor) {
 		this.pieceColor = pieceColor;
 		setPieceProperties();
 	}

@@ -16,9 +16,10 @@ public abstract class PieceLogic {
 	protected final int DEFAULTSTEPS = 7;
 	protected final int KINGSTEPS = 1;
     protected String pieceSymbol;
+    private boolean canMove = false;
 
 
-    public void checkNorth(int column, int row, int steps){
+    public boolean checkNorth(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
 		
@@ -27,7 +28,7 @@ public abstract class PieceLogic {
         while(north >= 0 && iteration <= steps )
         {
 			toRow = north;
-			Controller.canIMoveTo(toColumn, toRow);
+			canMove = Controller.canIMoveTo(toColumn, toRow);
 			
 			if(OutOfBoardFilter.isOutOfBoard(toColumn, toRow))
 				break;
@@ -35,9 +36,10 @@ public abstract class PieceLogic {
         	north--;
         	iteration++;
         }
+        return canMove;
 	}
 	
-	public void checkNorthEast(int column, int row, int steps){
+	public boolean checkNorthEast(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
 		
@@ -48,7 +50,7 @@ public abstract class PieceLogic {
         {
 			toColumn = east;
 			toRow = north;
-			Controller.canIMoveTo(toColumn, toRow);
+			canMove = Controller.canIMoveTo(toColumn, toRow);
 			
 			if(OutOfBoardFilter.isOutOfBoard(toColumn, toRow))
 				break;
@@ -57,9 +59,10 @@ public abstract class PieceLogic {
         	east++;
         	iteration++;
         }
+        return canMove;
 	}
 	
-	public void checkEast(int column, int row, int steps){
+	public boolean checkEast(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
 		
@@ -68,7 +71,7 @@ public abstract class PieceLogic {
         while(east >= 0 && iteration <= steps)
         {
 			toColumn = east;
-			Controller.canIMoveTo(toColumn, toRow);
+			canMove = Controller.canIMoveTo(toColumn, toRow);
 			
 			if(OutOfBoardFilter.isOutOfBoard(toColumn, toRow))
 				break;
@@ -76,9 +79,10 @@ public abstract class PieceLogic {
         	east++;
         	iteration++;
         }
+        return canMove;
 	}
 	
-	public void checkSouthEast(int column, int row, int steps){
+	public boolean checkSouthEast(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
 		
@@ -89,7 +93,7 @@ public abstract class PieceLogic {
         {
 			toColumn = east;
 			toRow = south;
-			Controller.canIMoveTo(toColumn, toRow);
+			canMove = Controller.canIMoveTo(toColumn, toRow);
 			
 			if(OutOfBoardFilter.isOutOfBoard(toColumn, toRow))
 				break;
@@ -98,9 +102,10 @@ public abstract class PieceLogic {
         	south++;
         	iteration++;
         }
+        return canMove;
 	}
 	
-	public void checkSouth(int column, int row, int steps){
+	public boolean checkSouth(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
 		
@@ -109,7 +114,7 @@ public abstract class PieceLogic {
         while(south >= 0 && iteration <= steps)
         {
 			toRow = south;
-			Controller.canIMoveTo(toColumn, toRow);
+			canMove = Controller.canIMoveTo(toColumn, toRow);
 			
 			if(OutOfBoardFilter.isOutOfBoard(toColumn, toRow))
 				break;
@@ -117,9 +122,10 @@ public abstract class PieceLogic {
         	south++;
         	iteration++;
         }
+        return canMove;
 	}
 	
-	public void checkSouthWest(int column, int row, int steps){
+	public boolean checkSouthWest(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
 		
@@ -130,7 +136,7 @@ public abstract class PieceLogic {
         {
 			toColumn = west;
 			toRow = south;
-			Controller.canIMoveTo(toColumn, toRow);
+			canMove = Controller.canIMoveTo(toColumn, toRow);
 			
 			if(OutOfBoardFilter.isOutOfBoard(toColumn, toRow))
 				break;
@@ -139,9 +145,10 @@ public abstract class PieceLogic {
 			south++;
         	iteration++;
         }
+        return canMove;
 	}
 	
-	public void checkWest(int column, int row, int steps){
+	public boolean checkWest(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
 		
@@ -150,7 +157,7 @@ public abstract class PieceLogic {
         while(west >= 0 && iteration <= steps)
         {
 			toColumn = west;
-			Controller.canIMoveTo(toColumn, toRow);
+			canMove = Controller.canIMoveTo(toColumn, toRow);
 			
 			if(OutOfBoardFilter.isOutOfBoard(toColumn, toRow))
 				break;
@@ -158,9 +165,10 @@ public abstract class PieceLogic {
         	west--;
         	iteration++;
         }
+        return canMove;
 	}
 	
-	public void checkNorthWest(int column, int row, int steps){
+	public boolean checkNorthWest(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
 		
@@ -171,7 +179,7 @@ public abstract class PieceLogic {
         {
 			toColumn = west;
 			toRow = north;
-			Controller.canIMoveTo(toColumn, toRow);
+			canMove = Controller.canIMoveTo(toColumn, toRow);
 			
 			if(OutOfBoardFilter.isOutOfBoard(toColumn, toRow))
 				break;
@@ -180,6 +188,7 @@ public abstract class PieceLogic {
         	north--;
         	iteration++;
         }
+        return canMove;
 	}
 
     // dette er nødvendig for å generere FEN streng basert på brettets stilling

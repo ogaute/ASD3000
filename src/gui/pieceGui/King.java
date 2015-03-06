@@ -1,39 +1,42 @@
 package gui.pieceGui;
 
-import logic.pieceLogic.KingLogic;
+import gui.ApplicationConstants;
+import logic.pieceLogic.PieceLogicFactory;
+import logic.pieceLogic.PieceMessage;
 
 
 public class King extends Piece{
 	
 	
-	private KingLogic kingLogic;
+	private PieceMessage kingLogic;
 	private static int num_white_king = 0;
 	private static int num_black_king = 0;
 	private static King whiteKing = null;
 	private static King blackKing = null;
 	
-	private King(boolean isBlack, String color) {
+	private King(boolean isBlack) {
 		if(isBlack){
 			setImage("img/Black_King.png");
 			num_black_king++;
+			this.kingLogic = new PieceLogicFactory().getPiece("KING", ApplicationConstants.BLACK);
 		}
 		else{
 			setImage("img/White_King.png");
 			num_white_king++;
+			this.kingLogic = new PieceLogicFactory().getPiece("KING", ApplicationConstants.WHITE);
 		}
-		this.kingLogic = new KingLogic(color);
 	}
 	
-	public static King getWhiteKingInstance(boolean isBlack, String color){
+	public static King getWhiteKingInstance(boolean isBlack){
 		if (!isBlack && num_white_king == 0){
-			whiteKing = new King(isBlack, color);
+			whiteKing = new King(isBlack);
 		}
 		return whiteKing;
 	}
 	
-	public static King getBlackKingInstance(boolean isBlack, String color){
+	public static King getBlackKingInstance(boolean isBlack){
 		if (isBlack && num_black_king == 0){
-			blackKing = new King(isBlack, color);
+			blackKing = new King(isBlack);
 		}
 		return blackKing;
 	}

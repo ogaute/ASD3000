@@ -1,20 +1,24 @@
 package gui.pieceGui;
 
-import logic.pieceLogic.RookLogic;
+import gui.ApplicationConstants;
+import logic.pieceLogic.PieceLogicFactory;
+import logic.pieceLogic.PieceMessage;
 
 public class Rook extends Piece {
 	
-	private RookLogic rookLogic;
+	
+	private PieceMessage rookLogic;
 
-	public Rook(boolean isBlack, String color) {
+	public Rook(boolean isBlack) {
 		if(isBlack){
 			setImage("img/Black_Rook.png");
+			this.rookLogic= new PieceLogicFactory().getPiece("ROOK", ApplicationConstants.BLACK);
+			
 		}
 		else{
 			setImage("img/White_Rook.png");
+			this.rookLogic = new PieceLogicFactory().getPiece("ROOK", ApplicationConstants.WHITE);
 		}
-		this.rookLogic = new RookLogic(color);
-		
 	}
 
 	@Override
@@ -27,4 +31,5 @@ public class Rook extends Piece {
 		rookLogic.pressed(column, row);
 	}
 
+	
 }

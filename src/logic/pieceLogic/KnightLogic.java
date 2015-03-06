@@ -4,12 +4,12 @@ import controller.Controller;
 import gui.ApplicationConstants;
 import logic.OutOfBoardFilter;
 
-public class KnightLogic extends PieceLogic{
+class KnightLogic extends PieceLogic implements PieceMessage{
 
 
 	private String pieceColor;
 
-	public KnightLogic(String pieceColor) {
+	protected KnightLogic(String pieceColor) {
 		this.pieceColor = pieceColor;
 		setPieceProperties();
 	}

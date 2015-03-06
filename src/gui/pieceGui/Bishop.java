@@ -1,19 +1,23 @@
 package gui.pieceGui;
 
-import logic.pieceLogic.BishopLogic;
+import gui.ApplicationConstants;
+import logic.pieceLogic.PieceLogicFactory;
+import logic.pieceLogic.PieceMessage;
 
 public class Bishop extends Piece {
 	
-	private BishopLogic bishopLogic;
 	
-	public Bishop(boolean isBlack, String color) {
+	private PieceMessage bishopLogic;
+	
+	public Bishop(boolean isBlack) {
 		if(isBlack){
 			setImage("img/Black_Bishop.png");
+			this.bishopLogic = new PieceLogicFactory().getPiece("BISHOP", ApplicationConstants.BLACK);
 		}
 		else{
 			setImage("img/White_Bishop.png");
+			this.bishopLogic = new PieceLogicFactory().getPiece("BISHOP", ApplicationConstants.WHITE);
 		}
-		this.bishopLogic = new BishopLogic(color);
 	}
 
 	@Override
@@ -25,5 +29,6 @@ public class Bishop extends Piece {
 	public void pressed(int column, int row) {
 		bishopLogic.pressed(column, row);
 	}
+	
 	
 }

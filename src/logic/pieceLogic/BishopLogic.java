@@ -3,12 +3,12 @@ package logic.pieceLogic;
 import controller.Controller;
 import gui.ApplicationConstants;
 
-public class BishopLogic extends PieceLogic{
+class BishopLogic extends PieceLogic implements PieceMessage{
 
 
 	private String pieceColor;
 
-	public BishopLogic(String pieceColor) {
+	protected BishopLogic(String pieceColor) {
 		this.pieceColor = pieceColor;
 		setPieceProperties();
 	}

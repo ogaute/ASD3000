@@ -27,16 +27,16 @@ public interface ApplicationConstants {
 	int NUMROWS = 7;
 	
 	Piece[][] MARSHALLING = {
-			{new Rook(true, BLACK), new Knight(true, BLACK), new Bishop(true, BLACK), new Queen(true, BLACK), King.getBlackKingInstance(true, BLACK), new Bishop(true, BLACK), new Knight(true, BLACK), new Rook(true, BLACK)},
-			{new Pawn(true, BLACK), new Pawn(true, BLACK), new Pawn(true, BLACK), new Pawn(true, BLACK), new Pawn(true, BLACK), new Pawn(true, BLACK), new Pawn(true, BLACK), new Pawn(true, BLACK)},
+			{new Rook(true), new Knight(true), new Bishop(true), new Queen(true), King.getBlackKingInstance(true), new Bishop(true), new Knight(true), new Rook(true)},
+			{new Pawn(true), new Pawn(true), new Pawn(true), new Pawn(true), new Pawn(true), new Pawn(true), new Pawn(true), new Pawn(true)},
 			
 			{null,null, null, null, null, null, null, null}, 
 			{null,null, null, null, null, null, null, null}, 
 			{null,null, null, null, null, null, null, null}, 
 			{null,null, null, null, null, null, null, null}, 
 			
-			{new Pawn(false, WHITE), new Pawn(false, WHITE), new Pawn(false, WHITE), new Pawn(false, WHITE), new Pawn(false, WHITE), new Pawn(false, WHITE), new Pawn(false, WHITE), new Pawn(false, WHITE)},
-			{new Rook(false, WHITE), new Knight(false, WHITE), new Bishop(false, WHITE), new Queen(false, WHITE), King.getWhiteKingInstance(false, WHITE), new Bishop(false, WHITE), new Knight(false, WHITE), new Rook(false, WHITE)}
+			{new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false)},
+			{new Rook(false), new Knight(false), new Bishop(false), new Queen(false), King.getWhiteKingInstance(false), new Bishop(false), new Knight(false), new Rook(false)}
 	};
 	
 	String[][] CHESSCOORDINATES = {

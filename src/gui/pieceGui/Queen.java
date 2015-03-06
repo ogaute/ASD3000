@@ -1,20 +1,23 @@
 package gui.pieceGui;
 
-import logic.pieceLogic.QueenLogic;
+import gui.ApplicationConstants;
+import logic.pieceLogic.PieceLogicFactory;
+import logic.pieceLogic.PieceMessage;
 
 public class Queen extends Piece {
 	
-	private QueenLogic queenLogic;
+	
+	private PieceMessage queenLogic;
 
-	public Queen(boolean isBlack, String color) {
+	public Queen(boolean isBlack) {
 		if(isBlack){
 			setImage("img/Black_Queen.png");
+			this.queenLogic = new PieceLogicFactory().getPiece("QUEEN", ApplicationConstants.BLACK);
 		}
 		else{
 			setImage("img/White_Queen.png");
+			this.queenLogic = new PieceLogicFactory().getPiece("QUEEN", ApplicationConstants.WHITE);
 		}
-		this.queenLogic = new QueenLogic(color);
-		
 	}
 
 	@Override

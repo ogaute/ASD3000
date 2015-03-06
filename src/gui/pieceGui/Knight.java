@@ -1,20 +1,24 @@
 package gui.pieceGui;
 
-import logic.pieceLogic.KnightLogic;
+import gui.ApplicationConstants;
+import logic.pieceLogic.PieceLogicFactory;
+import logic.pieceLogic.PieceMessage;
 
 public class Knight extends Piece {
 	
-	private KnightLogic knightLogic;
+	
+	private PieceMessage knightLogic;
 
-	public Knight(boolean isBlack, String color) {
+	public Knight(boolean isBlack) {
 		super();
 		if(isBlack){
 			setImage("img/Black_Knight.png");
+			this.knightLogic = new PieceLogicFactory().getPiece("KNIGHT", ApplicationConstants.BLACK);
 		}
 		else{
 			setImage("img/White_Knight.png");
+			this.knightLogic = new PieceLogicFactory().getPiece("KNIGHT", ApplicationConstants.WHITE);
 		}
-		this.knightLogic = new KnightLogic(color);
 	}
 
 	@Override
@@ -27,4 +31,5 @@ public class Knight extends Piece {
 		knightLogic.pressed(column, row);
 	}
 
+	
 }
