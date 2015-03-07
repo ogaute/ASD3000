@@ -15,6 +15,9 @@ public class MenuController extends JMenuBar {
 
     private boolean undoEnable;
 
+    /**
+     *
+     */
     public MenuController() {
 		// Horisontal meny elements
 		MMenu file = new MMenu("Fil");
@@ -38,11 +41,18 @@ public class MenuController extends JMenuBar {
 		add(help);
 	}
 
-
+    /**
+     *
+     * @param undoEnable
+     */
     public void setUndoEnable(boolean undoEnable) {
         this.undoEnable = undoEnable;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isUndoEnable() {
         return undoEnable;
     }

@@ -9,14 +9,21 @@ public class ChessBoard extends JPanel {
 
 
 	Square[][] squareList = new Square[8][8];
-	
+
+    /**
+     *
+     */
 	public ChessBoard() {
 		setLayout(new GridLayout(8,0));
 		setPreferredSize(new Dimension(800, 800));
 		setRequestFocusEnabled(false);
 		makeBoard();
 	}
-	
+
+    /**
+     *
+     * @return
+     */
 	public Square[][] addPieces(){
         // Sorte brikker
 		for (int row = 0; row <= 1; row++) {
@@ -33,7 +40,10 @@ public class ChessBoard extends JPanel {
 		
 		return squareList;
 	}
-	
+
+    /**
+     *
+     */
 	private void makeBoard(){
 		int squareColorChanger = 0;
 		for (int row = 0; row <= ApplicationConstants.NUMROWS; row++) {
@@ -53,7 +63,10 @@ public class ChessBoard extends JPanel {
 			if(squareColorChanger == 0){ squareColorChanger = 1; } else{ squareColorChanger = 0;}
 		}
 	}
-	
+
+    /**
+     *
+     */
 	public void removePieces(){
 		System.out.println("remover");
 		for (int row = 0; row <= ApplicationConstants.NUMROWS; row++) {
@@ -65,7 +78,11 @@ public class ChessBoard extends JPanel {
 		}
 		updateUI();
 	}
-	
+
+    /**
+     *
+     * @param savedPieceList
+     */
 	public void changeGameState(Piece[][] savedPieceList){
 		System.out.println("forandrer");
 		for (int row = 0; row <= ApplicationConstants.NUMROWS; row++) {

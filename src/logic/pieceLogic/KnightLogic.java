@@ -9,11 +9,18 @@ class KnightLogic extends PieceLogic implements PieceMessage{
 
 	private String pieceColor;
 
+    /**
+     *
+     * @param pieceColor
+     */
 	protected KnightLogic(String pieceColor) {
 		this.pieceColor = pieceColor;
 		setPieceProperties();
 	}
-	
+
+    /**
+     *
+     */
 	private void setPieceProperties(){
 		if(pieceColor.equals(ApplicationConstants.BLACK)){
 			pieceSymbol = ApplicationConstants.SYMBOL_BLACK_KNIGHT;
@@ -22,7 +29,12 @@ class KnightLogic extends PieceLogic implements PieceMessage{
 			pieceSymbol = ApplicationConstants.SYMBOL_WHITE_KNIGHT;
 		}
 	}
-	
+
+    /**
+     *
+     * @param column
+     * @param row
+     */
 	public void pressed(int column, int row) {
 		if(pieceColor.equals(Controller.getPlayerInTurn())){
 			int posColumns[] = { column + 1, column + 1, column + 2, column + 2, column - 1, column - 1, column - 2, column - 2 };

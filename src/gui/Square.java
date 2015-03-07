@@ -18,6 +18,12 @@ public class Square extends JPanel implements MouseListener{
     private boolean legalSquare = false;
     private Border legalBorder = BorderFactory.createLineBorder(Color.green, 4);
 
+    /**
+     *
+     * @param c
+     * @param column
+     * @param row
+     */
 	public Square(Color c, int column, int row) {
 		setBackground(c);
 		addMouseListener(this);
@@ -25,11 +31,19 @@ public class Square extends JPanel implements MouseListener{
 		this.row = row;
 		setLayout(new BorderLayout());
 	}
-	
+
+    /**
+     *
+     * @return
+     */
 	public boolean hasChild(){
 		return hasChildren;
 	}
-	
+
+    /**
+     *
+     * @return
+     */
 	public Piece getPiece(){
 		Piece piece = null;
 		if (hasChildren) {
@@ -38,24 +52,40 @@ public class Square extends JPanel implements MouseListener{
 		return piece;
 	}
 
+    /**
+     *
+     * @param c
+     * @return
+     */
 	public Component add(Component c){
 		super.removeAll();
 		super.add(c);
 		hasChildren = true;
 		return c;
 	}
-	
+
+    /**
+     *
+     * @param c
+     */
 	public void remove(Component c){
 		super.remove(c);
 		super.removeAll();
 		hasChildren = false;
 	}
-	
+
+    /**
+     *
+     */
 	public void removeAll(){
 		super.removeAll();
 		hasChildren = false;
 	}
-	
+
+    /**
+     *
+     * @param arg0
+     */
 	@Override
 	public void mousePressed(MouseEvent arg0) {
 		Piece child = getPiece();
@@ -73,15 +103,26 @@ public class Square extends JPanel implements MouseListener{
 		
 	}
 
+    /**
+     *
+     * @return
+     */
 	public boolean isLegalSquare() {
 		return legalSquare;
 	}
 
+    /**
+     *
+     * @param b
+     */
 	public void setLegalSquare(boolean b){
 		legalSquare = b;
 		repaint();
 	}
-	
+
+    /**
+     *
+     */
 	@Override
 	public void repaint() {
 		super.repaint();
@@ -91,6 +132,12 @@ public class Square extends JPanel implements MouseListener{
 		else
 			this.setBorder(null);
 	}
+
+    /**
+     * Methods that are not in use, but must be added
+     * as a part om implementing MouseListner
+     * @param arg0
+     */
     @Override
     public void mouseReleased(MouseEvent arg0) {}
     @Override

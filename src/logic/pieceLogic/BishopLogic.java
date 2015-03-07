@@ -8,11 +8,18 @@ class BishopLogic extends PieceLogic implements PieceMessage{
 
 	private String pieceColor;
 
+    /**
+     *
+     * @param pieceColor
+     */
 	protected BishopLogic(String pieceColor) {
 		this.pieceColor = pieceColor;
 		setPieceProperties();
 	}
-	
+
+    /**
+     *
+     */
 	private void setPieceProperties(){
 		if(pieceColor.equals(ApplicationConstants.BLACK)){
 			pieceSymbol = ApplicationConstants.SYMBOL_BLACK_BISHOP;
@@ -22,6 +29,11 @@ class BishopLogic extends PieceLogic implements PieceMessage{
 		}
 	}
 
+    /**
+     *
+     * @param column
+     * @param row
+     */
 	public void pressed(int column, int row) {
 		if(pieceColor.equals(Controller.getPlayerInTurn())){
 			

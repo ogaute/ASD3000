@@ -6,7 +6,11 @@ import javax.swing.*;
  * Created by Anders Borg Larsen on 06.03.2015.
  */
 public class PromotionDialog {
-
+    /**
+     *
+     * @param app
+     * @return
+     */
     public String makePromotionWindow(JFrame app) {
         String promotionChoice = "";
         Object[] options = {"Queen", "Rook" ,"Knight","Bishop"};

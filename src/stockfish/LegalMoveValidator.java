@@ -7,10 +7,21 @@ public class LegalMoveValidator {
 	
 	private String legalMovesFromStockfish = "";
 
+    /**
+     *
+     * @param legalMovesFromStockfish
+     */
     public void setlegalMovesFromStockfish(String legalMovesFromStockfish){
 		this.legalMovesFromStockfish = legalMovesFromStockfish;
 	}
 
+    /**
+     *
+     * @param column
+     * @param row
+     * @param FENSymbol
+     * @return
+     */
 	public boolean isLegalForStockfish(int column, int row, String FENSymbol){
 		boolean isLegal = false;
 		String coordinate = ApplicationConstants.CHESSCOORDINATES[row][column];
@@ -24,6 +35,7 @@ public class LegalMoveValidator {
                     break;
                 }
             }
+
             // Validerer lovlige trekk for offiserer i spillets stilling
             else if (splitedLegalMove.matches("[BKNRQ][x]*[a-h][1-8][+#]*")) {
                 if (splitedLegalMove.contains(FENSymbol) && splitedLegalMove.contains(coordinate)) {
@@ -36,7 +48,14 @@ public class LegalMoveValidator {
 		
 		return isLegal;
 	}
-	// Sjekker om Bonde kan slå til siden
+
+    /**
+     *
+      * @param column
+     * @param row
+     * @return
+     */
+// Sjekker om Bonde kan slå til siden
 	public boolean isPawnCaptureLegalForStockfish(int column, int row){
 		boolean isLegal = false;
 		String coordinate = ApplicationConstants.CHESSCOORDINATES[row][column];

@@ -6,8 +6,11 @@ import javax.swing.JOptionPane;
 import controller.Controller;
 
 public class GameOverDialog {
-	
-	
+
+    /**
+     *
+     * @param frame
+     */
 	public GameOverDialog(JFrame frame) {
 		String player = Controller.whoWon();
 		Object[] options = {"Nytt spill", "Avslutt"};

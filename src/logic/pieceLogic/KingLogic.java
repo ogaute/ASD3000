@@ -8,11 +8,18 @@ class KingLogic extends PieceLogic implements PieceMessage{
 
 	private String pieceColor;
 
+    /**
+     *
+     * @param pieceColor
+     */
 	protected KingLogic(String pieceColor) {
 		this.pieceColor = pieceColor;
 		setPieceProperties();
 	}
-	
+
+    /**
+     *
+     */
 	private void setPieceProperties(){
 		if(pieceColor.equals(ApplicationConstants.BLACK)){
 			pieceSymbol = ApplicationConstants.SYMBOL_BLACK_KING;
@@ -21,7 +28,12 @@ class KingLogic extends PieceLogic implements PieceMessage{
 			pieceSymbol = ApplicationConstants.SYMBOL_WHITE_KING;
 		}
 	}
-	
+
+    /**
+     *
+     * @param column
+     * @param row
+     */
 	public void pressed(int column, int row) {
 		if(pieceColor.equals(Controller.getPlayerInTurn())){
 			

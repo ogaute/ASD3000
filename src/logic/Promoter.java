@@ -9,8 +9,13 @@ import gui.pieceGui.Queen;
 import gui.pieceGui.Rook;
 
 public class Promoter {
-	
-	
+
+    /**
+     *
+     * @param row
+     * @param fenSymbol
+     * @return
+     */
 	public boolean isItTimeForPromotion(int row, String fenSymbol){
 		boolean isPromotion = false;
 		if( (row == 0 || row == 7) && fenSymbol.equalsIgnoreCase(ApplicationConstants.SYMBOL_BLACK_PAWN)){
@@ -18,7 +23,12 @@ public class Promoter {
 		}
 		return isPromotion;
 	}
-	
+
+    /**
+     *
+     * @param fenSymbol
+     * @return
+     */
 	public Piece getPromoted(String fenSymbol){
 		Piece promotedPiece = null;
 		boolean isBlack = false;

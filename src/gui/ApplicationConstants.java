@@ -5,10 +5,14 @@ import gui.pieceGui.*;
 
 public interface ApplicationConstants {
 
-
+    /**
+     *
+     */
 	String WHITE  = "hvit";
 	String BLACK = "svart";
-
+    /**
+     *
+     */
     String SYMBOL_BLACK_ROOK = "r";
     String SYMBOL_WHITE_ROOK = "R";
     String SYMBOL_BLACK_KING = "k";
@@ -25,7 +29,9 @@ public interface ApplicationConstants {
 	/*0 til 7, antall 8*/
 	int NUMCOLUMNS = 7;
 	int NUMROWS = 7;
-	
+    /**
+     *
+     */
 	Piece[][] MARSHALLING = {
 			{new Rook(true), new Knight(true), new Bishop(true), new Queen(true), King.getBlackKingInstance(), new Bishop(true), new Knight(true), new Rook(true)},
 			{new Pawn(true), new Pawn(true), new Pawn(true), new Pawn(true), new Pawn(true), new Pawn(true), new Pawn(true), new Pawn(true)},
@@ -38,7 +44,9 @@ public interface ApplicationConstants {
 			{new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false)},
 			{new Rook(false), new Knight(false), new Bishop(false), new Queen(false), King.getWhiteKingInstance(), new Bishop(false), new Knight(false), new Rook(false)}
 	};
-	
+    /**
+     *
+     */
 	String[][] CHESSCOORDINATES = {
 			{"a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8"},
 			{"a7", "b7", "c7", "d7", "e7", "f7", "g7", "h7"},

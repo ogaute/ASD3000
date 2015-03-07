@@ -18,7 +18,13 @@ public abstract class PieceLogic {
     protected String pieceSymbol;
     private boolean canMove = false;
 
-
+    /**
+     *
+     * @param column
+     * @param row
+     * @param steps
+     * @return
+     */
     public boolean checkNorth(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
@@ -38,7 +44,14 @@ public abstract class PieceLogic {
         }
         return canMove;
 	}
-	
+
+    /**
+     *
+     * @param column
+     * @param row
+     * @param steps
+     * @return
+     */
 	public boolean checkNorthEast(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
@@ -61,7 +74,14 @@ public abstract class PieceLogic {
         }
         return canMove;
 	}
-	
+
+    /**
+     *
+     * @param column
+     * @param row
+     * @param steps
+     * @return
+     */
 	public boolean checkEast(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
@@ -81,7 +101,14 @@ public abstract class PieceLogic {
         }
         return canMove;
 	}
-	
+
+    /**
+     *
+     * @param column
+     * @param row
+     * @param steps
+     * @return
+     */
 	public boolean checkSouthEast(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
@@ -104,7 +131,14 @@ public abstract class PieceLogic {
         }
         return canMove;
 	}
-	
+
+    /**
+     *
+     * @param column
+     * @param row
+     * @param steps
+     * @return
+     */
 	public boolean checkSouth(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
@@ -124,7 +158,14 @@ public abstract class PieceLogic {
         }
         return canMove;
 	}
-	
+
+    /**
+     *
+     * @param column
+     * @param row
+     * @param steps
+     * @return
+     */
 	public boolean checkSouthWest(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
@@ -147,7 +188,14 @@ public abstract class PieceLogic {
         }
         return canMove;
 	}
-	
+
+    /**
+     *
+     * @param column
+     * @param row
+     * @param steps
+     * @return
+     */
 	public boolean checkWest(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
@@ -167,7 +215,14 @@ public abstract class PieceLogic {
         }
         return canMove;
 	}
-	
+
+    /**
+     *
+     * @param column
+     * @param row
+     * @param steps
+     * @return
+     */
 	public boolean checkNorthWest(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
@@ -191,6 +246,10 @@ public abstract class PieceLogic {
         return canMove;
 	}
 
+    /**
+     *
+     * @return
+     */
     // dette er nødvendig for å generere FEN streng basert på brettets stilling
     public String getFENSymbol(){
         return pieceSymbol;

@@ -17,11 +17,20 @@ public class GameHistoryMaker {
 	BoardStateHandler boardStateHandler = new BoardStateHandler();
 	int listIndex = 0;
 
+    /**
+     *
+     * @param board
+     * @param squares
+     */
 	public GameHistoryMaker(ChessBoard board, Square[][] squares) {
 		this.board = board;
 		this.squareList = squares;
 	}
-	
+
+    /**
+     *
+     * @return
+     */
 	private Piece[][] boardToPiecesList(){
 		Piece[][] piecesList = new Piece[8][8];
 		for (int row = 0; row <= ApplicationConstants.NUMROWS; row++) {
@@ -34,7 +43,10 @@ public class GameHistoryMaker {
 		}
 		return piecesList;
 	}
-	
+
+    /**
+     *
+     */
 	public void saveState(){
 		boardStateCreator.setBoardState(boardToPiecesList());
 		boardStateHandler.add(boardStateCreator.saveBoardState());
@@ -47,6 +59,9 @@ public class GameHistoryMaker {
 		setEnableOnUndo();
 	}
 
+    /**
+     *
+     */
 	private void setEnableOnUndo() {
 		if(listIndex == (boardStateHandler.length() - 1)){
 			Controller.setRedoEnable(false);
@@ -62,7 +77,10 @@ public class GameHistoryMaker {
 			Controller.setUndoEnable(true);
 		}
 	}
-	
+
+    /**
+     *
+     */
 	public void undo(){
 		//listIndex--;
 		if(listIndex >= 0)
@@ -79,7 +97,10 @@ public class GameHistoryMaker {
 			setEnableOnUndo();
 		}
 	}
-	
+
+    /**
+     *
+     */
 	public void redo(){
 		if((boardStateHandler.length()- 1) > listIndex)
 			listIndex++;
@@ -95,7 +116,12 @@ public class GameHistoryMaker {
 			setEnableOnUndo();
 		}
 	}
-	
+
+    /**
+     *
+     * @param index
+     * @return
+     */
 	private boolean indexFilter(int index){
 		boolean indexLegal = false;
 		if(index >= 0 || index <= (boardStateHandler.length() - 1))

@@ -3,14 +3,18 @@ package stockfish;
 import java.util.Observable;
 import java.util.Observer;
 
-public class StockFishHandler extends Observable implements Observer{
+public class stockFishObservable extends Observable implements Observer{
 
 
 	private String FEN = "";
     private String[] stockFishInfo = new String[3];
     private StockfishClient stockfishClient;
-	
-	public StockFishHandler() {
+
+    /**
+     * the method stockFishHandler is responsibel for handling and starting the
+     * StockFishClient. When started it sends a command to the StockFishClient.
+     */
+	public stockFishObservable() {
 		stockfishClient = new StockfishClient();
 		if (stockfishClient.startEngine()) {
 			System.out.println("Stockfish har startet..");
@@ -20,7 +24,10 @@ public class StockFishHandler extends Observable implements Observer{
 		// sender kommando manuelt inn
 		stockfishClient.sendCommand("uci");
 	}
-	
+
+    /**
+     *
+     */
 	public void setValue(){
 		setChanged();
 		//stockFishInfo[0] = stockfishClient.getBestMove(FEN, 200);
@@ -29,7 +36,12 @@ public class StockFishHandler extends Observable implements Observer{
 		notifyObservers(stockFishInfo);
 		clearChanged();
 	}
-	
+
+    /**
+     * The update method the is esensial to the Observer
+     * @param observable
+     * @param fen
+     */
 	@Override
 	public void update(Observable observable, Object fen) {
 		FEN = (String)fen;

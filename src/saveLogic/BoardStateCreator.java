@@ -9,14 +9,26 @@ import gui.pieceGui.Piece;
 public class BoardStateCreator {
 	private Piece[][] boardState;
 
+    /**
+     *
+     * @param boardState
+     */
 	public void setBoardState(Piece[][] boardState) {
 		this.boardState = boardState;
 	}
 
+    /**
+     *
+     * @return
+     */
 	public Piece[][] getBoardState() {
 		return boardState;
 	}
 
+    /**
+     *
+     * @return
+     */
 	public BoardState saveBoardState() {
 		return new BoardState(boardState);
 	}

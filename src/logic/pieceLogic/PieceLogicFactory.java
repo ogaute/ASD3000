@@ -3,7 +3,12 @@ package logic.pieceLogic;
 import gui.ApplicationConstants;
 
 public class PieceLogicFactory {
-
+    /**
+     *
+     * @param pieceType
+     * @param pieceColor
+     * @return
+     */
 	public PieceMessage getPiece(String pieceType, String pieceColor) {
 		if (pieceType == null) {
 			return null;

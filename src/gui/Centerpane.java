@@ -16,6 +16,9 @@ public class Centerpane extends JPanel {
 	JPanel northCoordinates;
 	JPanel westCoordinates;
 
+    /**
+     *
+     */
 	public Centerpane() {
 		setLayout(new BorderLayout());
 		ChessBoard board;
@@ -24,6 +27,9 @@ public class Centerpane extends JPanel {
 		coordinator = new GameCoordinator(board);
     }
 
+    /**
+     *
+     */
 	public void makeCoordinates() {
         southCoordinates = new JPanel();
         southCoordinates.setLayout(new GridLayout(0, 8));
@@ -55,43 +61,86 @@ public class Centerpane extends JPanel {
 		}
 	}
 
-    // CoR meldingsstier
+
+
+    /** CoR meldingsstier
+     *
+     * @param column
+     * @param row
+     * @return
+     */
     public boolean canIMoveTo(int column, int row) {
 		return coordinator.canIMoveTo(column, row);
 	}
 
+    /** CoR meldingsstier
+     *
+     */
 	public void resetSquares() {
 		coordinator.resetSquares();
 	}
 
+    /** CoR meldingsstier
+     *
+     * @param column
+     * @param row
+     */
 	public void moveTo(int column, int row) {
 		coordinator.moveTo(column, row);
 	}
 
+    /** CoR meldingsstier
+     *
+     * @param column
+     * @param row
+     */
 	public void setLastPressed(int column, int row) {
 		coordinator.setLastPressed(column, row);
 	}
 
+    /** CoR meldingsstier
+     *
+     */
 	public void changePlayerInTurn() {
 		coordinator.changePlayerInTurn();
 	}
 
+    /** CoR meldingsstier
+     *
+     * @return
+     */
 	public String getPlayerInTurn() {
 		return coordinator.whoIsInTurn();
 	}
 
+    /** CoR meldingsstier
+     *
+     * @param toColumn
+     * @param toRow
+     * @return
+     */
 	public boolean canICapture(int toColumn, int toRow) {
 		return coordinator.canICapture(toColumn, toRow);
 	}
 
+    /** CoR meldingsstier
+     *
+     * @return
+     */
 	public String whoWon() {
 		return coordinator.whoWon();
 	}
 
+    /** CoR meldingsstier
+     *
+     */
 	public void undoMove() {
 		coordinator.undoMove();
 	}
 
+    /** CoR meldingsstier
+     *
+     */
 	public void redoMove() {
 		coordinator.redoMove();
 	}

@@ -8,11 +8,18 @@ class RookLogic extends PieceLogic implements PieceMessage{
 	
 	private String pieceColor;
 
+    /**
+     *
+     * @param pieceColor
+     */
 	protected RookLogic(String pieceColor) {
 		this.pieceColor = pieceColor;
 		setPieceProperties();
 	}
-	
+
+    /**
+     *
+     */
 	private void setPieceProperties(){
 		if(pieceColor.equals(ApplicationConstants.BLACK)){
 			pieceSymbol = ApplicationConstants.SYMBOL_BLACK_ROOK;
@@ -21,7 +28,12 @@ class RookLogic extends PieceLogic implements PieceMessage{
 			pieceSymbol = ApplicationConstants.SYMBOL_WHITE_ROOK;
 		}
 	}
-	
+
+    /**
+     *
+     * @param column
+     * @param row
+     */
 	public void pressed(int column, int row) {
 		if(pieceColor.equals(Controller.getPlayerInTurn())){
 			
