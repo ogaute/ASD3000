@@ -11,7 +11,7 @@ import java.util.Observer;
 public class FENgenerator extends Observable {
 
 	
-	private StockFishObservable stockFishObservable; //observer
+	private StockFishHandler stockFishHandler; //observer
 	private Square[][] boardPositions;
 	private String castlingAbility = "";
 	private String enPassant = "";
@@ -20,9 +20,9 @@ public class FENgenerator extends Observable {
 	private boolean firstMove = true;
 	
 	public FENgenerator(Observer observer) {
-		stockFishObservable = new StockFishObservable(); //observer
-        addObserver(stockFishObservable); //observer
-        stockFishObservable.addObserver(observer); //observer
+		stockFishHandler = new StockFishHandler(); //observer
+        addObserver(stockFishHandler); //observer
+        stockFishHandler.addObserver(observer); //observer
 	}
 
 	public void generateFEN(Square[][] b) {

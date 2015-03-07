@@ -3,14 +3,14 @@ package stockfish;
 import java.util.Observable;
 import java.util.Observer;
 
-public class StockFishObservable extends Observable implements Observer{
+public class StockFishHandler extends Observable implements Observer{
 
 
 	private String FEN = "";
     private String[] stockFishInfo = new String[3];
     private StockfishClient stockfishClient;
 	
-	public StockFishObservable() {
+	public StockFishHandler() {
 		stockfishClient = new StockfishClient();
 		if (stockfishClient.startEngine()) {
 			System.out.println("Stockfish har startet..");
