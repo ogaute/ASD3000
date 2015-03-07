@@ -4,6 +4,7 @@ import gui.pieceGui.Piece;
 
 /*
  Lager og lagrer tilstanden i et BoardState objekt.
+ (Originator)
  */
 public class BoardStateCreator {
 	private Piece[][] boardState;

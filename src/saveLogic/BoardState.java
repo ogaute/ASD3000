@@ -4,6 +4,7 @@ import gui.pieceGui.Piece;
 
 /*
 Den holder på tilstanden til et objekt  som kan gjennopprettes.
+(Memento)
  */
 public class BoardState {
 	private Piece[][] boardState;

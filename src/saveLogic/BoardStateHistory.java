@@ -5,6 +5,7 @@ import java.util.List;
 
 /*
 Ansvarlig for å gjennoprette tilstand fra BoardState
+(Caretaker)
  */
 public class BoardStateHistory {
 	
