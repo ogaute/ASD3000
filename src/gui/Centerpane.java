@@ -1,14 +1,14 @@
 package gui;
 
 
-import logic.ChessCoordinator;
+import logic.GameCoordinator;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class Centerpane extends JPanel {
 	
-	private ChessCoordinator coordinator;
+	private GameCoordinator coordinator;
    private final String[] LETTERS = { "A", "B", "C", "D", "E", "F", "G", "H" };
 
     JPanel southCoordinates;
@@ -21,7 +21,7 @@ public class Centerpane extends JPanel {
 		ChessBoard board;
 		add(board = new ChessBoard());
 		makeCoordinates();
-		coordinator = new ChessCoordinator(board);
+		coordinator = new GameCoordinator(board);
     }
 
 	public void makeCoordinates() {

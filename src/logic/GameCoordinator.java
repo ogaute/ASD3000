@@ -10,7 +10,7 @@ import java.util.Observable;
 import java.util.Observer;
 import controller.Controller;
 
-public class ChessCoordinator implements Observer {
+public class GameCoordinator implements Observer {
 
 
 	private Square[][] squareList;
@@ -19,15 +19,15 @@ public class ChessCoordinator implements Observer {
 	private LegalMoveValidator legalMoveValidator = new LegalMoveValidator();
 	private FENgenerator fenGenerator; //observer
 	private PlayerCoordinator playerCoordinator = new PlayerCoordinator();
-	private GameHistory gameHistory;
+	private GameHistoryMaker gameHistoryMaker;
 	private Promoter promoter = new Promoter();
 	
-	public ChessCoordinator(ChessBoard board) {
+	public GameCoordinator(ChessBoard board) {
 		squareList = board.addPieces();
 		fenGenerator = new FENgenerator(this);
         fenGenerator.generateFEN(squareList);
-        gameHistory = new GameHistory(board, squareList);
-		gameHistory.saveState();
+        gameHistoryMaker = new GameHistoryMaker(board, squareList);
+		gameHistoryMaker.saveState();
 	}
 
 	public boolean canIMoveTo(int column, int row) {
@@ -68,7 +68,7 @@ public class ChessCoordinator implements Observer {
 
         squareList[column][row].repaint();
         resetSquares();
-		gameHistory.saveState();
+		gameHistoryMaker.saveState();
 	}
 
 	public void setLastPressed(int column, int row) {
@@ -100,11 +100,11 @@ public class ChessCoordinator implements Observer {
 	}
 
 	public void undoMove() {
-		gameHistory.undo();
+		gameHistoryMaker.undo();
 	}
 
 	public void redoMove() {
-		gameHistory.redo();
+		gameHistoryMaker.redo();
 	}
 
 

@@ -1,23 +1,23 @@
 package logic;
 
 import controller.Controller;
-import saveLogic.CareTaker;
-import saveLogic.Originator;
+import saveLogic.BoardStateHistory;
+import saveLogic.BoardStateCreator;
 import gui.ApplicationConstants;
 import gui.ChessBoard;
 import gui.Square;
 import gui.pieceGui.Piece;
 
-public class GameHistory {
+public class GameHistoryMaker {
 	
 	
 	private ChessBoard board;
 	private Square[][] squareList;
-	Originator originator = new Originator();
-	CareTaker careTaker = new CareTaker();
+	BoardStateCreator boardStateCreator = new BoardStateCreator();
+	BoardStateHistory boardStateHistory = new BoardStateHistory();
 	int listIndex = 0;
 
-	public GameHistory(ChessBoard board, Square[][] squares) {
+	public GameHistoryMaker(ChessBoard board, Square[][] squares) {
 		this.board = board;
 		this.squareList = squares;
 	}
@@ -36,19 +36,19 @@ public class GameHistory {
 	}
 	
 	public void saveState(){
-		originator.setState( boardToPiecesList() );
-		careTaker.add(originator.saveStateToMemento());
-		if((careTaker.length()- 1) > listIndex)
+		boardStateCreator.setBoardState(boardToPiecesList());
+		boardStateHistory.add(boardStateCreator.saveStateToMemento());
+		if((boardStateHistory.length()- 1) > listIndex)
 			listIndex++;
 		System.out.println("BoardListory" + 
 		" index " + listIndex +
-		" størrelsen er " + careTaker.length() +
-		" Listen: " + originator.getState());	
+		" størrelsen er " + boardStateHistory.length() +
+		" Listen: " + boardStateCreator.getBoardState());
 		setEnableOnUndo();
 	}
 
 	private void setEnableOnUndo() {
-		if(listIndex == (careTaker.length() - 1)){
+		if(listIndex == (boardStateHistory.length() - 1)){
 			Controller.setRedoEnable(false);
 		}
 		else{
@@ -68,37 +68,37 @@ public class GameHistory {
 		if(listIndex >= 0)
 			listIndex--;
 		if (indexFilter(listIndex)) {
-			originator.setState(careTaker.get(listIndex).getState());
+			boardStateCreator.setBoardState(boardStateHistory.get(listIndex).getBoardState());
 			board.removePieces();
-			board.changeGameState(originator.getState());
+			board.changeGameState(boardStateCreator.getBoardState());
 			Controller.changePlayerInTurn();
 			System.out.println("BoardListory" + 
 					" index " + listIndex +
-					" størrelsen er " + careTaker.length() +
-					" Listen: " + originator.getState());
+					" størrelsen er " + boardStateHistory.length() +
+					" Listen: " + boardStateCreator.getBoardState());
 			setEnableOnUndo();
 		}
 	}
 	
 	public void redo(){
-		if((careTaker.length()- 1) > listIndex)
+		if((boardStateHistory.length()- 1) > listIndex)
 			listIndex++;
 		if (indexFilter(listIndex)) {
-			originator.setState(careTaker.get(listIndex).getState());
+			boardStateCreator.setBoardState(boardStateHistory.get(listIndex).getBoardState());
 			board.removePieces();
-			board.changeGameState(originator.getState());
+			board.changeGameState(boardStateCreator.getBoardState());
 			Controller.changePlayerInTurn();
 			System.out.println("BoardListory" + 
 					" index " + listIndex +
-					" størrelsen er " + careTaker.length() +
-					" Listen: " + originator.getState());
+					" størrelsen er " + boardStateHistory.length() +
+					" Listen: " + boardStateCreator.getBoardState());
 			setEnableOnUndo();
 		}
 	}
 	
 	private boolean indexFilter(int index){
 		boolean indexLegal = false;
-		if(index >= 0 || index <= (careTaker.length() - 1))
+		if(index >= 0 || index <= (boardStateHistory.length() - 1))
 			indexLegal = true;
 		return indexLegal;
 	}
