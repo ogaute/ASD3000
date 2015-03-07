@@ -1,7 +1,5 @@
 package gui;
 
-import controller.Controller;
-
 import javax.swing.*;
 
 /**

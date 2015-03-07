@@ -17,11 +17,12 @@ public class BoardStateCreator {
 		return boardState;
 	}
 
-	public BoardState saveStateToMemento() {
+	public BoardState saveBoardState() {
 		return new BoardState(boardState);
 	}
 
-	public void getStateFromMemento(BoardState BoardState) {
-		boardState = BoardState.getBoardState();
-	}
+//	ikke i bruk
+// public void getHistoryBoardState(BoardState BoardState) {
+//		boardState = BoardState.getBoardState();
+//	}
 }

@@ -7,7 +7,7 @@ import java.util.List;
 Ansvarlig for å gjennoprette tilstand fra BoardState
 (Caretaker)
  */
-public class BoardStateHistory {
+public class BoardStateHandler {
 	
 	
    private List<BoardState> boardStateList = new ArrayList<BoardState>();
@@ -20,9 +20,10 @@ public class BoardStateHistory {
       return boardStateList.get(index);
    }
    
-   public BoardState remove(int index){
-	  return boardStateList.remove(index);
-   }
+//    ikke i bruk .
+// public BoardState remove(int index){
+//	  return boardStateList.remove(index);
+//   }
    
    public int length(){
 	   return boardStateList.size();
