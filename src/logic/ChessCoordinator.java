@@ -2,7 +2,6 @@ package logic;
 
 import gui.ChessBoard;
 import gui.ApplicationConstants;
-import gui.Chessie;
 import gui.Square;
 import gui.pieceGui.*;
 import stockfish.FENgenerator;
@@ -10,8 +9,6 @@ import stockfish.LegalMoveValidator;
 import java.util.Observable;
 import java.util.Observer;
 import controller.Controller;
-
-import javax.swing.*;
 
 public class ChessCoordinator implements Observer {
 
@@ -22,15 +19,15 @@ public class ChessCoordinator implements Observer {
 	private LegalMoveValidator legalMoveValidator = new LegalMoveValidator();
 	private FENgenerator fenGenerator; //observer
 	private PlayerCoordinator playerCoordinator = new PlayerCoordinator();
-	private BoardHistory boardHistory;
+	private GameHistory gameHistory;
 	private Promoter promoter = new Promoter();
 	
 	public ChessCoordinator(ChessBoard board) {
 		squareList = board.addPieces();
 		fenGenerator = new FENgenerator(this);
         fenGenerator.generateFEN(squareList);
-        boardHistory = new BoardHistory(board, squareList);
-		boardHistory.saveState();
+        gameHistory = new GameHistory(board, squareList);
+		gameHistory.saveState();
 	}
 
 	public boolean canIMoveTo(int column, int row) {
@@ -71,7 +68,7 @@ public class ChessCoordinator implements Observer {
 
         squareList[column][row].repaint();
         resetSquares();
-		boardHistory.saveState();
+		gameHistory.saveState();
 	}
 
 	public void setLastPressed(int column, int row) {
@@ -103,11 +100,11 @@ public class ChessCoordinator implements Observer {
 	}
 
 	public void undoMove() {
-		boardHistory.undo();
+		gameHistory.undo();
 	}
 
 	public void redoMove() {
-		boardHistory.redo();
+		gameHistory.redo();
 	}
 
 

@@ -8,7 +8,7 @@ import gui.ChessBoard;
 import gui.Square;
 import gui.pieceGui.Piece;
 
-public class BoardHistory {
+public class GameHistory {
 	
 	
 	private ChessBoard board;
@@ -17,7 +17,7 @@ public class BoardHistory {
 	CareTaker careTaker = new CareTaker();
 	int listIndex = 0;
 
-	public BoardHistory(ChessBoard board, Square[][] squares) {
+	public GameHistory(ChessBoard board, Square[][] squares) {
 		this.board = board;
 		this.squareList = squares;
 	}

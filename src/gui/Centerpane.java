@@ -9,7 +9,9 @@ import java.awt.*;
 public class Centerpane extends JPanel {
 	
 	private ChessCoordinator coordinator;
-	JPanel southCoordinates;
+   private final String[] LETTERS = { "A", "B", "C", "D", "E", "F", "G", "H" };
+
+    JPanel southCoordinates;
 	JPanel eastCoordinates;
 	JPanel northCoordinates;
 	JPanel westCoordinates;
@@ -39,12 +41,11 @@ public class Centerpane extends JPanel {
         westCoordinates.setLayout(new GridLayout(8, 0));
         add(westCoordinates, BorderLayout.WEST);
 
-		String[] letters = { "A", "B", "C", "D", "E", "F", "G", "H" };
 		for (int j = 0; j <= 9; j++) {
 			if (j != 9 && j != 0) {
-				southCoordinates.add(new JLabel(letters[j - 1],
+				southCoordinates.add(new JLabel(LETTERS[j - 1],
 						SwingConstants.CENTER));
-				northCoordinates.add(new JLabel(letters[j - 1],
+				northCoordinates.add(new JLabel(LETTERS[j - 1],
 						SwingConstants.CENTER));
 				eastCoordinates.add(new JLabel("  " + (9 - j) + "  ",
 						SwingConstants.CENTER));
