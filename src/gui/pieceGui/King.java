@@ -18,12 +18,12 @@ public class King extends Piece{
 		if(isBlack){
 			setImage("img/Black_King.png");
 			num_black_king++;
-			this.kingLogic = new PieceLogicFactory().getPiece("KING", ApplicationConstants.BLACK);
+			this.kingLogic = new PieceLogicFactory().getPieceLogic("KING", ApplicationConstants.BLACK);
 		}
 		else{
 			setImage("img/White_King.png");
 			num_white_king++;
-			this.kingLogic = new PieceLogicFactory().getPiece("KING", ApplicationConstants.WHITE);
+			this.kingLogic = new PieceLogicFactory().getPieceLogic("KING", ApplicationConstants.WHITE);
 		}
 	}
 	

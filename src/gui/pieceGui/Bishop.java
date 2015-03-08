@@ -12,11 +12,11 @@ public class Bishop extends Piece {
 	public Bishop(boolean isBlack) {
 		if(isBlack){
 			setImage("img/Black_Bishop.png");
-			this.bishopLogic = new PieceLogicFactory().getPiece("BISHOP", ApplicationConstants.BLACK);
+			this.bishopLogic = new PieceLogicFactory().getPieceLogic("BISHOP", ApplicationConstants.BLACK);
 		}
 		else{
 			setImage("img/White_Bishop.png");
-			this.bishopLogic = new PieceLogicFactory().getPiece("BISHOP", ApplicationConstants.WHITE);
+			this.bishopLogic = new PieceLogicFactory().getPieceLogic("BISHOP", ApplicationConstants.WHITE);
 		}
 	}
 

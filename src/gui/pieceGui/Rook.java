@@ -12,12 +12,12 @@ public class Rook extends Piece {
 	public Rook(boolean isBlack) {
 		if(isBlack){
 			setImage("img/Black_Rook.png");
-			this.rookLogic= new PieceLogicFactory().getPiece("ROOK", ApplicationConstants.BLACK);
+			this.rookLogic= new PieceLogicFactory().getPieceLogic("ROOK", ApplicationConstants.BLACK);
 			
 		}
 		else{
 			setImage("img/White_Rook.png");
-			this.rookLogic = new PieceLogicFactory().getPiece("ROOK", ApplicationConstants.WHITE);
+			this.rookLogic = new PieceLogicFactory().getPieceLogic("ROOK", ApplicationConstants.WHITE);
 		}
 	}
 

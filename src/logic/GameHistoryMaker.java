@@ -1,7 +1,7 @@
 package logic;
 
 import controller.Controller;
-import saveLogic.BoardStateHandler;
+import saveLogic.BoardStateList;
 import saveLogic.BoardStateCreator;
 import gui.ApplicationConstants;
 import gui.ChessBoard;
@@ -14,7 +14,7 @@ public class GameHistoryMaker {
 	private ChessBoard board;
 	private Square[][] squareList;
 	BoardStateCreator boardStateCreator = new BoardStateCreator();
-	BoardStateHandler boardStateHandler = new BoardStateHandler();
+	BoardStateList boardStateList = new BoardStateList();
 	int listIndex = 0;
 
     /**
@@ -49,8 +49,8 @@ public class GameHistoryMaker {
      */
 	public void saveState(){
 		boardStateCreator.setBoardState(boardToPiecesList());
-		boardStateHandler.add(boardStateCreator.saveBoardState());
-		if((boardStateHandler.length()- 1) > listIndex)
+		boardStateList.add(boardStateCreator.saveBoardState());
+		if((boardStateList.length()- 1) > listIndex)
 			listIndex++;
 		setEnableOnUndo();
 	}
@@ -59,7 +59,7 @@ public class GameHistoryMaker {
      *
      */
 	private void setEnableOnUndo() {
-		if(listIndex == (boardStateHandler.length() - 1)){
+		if(listIndex == (boardStateList.length() - 1)){
 			Controller.setRedoEnable(false);
 		}
 		else{
@@ -82,7 +82,7 @@ public class GameHistoryMaker {
 		if(listIndex >= 0)
 			listIndex--;
 		if (indexFilter(listIndex)) {
-			boardStateCreator.setBoardState(boardStateHandler.get(listIndex).getBoardState());
+			boardStateCreator.setBoardState(boardStateList.get(listIndex).getBoardState());
 			board.removePieces();
 			board.changeGameState(boardStateCreator.getBoardState());
 			Controller.changePlayerInTurn();
@@ -94,10 +94,10 @@ public class GameHistoryMaker {
      *
      */
 	public void redo(){
-		if((boardStateHandler.length()- 1) > listIndex)
+		if((boardStateList.length()- 1) > listIndex)
 			listIndex++;
 		if (indexFilter(listIndex)) {
-			boardStateCreator.setBoardState(boardStateHandler.get(listIndex).getBoardState());
+			boardStateCreator.setBoardState(boardStateList.get(listIndex).getBoardState());
 			board.removePieces();
 			board.changeGameState(boardStateCreator.getBoardState());
 			Controller.changePlayerInTurn();
@@ -112,7 +112,7 @@ public class GameHistoryMaker {
      */
 	private boolean indexFilter(int index){
 		boolean indexLegal = false;
-		if(index >= 0 || index <= (boardStateHandler.length() - 1))
+		if(index >= 0 || index <= (boardStateList.length() - 1))
 			indexLegal = true;
 		return indexLegal;
 	}

@@ -12,11 +12,11 @@ public class Queen extends Piece {
 	public Queen(boolean isBlack) {
 		if(isBlack){
 			setImage("img/Black_Queen.png");
-			this.queenLogic = new PieceLogicFactory().getPiece("QUEEN", ApplicationConstants.BLACK);
+			this.queenLogic = new PieceLogicFactory().getPieceLogic("QUEEN", ApplicationConstants.BLACK);
 		}
 		else{
 			setImage("img/White_Queen.png");
-			this.queenLogic = new PieceLogicFactory().getPiece("QUEEN", ApplicationConstants.WHITE);
+			this.queenLogic = new PieceLogicFactory().getPieceLogic("QUEEN", ApplicationConstants.WHITE);
 		}
 	}
 

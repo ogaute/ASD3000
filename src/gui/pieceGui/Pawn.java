@@ -12,11 +12,11 @@ public class Pawn extends Piece {
 	public Pawn(boolean isBlack) {
 		if(isBlack){
 			setImage("img/Black_Pawn.png");
-			this.pawnLogic = new PieceLogicFactory().getPiece("PAWN", ApplicationConstants.BLACK);
+			this.pawnLogic = new PieceLogicFactory().getPieceLogic("PAWN", ApplicationConstants.BLACK);
 		}
 		else{
 			setImage("img/White_Pawn.png");
-			this.pawnLogic = new PieceLogicFactory().getPiece("PAWN", ApplicationConstants.WHITE);
+			this.pawnLogic = new PieceLogicFactory().getPieceLogic("PAWN", ApplicationConstants.WHITE);
 		}
 	}
 

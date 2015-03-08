@@ -13,11 +13,11 @@ public class Knight extends Piece {
 		super();
 		if(isBlack){
 			setImage("img/Black_Knight.png");
-			this.knightLogic = new PieceLogicFactory().getPiece("KNIGHT", ApplicationConstants.BLACK);
+			this.knightLogic = new PieceLogicFactory().getPieceLogic("KNIGHT", ApplicationConstants.BLACK);
 		}
 		else{
 			setImage("img/White_Knight.png");
-			this.knightLogic = new PieceLogicFactory().getPiece("KNIGHT", ApplicationConstants.WHITE);
+			this.knightLogic = new PieceLogicFactory().getPieceLogic("KNIGHT", ApplicationConstants.WHITE);
 		}
 	}
 
