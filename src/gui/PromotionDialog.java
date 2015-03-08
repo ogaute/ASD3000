@@ -3,18 +3,18 @@ package gui;
 import javax.swing.*;
 
 /**
- * Created by Anders Borg Larsen on 06.03.2015.
+ * Denne klassen er ansvar for å håndtere brukerdialog slik at man kan håndtere en forfremmelse
  */
 public class PromotionDialog {
     /**
-     *
-     * @param app
-     * @return
+     * Konstruktørene til dialogvinduet
+     * @param promotionFrame
+     * @return returnerer det valget man har gjort i dialogvinduet
      */
-    public String makePromotionWindow(JFrame app) {
+    public String makePromotionWindow(JFrame promotionFrame) {
         String promotionChoice = "";
         Object[] options = {"Queen", "Rook" ,"Knight","Bishop"};
-        int n = JOptionPane.showOptionDialog(app,
+        int n = JOptionPane.showOptionDialog(promotionFrame,
                 "Du kan forfremme bonden din !!",
                 "Forfremmelse",
                 JOptionPane.DEFAULT_OPTION,
