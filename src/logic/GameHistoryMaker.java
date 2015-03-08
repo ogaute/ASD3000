@@ -52,10 +52,6 @@ public class GameHistoryMaker {
 		boardStateHandler.add(boardStateCreator.saveBoardState());
 		if((boardStateHandler.length()- 1) > listIndex)
 			listIndex++;
-		System.out.println("BoardListory" + 
-		" index " + listIndex +
-		" størrelsen er " + boardStateHandler.length() +
-		" Listen: " + boardStateCreator.getBoardState());
 		setEnableOnUndo();
 	}
 
@@ -90,10 +86,6 @@ public class GameHistoryMaker {
 			board.removePieces();
 			board.changeGameState(boardStateCreator.getBoardState());
 			Controller.changePlayerInTurn();
-			System.out.println("BoardListory" + 
-					" index " + listIndex +
-					" størrelsen er " + boardStateHandler.length() +
-					" Listen: " + boardStateCreator.getBoardState());
 			setEnableOnUndo();
 		}
 	}
@@ -109,10 +101,6 @@ public class GameHistoryMaker {
 			board.removePieces();
 			board.changeGameState(boardStateCreator.getBoardState());
 			Controller.changePlayerInTurn();
-			System.out.println("BoardListory" + 
-					" index " + listIndex +
-					" størrelsen er " + boardStateHandler.length() +
-					" Listen: " + boardStateCreator.getBoardState());
 			setEnableOnUndo();
 		}
 	}
