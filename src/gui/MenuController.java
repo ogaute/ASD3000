@@ -10,32 +10,29 @@ import controller.Controller;
 import easylib.gui.MMenu;
 
 import javax.swing.*;
-
+/**
+ * Denne klassen har ansvar for å Lage menyelementer og  Sette tilstand på menyvalg.
+ */
 public class MenuController extends JMenuBar {
 
     private boolean undoEnable;
 
     /**
-     *
+     * Konstruktøren som instansierer flere MMenu objekter.
      */
     public MenuController() {
-		// Horisontal meny elements
 		MMenu file = new MMenu("Fil");
 		MMenu help = new MMenu("Hjelp");
         MMenu edit = new MMenu("Edit");
 
-		// vertical file menu elements
 		file.add(Controller.aexit);
 	
-		// vertical help menu elements
 		help.add(Controller.aabout);
 
 
-        // vertikal edit menu elementer
         edit.add(Controller.actionredo);
         edit.add(Controller.actionundo);
 
-		// fix vertical menu elements to this horizontal bar
 		add(file);
         add(edit);
 		add(help);
@@ -43,7 +40,7 @@ public class MenuController extends JMenuBar {
 
     /**
      *
-     * @param undoEnable
+     * @param undoEnable boolean verdi for å sette undo meny elementet til aktivt eller innaktivt
      */
     public void setUndoEnable(boolean undoEnable) {
         this.undoEnable = undoEnable;
@@ -51,7 +48,7 @@ public class MenuController extends JMenuBar {
 
     /**
      *
-     * @return
+     * @return returnerer boolean verdien slik at man kan sette Undo menyelemetet til aktiv eller innaktiv.
      */
     public boolean isUndoEnable() {
         return undoEnable;
