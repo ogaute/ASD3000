@@ -11,8 +11,10 @@ import logic.OutOfBoardFilter;
  * 
  * Klassen bruker Chain of Responsibility mønsteret - CoR.
  */
+
 public class Controller extends Supercontroller implements IActionlist {
 
+	
 	public static SuperAction actionundo;
 	public static SuperAction actionredo;
 
@@ -178,4 +180,6 @@ public class Controller extends Supercontroller implements IActionlist {
         return ((ApplicationFrame)ui).promotionDialog();
 
     }
+    
+    
 }
