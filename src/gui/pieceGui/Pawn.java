@@ -15,7 +15,7 @@ public class Pawn extends Piece {
 
     /**
      * Pawn<p>
-     * Henter bildefil til en svart eller hvit brikke og forepør en instans av pawnLogic fra PiecLogicFactory
+     * Setter bildefil til en svart eller hvit brikke og forepør en instans av pawnLogic fra PiecLogicFactory
      * @param isBlack hvorvidt en brikke er svart eller ikke
      */
 	public Pawn(boolean isBlack) {

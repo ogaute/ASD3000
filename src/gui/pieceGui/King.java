@@ -19,7 +19,7 @@ public class King extends Piece{
 
     /**
      * King<p>
-     * Henter bildefil til en svart eller hvit brikke av King og forepør en instans av KingLogic fra PiecLogicFactory
+     * Setter bildefil til en svart eller hvit brikke av King og forepør en instans av KingLogic fra PiecLogicFactory
      * @param isBlack hvorvidt en brikke er svart eller ikke
      */
 	private King(boolean isBlack) {

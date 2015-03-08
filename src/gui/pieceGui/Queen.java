@@ -15,7 +15,7 @@ public class Queen extends Piece {
 
     /**
      * Queen<p>
-     * Henter bildefil til en svart eller hvit brikke og forepør en instans av queenLogic fra PiecLogicFactory
+     * Setter bildefil til en svart eller hvit brikke og forepør en instans av queenLogic fra PiecLogicFactory
      * @param isBlack hvorvidt en brikke er svart eller ikke
      */
 	public Queen(boolean isBlack) {
