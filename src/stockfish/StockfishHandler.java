@@ -3,6 +3,12 @@ package stockfish;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * Klassen StockfishHandler har som ansvar å aggreggere og kommunisere med
+ * StockfishClient. Gi beskjed til sine observere når tilstand endrer seg 
+ * og oppdatere sin tilstand når objekter den observerer har endret tilstand.
+ */
+
 public class StockfishHandler extends Observable implements Observer{
 
 
