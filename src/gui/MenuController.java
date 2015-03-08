@@ -25,8 +25,9 @@ public class MenuController extends JMenuBar {
 		MMenu help = new MMenu("Hjelp");
         MMenu edit = new MMenu("Edit");
 
+        file.add(Controller.astartnew);
 		file.add(Controller.aexit);
-	
+
 		help.add(Controller.aabout);
 
 

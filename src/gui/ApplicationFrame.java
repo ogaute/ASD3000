@@ -185,4 +185,6 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
         return new PromotionDialog().makePromotionWindow(this);
 
     }
+
+
 }

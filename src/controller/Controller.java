@@ -4,6 +4,7 @@ import easylib.controller.ISupercontroller;
 import easylib.controller.SuperAction;
 import easylib.controller.Supercontroller;
 import gui.ApplicationFrame;
+import gui.Chessie;
 import logic.OutOfBoardFilter;
 
 /**
@@ -17,6 +18,7 @@ public class Controller extends Supercontroller implements IActionlist {
 	
 	public static SuperAction actionundo;
 	public static SuperAction actionredo;
+    public static SuperAction astartnew;
 
     /**
      * 
@@ -27,6 +29,7 @@ public class Controller extends Supercontroller implements IActionlist {
 		superinit(frame);
 		actionundo = new AUndo(UNDO);
 		actionredo = new ARedo(REDO);
+        astartnew = new AStart(STARTNEW);
 	}
 
     /**
@@ -180,6 +183,14 @@ public class Controller extends Supercontroller implements IActionlist {
         return ((ApplicationFrame)ui).promotionDialog();
 
     }
-    
-    
+
+    /**
+     * sender melding vidre til Vhessie for å restarte applikasjonen å derved start et nytt spill
+     */
+    public static void newGame() {
+        Chessie.restart();
+
+    }
+
+
 }

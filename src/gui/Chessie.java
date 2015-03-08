@@ -22,6 +22,7 @@ public class Chessie {
 		application.dispose();
 	    application = new ApplicationFrame();
 	}
-	
+
+
 
 }

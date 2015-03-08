@@ -23,4 +23,5 @@ import easylib.controller.Usecase;
 interface IActionlist {
 	Usecase UNDO = new Usecase("tilbake", null);
 	Usecase REDO = new Usecase("fremover", null);
+    Usecase STARTNEW = new Usecase("Nytt Spill", null);
 }
