@@ -7,11 +7,18 @@ import gui.Square;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * Klassen FENgenerator har som ansvar å generere en streng på FEN-notasjon.
+ * Aggregerer også StockfishHandler og legger en observerer til den.
+ * Legger også til StockfishHandler som en observerer til seg.
+ * 
+ * Klassen implementerer mønsteret Observer
+ */
 
 public class FENgenerator extends Observable {
 
 	
-	private StockfishHandler stockfishHandler; //observer
+	private StockfishHandler stockfishHandler;
 	private Square[][] boardPositions;
 	private String castlingAbility = "";
 	private String enPassant = "";
@@ -19,20 +26,28 @@ public class FENgenerator extends Observable {
 	private String fullMoveCounter ="";
 	private boolean firstMove = true;
 
-    /**
-     *
-     * @param observer
+	/**
+     * Konstruktør. Instansierer StockfishHandler og legger den til som en observerer til seg.
+     * Parameteret observer som mottas, legges som en observerer til instansen av StockfishHandler.
+     * 
+     * @param observer Mottar et objekt som er observerer.
+     * @see Observer
      */
 	public FENgenerator(Observer observer) {
-		stockfishHandler = new StockfishHandler(); //observer
-        addObserver(stockfishHandler); //observer
-        stockfishHandler.addObserver(observer); //observer
+		stockfishHandler = new StockfishHandler(); 
+        addObserver(stockfishHandler); 
+        stockfishHandler.addObserver(observer); 
 	}
 
-    /**
-     *
-     * @param b
-     */
+	/**
+	* Genererer FEN-streng basert på stillingen på brettet<p>
+	* Løper gjennom alle felter på brettet. Dersom feltet har en brikke legges symbolet for brikken til i strengen.
+	* Dersom feltet er tomt legges det til 1 på en variabel. Denne variabelen økes helt til det treffes på et felt
+	* som har en brikke, og verdien av variabelen legges på strengen. For hver ny rad legges "/" på strengen.
+	* Når alle felter er løpt gjennom legges det på symbol for hvilken brikkefarge som har tur.
+	* 
+	* @param b Felter på sjakkbrettet
+	*/
 	public void generateFEN(Square[][] b) {
 		this.boardPositions = b;
 		StringBuilder stringBuilder = new StringBuilder();
@@ -40,7 +55,6 @@ public class FENgenerator extends Observable {
 		
 		for(int row = 0; row <= ApplicationConstants.NUMROWS; row++){
 		    for(int column = 0; column <= ApplicationConstants.NUMCOLUMNS; column++){
-
                 if(!boardPositions[column][row].hasChild()){
 					sumNumbers += 1;				
 				} else {
@@ -75,19 +89,19 @@ public class FENgenerator extends Observable {
 		stringBuilder.append(" " + halfmoveClock);
 		stringBuilder.append(" " + fullMoveCounter);
 		setValue(stringBuilder.toString());
-
-
 	}
 
     /**
-     *
-     * @param fen
+     * Markerer at det har skjedd en endring i tilstand og gir beskjed
+     * til sine observerere om at endring har skjedd. Setter så markering
+     * om endring tilbake.
+     * 
+     * @param fen En streng som inneholder FEN-notasjon
      */
 	public void setValue(String fen){
 		setChanged();
 		notifyObservers(fen);
 		clearChanged();
-
 	}
 
 
