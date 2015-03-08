@@ -16,7 +16,8 @@ public class AUndo extends SuperAction {
 
 	
     /**
-     * Setter beskrivelse
+     * Setter beskrivelse<p>
+     * Bruker eksternt klasse, Usecase, fra easylib
      * 
      * @param usecase Tar et Usecase objekt som innparameter
      */

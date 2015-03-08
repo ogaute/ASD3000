@@ -9,11 +9,16 @@ import easylib.controller.Usecase;
 
 /**
  * ARedo klassen har ansvar får å sette forklaringstekst og håndtere hendelsen
+ * 
+ * Klassen bruker Chain of Responsibility mønsteret.
  */
 public class ARedo extends SuperAction {
+	
+	
     /**
-     * Bruker eksternt klasse fra easylib
-     * @param usecase Usecase fra easylib
+     * Setter beskrivelse<p>
+     * Bruker eksternt klasse, Usecase, fra easylib
+     * @param usecase Tar et Usecase objekt som innparameter
      */
 	ARedo(Usecase usecase){
 		super(usecase);
@@ -23,9 +28,11 @@ public class ARedo extends SuperAction {
 
     /**
      * Sender melding videre til Controller
-     * @param e
+     * @param e Tar et ActionEvent objekt som innparameter
      */
 	public void actionPerformed(ActionEvent e) {
 		Controller.redoMove();
 	}
+	
+	
 }
