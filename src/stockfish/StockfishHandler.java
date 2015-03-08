@@ -43,6 +43,7 @@ public class StockfishHandler extends Observable implements Observer{
      * Klassefelt oppdateres med mottat fen-streng, og metoden setValue kjøres.
      * @param observable Objektet man observerer
      * @param fen String som er bygd opp i henhold til regler for FEN
+     * @see Observable 
      */
 	@Override
 	public void update(Observable observable, Object fen) {
