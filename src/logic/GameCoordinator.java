@@ -10,6 +10,11 @@ import java.util.Observable;
 import java.util.Observer;
 import controller.Controller;
 
+/**
+ * Klassen GameCoordinator er ansvarlig for å håndtere brikkemarkering og brikkebevegelser,
+ * holde oversikt over lovlige trekk i spillets stilling og sende meldinger videre i systemet
+ * Imlementerer pattern Observer
+ */
 public class GameCoordinator implements Observer {
 
 
@@ -23,8 +28,10 @@ public class GameCoordinator implements Observer {
 	private Promoter promoter = new Promoter();
 
     /**
-     *
-     * @param board
+     * Kontruktør - sender melding om å legge til brikker på ChessBoard som returnerer liste med squares,
+     * Instansierer FENgenerator sender melding om å generere FENstring.
+     * Lager også GameHistoryMaker som håndterer spillets historikk
+     * @param board mottar peker til ChessBoard
      */
 	public GameCoordinator(ChessBoard board) {
 		squareList = board.addPieces();
@@ -35,10 +42,11 @@ public class GameCoordinator implements Observer {
 	}
 
     /**
-     *
-     * @param column
-     * @param row
-     * @return
+     * Metode som som sender en forespørsel om validering av en brikkeforflytning til en spesifikk kolonne og rad
+     * Sender melding til square om at brukkeforflytning er lovlig
+     * @param column kolonne i sjakkbrett det skal flyttes til
+     * @param row rad i sjakkbrett det skal flyttes til
+     * @return returnerer om trekk er lovlig eller ikke
      */
 	public boolean canIMoveTo(int column, int row) {
 		boolean canMove = false;
@@ -51,9 +59,10 @@ public class GameCoordinator implements Observer {
 	}
 
     /**
-     *
-     * @param toColumn
-     * @param toRow
+     * Metode som sender en forespørsel om valiering av om en capture, at en brikke kan slå en annen, er lovlig.
+     * Sender melding til square om at brukkeforflytning er lovlig
+     * @param toColumn kolonne i sjakkbrett hvor det skal slås
+     * @param toRow rad i sjakkbrett hvor det skal slås
      * @return
      */
 	public boolean canICapture(int toColumn, int toRow) {
@@ -66,7 +75,7 @@ public class GameCoordinator implements Observer {
 	}
 
     /**
-     *
+     * Metode sender melding til square om at markering av lovlig brikkeforflytning ikke lenger er lovlig (resettes)
      */
 	public void resetSquares(){
 		for (int row = 0; row <= ApplicationConstants.NUMCOLUMNS; row++) {
@@ -77,9 +86,13 @@ public class GameCoordinator implements Observer {
 	}
 
     /**
-     *
-     * @param column
-     * @param row
+     * Metode som utfører brikkeforflytning:
+     * Sjekker hvilken square som ble trykket på i utgangspunktet og mottar piece som står på denne.
+     * Fjerner piece i opprinnelig square og legger piece til ny square i squarelist på kolonne og rad det skal flyttes til.
+     * Sjekker også om piece skal promoteres (fra bonde til offiser)
+     * Tegner opp ny square og lagerer tilstand i spillet
+     * @param column kolonne som brykkerforflytning skal utføres til
+     * @param row rad som brykkerforflytning skal utføres til
      */
 	public void moveTo(int column, int row) {
 		Piece lastPressedPiece = lastPressedSquare.getPiece();
@@ -97,24 +110,25 @@ public class GameCoordinator implements Observer {
 	}
 
     /**
-     *
-     * @param column
-     * @param row
+     * Metode som sette hvilken square det ble trykket på sist
+     * @param column kolonne som det ble trykket på sist
+     * @param row rad som det ble trykket på sist
      */
 	public void setLastPressed(int column, int row) {
 		lastPressedSquare = squareList[column][row];
 	}
 
     /**
-     *
-     * @return
+     * Metode som sender melding til playerCoordinator for å spørre om hvilken spiller som har sin tur
+     * @return om det er hvit eller svart sin tur
      */
 	public String whoIsInTurn(){
 		return playerCoordinator.whoIsInTurn();
 	}
 
     /**
-     *
+     * Metode som sender melding til playerCoordinator for å endre hvilken spiller som har sin tur
+     * Sender også melding om å generere FEN string
      */
 	public void changePlayerInTurn(){
 		playerCoordinator.changePlayerInTurn();
@@ -122,13 +136,13 @@ public class GameCoordinator implements Observer {
 	}
 
     /**
-     *
-     * @param arg0
-     * @param stockFishInfo
+     * Metode som benyttes som en del av Observer pattern. Lytter etter tilstandsendring i objektet stockFishHandler
+     * @param arg0 argument som sendes fra objektet som observeres
+     * @param stockFishHandler objektet det lyttes på
      */
 	@Override
-	public void update(Observable arg0, Object stockFishInfo) {
-		legalMovesFromStockfish = ((String[])stockFishInfo)[2];
+	public void update(Observable arg0, Object stockFishHandler) {
+		legalMovesFromStockfish = ((String[])stockFishHandler)[2];
 		String trimedLegalMoves = legalMovesFromStockfish.replaceAll("\\s+","");
 		if(trimedLegalMoves == null || trimedLegalMoves.equals("") || trimedLegalMoves.endsWith(" ")){
 			Controller.checkMate();
@@ -140,7 +154,7 @@ public class GameCoordinator implements Observer {
     }
 
     /**
-     *
+     * Metode som sender melding til playerCoordinator om hvilken spiller om har vunnet spillet
      * @return
      */
 	public String whoWon() {
@@ -148,14 +162,14 @@ public class GameCoordinator implements Observer {
 	}
 
     /**
-     *
+     * Metode som sender melding til gameHistorymaMaker om å rulle tilbake et trekk
      */
 	public void undoMove() {
 		gameHistoryMaker.undo();
 	}
 
     /**
-     *
+     * Metode som sender melding til gameHistorymaMaker om å gjøre tilbakerullet trekk om igjen
      */
 	public void redoMove() {
 		gameHistoryMaker.redo();
