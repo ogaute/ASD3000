@@ -37,7 +37,7 @@ class RookLogic extends PieceLogic implements PieceMessage{
      * Metode som tar i mot om brikken er presset på gitt kolonne og rad for forflyttning og ser etter
      * lovlige trekk for tårn brikken. 
      * @param column kolonne som brikken er på
-     * @param row rad som brikken er på
+     * @param row rad som brikken er på 
      */
 	public void pressed(int column, int row) {
 		if(pieceColor.equals(Controller.getPlayerInTurn())){
