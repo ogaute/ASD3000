@@ -8,13 +8,16 @@ import gui.pieceGui.Piece;
 import gui.pieceGui.Queen;
 import gui.pieceGui.Rook;
 
+/**
+ * Klasse som har ansvar for å håndtere promoting, eller bondeforvandling
+ */
 public class Promoter {
 
     /**
-     *
-     * @param row
-     * @param fenSymbol
-     * @return
+     * Metode som sjekker om promoting er lovlig. Rad skal være korrekt og brikken skal ha symbol for Pawn
+     * @param row hvilken rad det skal flyttes til
+     * @param fenSymbol symbolet til piece som skal valideres
+     * @return om promotion er lovlig eller ikke
      */
 	public boolean isItTimeForPromotion(int row, String fenSymbol){
 		boolean isPromotion = false;
@@ -25,9 +28,11 @@ public class Promoter {
 	}
 
     /**
-     *
-     * @param fenSymbol
-     * @return
+     * Metode som promoterer brikke fra pawn til ønsket offiser (med unntak av King).
+     * Sjekker farge på brikke, sender melding i CoR om å vise promoteringsvindu.
+     * Basert på brukervalg instansieres en ny officerbrikke
+     * @param fenSymbol symbolet til piece som skal promoteres
+     * @return promotert piece.
      */
 	public Piece getPromoted(String fenSymbol){
 		Piece promotedPiece = null;
