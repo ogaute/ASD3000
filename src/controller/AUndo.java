@@ -7,11 +7,14 @@ import javax.swing.Action;
 import easylib.controller.SuperAction;
 import easylib.controller.Usecase;
 
+/**
+ * AUndo klassen har ansvar får å sette forklaringstekst og håndtere hendelsen
+ */
 public class AUndo extends SuperAction {
 
     /**
      *
-     * @param usecase
+     * @param usecase Usecase
      */
 	AUndo(Usecase usecase) {
 		super(usecase);
@@ -20,7 +23,7 @@ public class AUndo extends SuperAction {
 	}
 
     /**
-     *
+     * Sender melding videre til Controller
      * @param e
      */
 	public void actionPerformed(ActionEvent e) {
