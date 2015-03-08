@@ -167,8 +167,8 @@ public class Controller extends Supercontroller implements IActionlist {
      * Sender melding videre til ApplicationFrame
      * @param fen En string med FEN-notasjon
      */
-    public static void addFenInfo(String fen) {
-        ((ApplicationFrame)ui).addFenInfo(fen);
+    public static void addLegalMovesInfo(String fen) {
+        ((ApplicationFrame)ui).addLegalMovesInfo(fen);
     }
 
     /**

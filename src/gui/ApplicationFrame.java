@@ -174,7 +174,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
      * CoR meldingsstier
      * @param fen Tekst streng som blir brukt til utskrift i eastpanel
      */
-    public void addFenInfo(String fen) {
+    public void addLegalMovesInfo(String fen) {
         eastpane.addLegalMovesInfo(fen);
     }
 
