@@ -3,7 +3,11 @@ package logic.pieceLogic;
 import controller.Controller;
 import logic.OutOfBoardFilter;
 
-public abstract class PieceLogic {
+/**
+ * Abstrakt logic klasse for sjakk brikker generelt. <p>
+ * Sjekker lovlige forflyttninger i forskjellige retninger
+ */
+abstract class PieceLogic {
 	
 
     private int north;
@@ -17,20 +21,54 @@ public abstract class PieceLogic {
 	protected final int KINGSTEPS = 1;
     protected String pieceSymbol;
     private boolean canMove = false;
+    
+    /**
+    * Sjekker en gitt retning basert på kolonne, rad, antall trinn, og gitt retning
+    * @param column kolonnen hvor brikken står
+    * @param row raden hvor brikken står
+    * @param steps antall trinn som man skal gå i en gitt retning
+    * @param firstDirection retning man skal gå i kolonnen
+    * @param secondDirection retning man skal gå i raden
+    * @return returnerer true vis man kan gå i denne retingen
+    */
+    private boolean checkDirection(
+    		int column, int row, int steps, int firstDirection, int secondDirection){
+        int firstCardinal = column + firstDirection;
+        int secondCardinal = row + secondDirection;
+        boolean directionCheck = false;
+        iteration = 1;
+        while(firstCardinal >= 0 && iteration <= steps )
+        {
+			toColumn = firstCardinal;
+			toRow = secondCardinal;
+			canMove = Controller.canIMoveTo(toColumn, toRow);
+			
+			if(canMove)
+				directionCheck = true;
+			
+			if(OutOfBoardFilter.isOutOfBoard(toColumn, toRow))
+				break;
+			
+			firstCardinal = firstCardinal + firstDirection;
+			secondCardinal = secondCardinal + secondDirection;
+        	iteration++;
+        }
+        return directionCheck;
+	}
 
     /**
-     *
-     * @param column
-     * @param row
-     * @param steps
-     * @return
+     * Sjekker nord retningen
+     * @param column kolonne brikken står i
+     * @param row raden brikken står i
+     * @param steps antall trinn som man skal gå i en gitt retning
+     * @return returnerer true vis man kan gå i denne retingen
      */
-    public boolean checkNorth(int column, int row, int steps){
+    protected boolean checkNorth(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
-		
-        north = row - 1;
-        iteration = 1;
+        north = -1;
+        /* iteration = 1;
+       
         while(north >= 0 && iteration <= steps )
         {
 			toRow = north;
@@ -41,24 +79,24 @@ public abstract class PieceLogic {
 			
         	north--;
         	iteration++;
-        }
-        return canMove;
+        }*/
+        return checkDirection(column, row, steps, 0, north);
 	}
 
     /**
-     *
-     * @param column
-     * @param row
-     * @param steps
-     * @return
+     * Sjekker nordøst retningen
+     * @param column kolonne brikken står i
+     * @param row raden brikken står i
+     * @param steps antall trinn som man skal gå i en gitt retning
+     * @return returnerer true vis man kan gå i denne retingen
      */
 	public boolean checkNorthEast(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
 		
-        north = row - 1;
-        east = column + 1;
-        iteration = 1;
+        north = -1;
+        east = +1;
+        /*iteration = 1;
         while(north >= 0 && iteration <= steps )
         {
 			toColumn = east;
@@ -71,23 +109,23 @@ public abstract class PieceLogic {
         	north--;
         	east++;
         	iteration++;
-        }
-        return canMove;
+        }*/
+        return checkDirection(column, row, steps, east, north);
 	}
 
     /**
-     *
-     * @param column
-     * @param row
-     * @param steps
-     * @return
+     * Sjekker øst retningen
+     * @param column kolonne brikken står i
+     * @param row raden brikken står i
+     * @param steps antall trinn som man skal gå i en gitt retning
+     * @return returnerer true vis man kan gå i denne retingen
      */
 	public boolean checkEast(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
 		
-        east = column + 1;
-        iteration = 1;
+        east = +1;
+        /*iteration = 1;
         while(east >= 0 && iteration <= steps)
         {
 			toColumn = east;
@@ -98,24 +136,24 @@ public abstract class PieceLogic {
 			
         	east++;
         	iteration++;
-        }
-        return canMove;
+        }*/
+        return checkDirection(column, row, steps, east, 0);
 	}
 
     /**
-     *
-     * @param column
-     * @param row
-     * @param steps
-     * @return
+     * Sjekker sørøst retningen
+     * @param column kolonne brikken står i
+     * @param row raden brikken står i
+     * @param steps antall trinn som man skal gå i en gitt retning
+     * @return returnerer true vis man kan gå i denne retingen
      */
 	public boolean checkSouthEast(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
 		
-        east = column + 1;
-        south = row + 1;
-        iteration = 1;
+        east = +1;
+        south = +1;
+        /*iteration = 1;
         while(east >= 0 && iteration <= steps)
         {
 			toColumn = east;
@@ -128,23 +166,23 @@ public abstract class PieceLogic {
         	east++;
         	south++;
         	iteration++;
-        }
-        return canMove;
+        }*/
+        return checkDirection(column, row, steps, east, south);
 	}
 
     /**
-     *
-     * @param column
-     * @param row
-     * @param steps
-     * @return
+     * Sjekker sør retningen
+     * @param column kolonne brikken står i
+     * @param row raden brikken står i
+     * @param steps antall trinn som man skal gå i en gitt retning
+     * @return returnerer true vis man kan gå i denne retingen
      */
 	public boolean checkSouth(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
 		
-        south = row + 1;
-        iteration = 1;
+        south = +1;
+        /*iteration = 1;
         while(south >= 0 && iteration <= steps)
         {
 			toRow = south;
@@ -155,24 +193,24 @@ public abstract class PieceLogic {
 			
         	south++;
         	iteration++;
-        }
-        return canMove;
+        }*/
+        return checkDirection(column, row, steps, 0, south);
 	}
 
     /**
-     *
-     * @param column
-     * @param row
-     * @param steps
-     * @return
+     * Sjekker sørvest retningen
+     * @param column kolonne brikken står i
+     * @param row raden brikken står i
+     * @param steps antall trinn som man skal gå i en gitt retning
+     * @return returnerer true vis man kan gå i denne retingen
      */
 	public boolean checkSouthWest(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
 		
-		west = column - 1;
-        south = row + 1;
-        iteration = 1;
+		west = -1;
+        south = +1;
+        /*iteration = 1;
         while(south >= 0 && iteration <= steps)
         {
 			toColumn = west;
@@ -185,23 +223,23 @@ public abstract class PieceLogic {
         	west--;
 			south++;
         	iteration++;
-        }
-        return canMove;
+        }*/
+        return checkDirection(column, row, steps, west, south);
 	}
 
     /**
-     *
-     * @param column
-     * @param row
-     * @param steps
-     * @return
+     * Sjekker vest retningen
+     * @param column kolonne brikken står i
+     * @param row raden brikken står i
+     * @param steps antall trinn som man skal gå i en gitt retning
+     * @return returnerer true vis man kan gå i denne retingen
      */
 	public boolean checkWest(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
 		
-		west = column - 1;
-        iteration = 1;
+		west = -1;
+        /*iteration = 1;
         while(west >= 0 && iteration <= steps)
         {
 			toColumn = west;
@@ -212,24 +250,24 @@ public abstract class PieceLogic {
 			
         	west--;
         	iteration++;
-        }
-        return canMove;
+        }*/
+        return checkDirection(column, row, steps, west, 0);
 	}
 
     /**
-     *
-     * @param column
-     * @param row
-     * @param steps
-     * @return
+     * Sjekker nordvest retningen
+     * @param column kolonne brikken står i
+     * @param row raden brikken står i
+     * @param steps antall trinn som man skal gå i en gitt retning
+     * @return returnerer true vis man kan gå i denne retingen
      */
 	public boolean checkNorthWest(int column, int row, int steps){
 		toColumn = column;
 		toRow = row;
 		
-        west = column - 1;
-        north = row - 1;
-        iteration = 1;
+        west = -1;
+        north = -1;
+        /*iteration = 1;
         while(west >= 0 && iteration <= steps)
         {
 			toColumn = west;
@@ -242,8 +280,8 @@ public abstract class PieceLogic {
         	west--;
         	north--;
         	iteration++;
-        }
-        return canMove;
+        }*/
+        return checkDirection(column, row, steps, west, north);
 	}
 
     /**
