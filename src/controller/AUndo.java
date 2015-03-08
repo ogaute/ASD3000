@@ -8,13 +8,17 @@ import easylib.controller.SuperAction;
 import easylib.controller.Usecase;
 
 /**
- * AUndo klassen har ansvar får å sette forklaringstekst og håndtere hendelsen
+ * AUndo klassen har ansvar får å sette forklaringstekst og håndtere hendelsen.
+ * 
+ * Klassen bruker Chain of Responsibility mønsteret.
  */
 public class AUndo extends SuperAction {
 
+	
     /**
-     *
-     * @param usecase Usecase
+     * Setter beskrivelse
+     * 
+     * @param usecase Tar et Usecase objekt som innparameter
      */
 	AUndo(Usecase usecase) {
 		super(usecase);
@@ -24,7 +28,8 @@ public class AUndo extends SuperAction {
 
     /**
      * Sender melding videre til Controller
-     * @param e
+     * 
+     * @param e Tar et ActionEvent objekt som innparameter
      */
 	public void actionPerformed(ActionEvent e) {
 		Controller.undoMove();
