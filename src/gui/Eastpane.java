@@ -18,29 +18,32 @@ public class Eastpane extends JPanel{
 	public Eastpane() {
         setLayout(new BorderLayout());
         setPreferredSize(new Dimension(200, 800));
-
         undo = new JButton("Undo");
         undo.addActionListener(Controller.actionundo);
         redo = new JButton("Redo");
         redo.addActionListener(Controller.actionredo);
+
         infobox = new JTextArea();
         JScrollPane jScrollPane = new JScrollPane(infobox);
+
         infobox.setSize(200,200);
+        infobox.setLineWrap(true);
+        infobox.setMargin(new Insets(5,5,5,5));
         infobox.setVisible(true);
         infobox.setEditable(false);
         infobox.setText(infoText);
 
         JPanel northpanel = new JPanel();
-        JPanel southpanel = new JPanel(new BorderLayout());
-        northpanel.add(undo);
-        northpanel.add(redo);
+        JPanel centerpanel = new JPanel(new BorderLayout());
+        JPanel southpanel = new JPanel();
+        southpanel.add(undo);
+        southpanel.add(redo);
+        northpanel.add(new JLabel("Lovlige trekk fra StockFish"));
 
-
-        southpanel.add(jScrollPane);
+        centerpanel.add(jScrollPane);
         add(northpanel, BorderLayout.NORTH);
-        add(southpanel,BorderLayout.CENTER);
-
-
+        add(centerpanel, BorderLayout.CENTER);
+        add(southpanel, BorderLayout.SOUTH);
 
 
 	}
@@ -63,10 +66,10 @@ public class Eastpane extends JPanel{
 
     /**
      *
-     * @param fen
+     * @param legalMoves
      */
-    public void addFenInfo(String fen) {
-        infobox.append(fen + "\n");
+    public void addLegalMovesInfo(String legalMoves) {
+        infobox.setText(legalMoves + "\n");
     }
 
 

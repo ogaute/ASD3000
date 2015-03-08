@@ -5,6 +5,10 @@ import gui.pieceGui.Piece;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ *  Klassen ChessBoard har ansvar for å lage brukergrensesnittelemnter, <p>
+ *  håndtering av brilleplaseringer og oppdatering av brukegrensesnittet
+ */
 public class ChessBoard extends JPanel {
 
 
@@ -22,7 +26,7 @@ public class ChessBoard extends JPanel {
 
     /**
      *
-     * @return
+     * @return squareList en liste med innholdet
      */
 	public Square[][] addPieces(){
         // Sorte brikker

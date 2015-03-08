@@ -87,7 +87,7 @@ public class FENgenerator extends Observable {
 		setChanged();
 		notifyObservers(fen);
 		clearChanged();
-        Controller.addFenInfo(fen);
+
 	}
 
 

@@ -134,8 +134,10 @@ public class GameCoordinator implements Observer {
 			Controller.checkMate();
 		}
 		legalMoveValidator.setlegalMovesFromStockfish(legalMovesFromStockfish);
-		System.out.println(legalMovesFromStockfish);
-	}
+
+        Controller.addFenInfo(legalMovesFromStockfish);
+
+    }
 
     /**
      *

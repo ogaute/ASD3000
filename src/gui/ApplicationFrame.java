@@ -175,7 +175,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
      * @param fen Tekst streng som blir brukt til utskrift i eastpanel
      */
     public void addFenInfo(String fen) {
-        eastpane.addFenInfo(fen);
+        eastpane.addLegalMovesInfo(fen);
     }
 
     /**
