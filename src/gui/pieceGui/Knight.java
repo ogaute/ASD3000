@@ -4,6 +4,10 @@ import gui.ApplicationConstants;
 import logic.pieceLogic.PieceLogicFactory;
 import logic.pieceLogic.PieceMessage;
 
+/**
+ * Klasse Knight har ansvar for sette riktig bilde, svart eller hvit Knight, i Piece.
+ * Utvider klassen Piece som er en AbstractButton.
+ */
 public class Knight extends Piece {
 	
 	
