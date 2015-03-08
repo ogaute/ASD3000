@@ -2,16 +2,19 @@ package gui;
 
 import gui.pieceGui.*;
 
-
+/**
+ *  ApplicationConstants har ansvar for å sette konstanter i applikasjonen
+ */
 public interface ApplicationConstants {
 
     /**
-     *
+     *  Stenger som blir brukt til å sette hvit eller svart
      */
 	String WHITE  = "hvit";
 	String BLACK = "svart";
+
     /**
-     *
+     *Strenger som blir brukt til å sette riktig syboler på brikkene
      */
     String SYMBOL_BLACK_ROOK = "r";
     String SYMBOL_WHITE_ROOK = "R";
@@ -26,11 +29,15 @@ public interface ApplicationConstants {
     String SYMBOL_BLACK_PAWN = "p";
     String SYMBOL_WHITE_PAWN = "P";
 	
-	/*0 til 7, antall 8*/
+	/**
+     * 0 til 7, antall 8
+     * Brukes til å sette antall rader og kolonner
+     * */
 	int NUMCOLUMNS = 7;
 	int NUMROWS = 7;
+
     /**
-     *
+     * Brukes til å sette ut brikkene på spillebrettet
      */
 	Piece[][] MARSHALLING = {
 			{new Rook(true), new Knight(true), new Bishop(true), new Queen(true), King.getBlackKingInstance(), new Bishop(true), new Knight(true), new Rook(true)},
@@ -45,7 +52,7 @@ public interface ApplicationConstants {
 			{new Rook(false), new Knight(false), new Bishop(false), new Queen(false), King.getWhiteKingInstance(), new Bishop(false), new Knight(false), new Rook(false)}
 	};
     /**
-     *
+     * Brukes til å finne riktige sjakk kordinater på spillebrettet.
      */
 	String[][] CHESSCOORDINATES = {
 			{"a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8"},
