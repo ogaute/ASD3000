@@ -39,7 +39,7 @@ public class Bishop extends Piece {
 	}
 
     /**
-     * Metode som sender hvilken kolonne og rad som er trykket på av bruker til bishopLogic
+     * Metode som sender melding til bishopLogic om  hvilken kolonne og rad som er trykket på av bruker
      * @param column kolonne som er trykket på
      * @param row rad som et trykket på
      */
