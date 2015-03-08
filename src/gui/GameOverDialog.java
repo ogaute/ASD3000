@@ -5,11 +5,14 @@ import javax.swing.JOptionPane;
 
 import controller.Controller;
 
+/**
+ *  Denne klassen har ansvar for å Håndtere brukerdialog
+ */
 public class GameOverDialog {
 
     /**
-     *
-     * @param frame
+     * Konstruktørene til dialogvinduet som spesifisere utsende til dette vinduet.
+     * @param frame er en Jfram som bare blir brukt til dialog vinduet
      */
 	public GameOverDialog(JFrame frame) {
 		String player = Controller.whoWon();
