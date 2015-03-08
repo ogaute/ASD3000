@@ -36,6 +36,12 @@ public interface ApplicationConstants {
 	int NUMCOLUMNS = 7;
 	int NUMROWS = 7;
 
+	/**
+	 * Brukes for å begrense rekkevidde i flytt
+	 */
+	int DEFAULTSTEPS = 7;
+	int KINGSTEPS = 1;
+	
     /**
      * Brukes til å sette ut brikkene på spillebrettet
      */

@@ -1,5 +1,6 @@
 package logic.pieceLogic;
 
+import gui.ApplicationConstants;
 import controller.Controller;
 import logic.OutOfBoardFilter;
 
@@ -17,8 +18,8 @@ abstract class PieceLogic {
     private int iteration;
 	private int toColumn;
 	private int toRow;
-	protected final int DEFAULTSTEPS = 7;
-	protected final int KINGSTEPS = 1;
+	protected final int DEFAULTSTEPS = ApplicationConstants.DEFAULTSTEPS;
+	protected final int KINGSTEPS = ApplicationConstants.KINGSTEPS;
     protected String pieceSymbol;
     private boolean canMove = false;
     
