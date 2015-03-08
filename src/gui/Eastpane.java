@@ -4,6 +4,10 @@ import java.awt.*;
 import javax.swing.*;
 import controller.Controller;
 
+/**
+ *  Klassen Eastpane har ansvar for å lage brukergrensesnittelementer,
+ *  Sette tilstand på knapper og  Fylle tekst i tekstområdet.
+ */
 public class Eastpane extends JPanel{
 
 	
@@ -13,7 +17,7 @@ public class Eastpane extends JPanel{
     private String infoText = "";
 
     /**
-     *
+     * Konstruktøren for denne klassen , Instansierer flere objekter
      */
 	public Eastpane() {
         setLayout(new BorderLayout());
@@ -49,24 +53,24 @@ public class Eastpane extends JPanel{
 	}
 
     /**
-     *
-     * @param enable
+     * Setter tilstanden til Undo enten til true til false
+     * @param enable boolean verdi for on undo knappen skal være aktivisert eller ikke
      */
 	public void setUndoEnable(boolean enable){
 		undo.setEnabled(enable);
 	}
 
     /**
-     *
-     * @param enable
+     * Setter tilstanden til Redo enten til false eller true.
+     * @param enable boolean verdi for on redo knappen skal være aktivisert eller ikke
      */
 	public void setRedoEnable(boolean enable){
 		redo.setEnabled(enable);
 	}
 
     /**
-     *
-     * @param legalMoves
+     * Setter tekst til tekstpanelet
+     * @param legalMoves En tekstren som inneholder alle lovlige trekk til den aktive spilleren
      */
     public void addLegalMovesInfo(String legalMoves) {
         infobox.setText(legalMoves + "\n");
