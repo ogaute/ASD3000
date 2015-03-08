@@ -12,7 +12,7 @@ import java.util.Observer;
  * Aggregerer også StockfishHandler og legger en observerer til den.
  * Legger også til StockfishHandler som en observerer til seg.
  * 
- * Klassen implementerer mønsteret Observer
+ * Klassen implementerer mønsteret Observer og bruker Chain of Responsibility mønsteret.
  */
 
 public class FENgenerator extends Observable {
