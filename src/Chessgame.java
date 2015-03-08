@@ -2,19 +2,25 @@
 import gui.Chessie;
 
 /**
- *This is a chess application that is ment for  the Course ASD-3000
+ *Dette er en sjakk applikasjon laget for faget ASD3000. Oppgven gikk ut på
+ * å lage et sjakk spill der man legger vekt på å bruke å praktisere mønster i
+ * programm koden.
  *
- * The Groupe:
+ * Gruppens medlermer :
  * Andrea Bøe Abrahamsen
  * Linda Fermanm
  * Øyvind Gautestad
  * Anders Borg Larsen
  *
  */
+
+/**
+ * Klassen Chessgame har ansvar for å starte applikasjoenen
+ */
 public class Chessgame {
 
     /**
-     * This is the main method that starts the application
+     * Dette er main metoden som har i oppgave å starte selve applikasjoene
      * @param args
      */
 	public static void main(String[] args) {
