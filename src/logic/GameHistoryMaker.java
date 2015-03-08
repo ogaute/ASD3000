@@ -55,13 +55,13 @@ public class GameHistoryMaker {
 		boardStateList.add(boardStateHandler.saveBoardState());
 		if((boardStateList.length()- 1) > listIndex)
 			listIndex++;
-		setEnableOnUndo();
+		setEnableOnUndoRedo();
 	}
 
     /**
      * Metode som enabler undo/redo knapp hvis det finnes historikk
      */
-	private void setEnableOnUndo() {
+	private void setEnableOnUndoRedo() {
 		if(listIndex == (boardStateList.length() - 1)){
 			Controller.setRedoEnable(false);
 		}
@@ -89,7 +89,7 @@ public class GameHistoryMaker {
 			board.removePieces();
 			board.changeGameState(boardStateHandler.getBoardState());
 			Controller.changePlayerInTurn();
-			setEnableOnUndo();
+			setEnableOnUndoRedo();
 		}
 	}
 
@@ -104,7 +104,7 @@ public class GameHistoryMaker {
 			board.removePieces();
 			board.changeGameState(boardStateHandler.getBoardState());
 			Controller.changePlayerInTurn();
-			setEnableOnUndo();
+			setEnableOnUndoRedo();
 		}
 	}
 
