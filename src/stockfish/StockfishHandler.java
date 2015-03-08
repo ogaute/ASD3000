@@ -3,7 +3,7 @@ package stockfish;
 import java.util.Observable;
 import java.util.Observer;
 
-public class stockFishObservable extends Observable implements Observer{
+public class StockfishHandler extends Observable implements Observer{
 
 
 	private String FEN = "";
@@ -14,7 +14,7 @@ public class stockFishObservable extends Observable implements Observer{
      * Konstruktør. Instansierer StockfishClient, og ber den starte motoren, og sende
      * kommando dersom det gikk bra. 
      */
-	public stockFishObservable() {
+	public StockfishHandler() {
 		stockfishClient = new StockfishClient();
 		if (stockfishClient.startEngine()) {
 			System.out.println("Stockfish har startet..");
