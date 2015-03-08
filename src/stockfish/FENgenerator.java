@@ -11,7 +11,7 @@ import java.util.Observer;
 public class FENgenerator extends Observable {
 
 	
-	private StockfishHandler StockfishHandler; //observer
+	private StockfishHandler stockfishHandler; //observer
 	private Square[][] boardPositions;
 	private String castlingAbility = "";
 	private String enPassant = "";
@@ -24,9 +24,9 @@ public class FENgenerator extends Observable {
      * @param observer
      */
 	public FENgenerator(Observer observer) {
-		StockfishHandler = new StockfishHandler(); //observer
-        addObserver(StockfishHandler); //observer
-        StockfishHandler.addObserver(observer); //observer
+		stockfishHandler = new StockfishHandler(); //observer
+        addObserver(stockfishHandler); //observer
+        stockfishHandler.addObserver(observer); //observer
 	}
 
     /**
