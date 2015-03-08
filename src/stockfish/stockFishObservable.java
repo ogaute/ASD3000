@@ -11,8 +11,8 @@ public class stockFishObservable extends Observable implements Observer{
     private StockfishClient stockfishClient;
 
     /**
-     * the method stockFishHandler is responsibel for handling and starting the
-     * StockFishClient. When started it sends a command to the StockFishClient.
+     * Konstruktør. Instansierer StockfishClient, og ber den starte motoren, og sende
+     * kommando dersom det gikk bra. 
      */
 	public stockFishObservable() {
 		stockfishClient = new StockfishClient();
@@ -26,7 +26,8 @@ public class stockFishObservable extends Observable implements Observer{
 	}
 
     /**
-     *
+     *Metoden fyller et String-array basert på hva som returneres av StockfishClient.<p>
+     *Mulige observerere blir gitt beskjed om at endring har skjedd
      */
 	public void setValue(){
 		setChanged();
@@ -38,9 +39,10 @@ public class stockFishObservable extends Observable implements Observer{
 	}
 
     /**
-     * The update method the is esensial to the Observer
-     * @param observable
-     * @param fen
+     * Metoden utføres når objektet man observerer har endret tilstand.<p>
+     * Klassefelt oppdateres med mottat fen-streng, og metoden setValue kjøres.
+     * @param observable Objektet man observerer
+     * @param fen String som er bygd opp i henhold til regler for FEN
      */
 	@Override
 	public void update(Observable observable, Object fen) {
