@@ -15,7 +15,7 @@ public class ChessBoard extends JPanel {
 	Square[][] squareList = new Square[8][8];
 
     /**
-     *
+     *konstruktøren for Chessboard , har i oppgave sette brukergrensesnittelementer.
      */
 	public ChessBoard() {
 		setLayout(new GridLayout(8,0));
@@ -46,7 +46,7 @@ public class ChessBoard extends JPanel {
 	}
 
     /**
-     *
+     * metode for å lage selve spill brettet
      */
 	private void makeBoard(){
 		int squareColorChanger = 0;
@@ -69,10 +69,9 @@ public class ChessBoard extends JPanel {
 	}
 
     /**
-     *
+     * metode for å fjerne en brikke fra spillet
      */
 	public void removePieces(){
-		System.out.println("remover");
 		for (int row = 0; row <= ApplicationConstants.NUMROWS; row++) {
 			for (int column = 0; column <= ApplicationConstants.NUMCOLUMNS; column++) {
 				if(squareList[column][row].hasChild()){
@@ -84,8 +83,8 @@ public class ChessBoard extends JPanel {
 	}
 
     /**
-     *
-     * @param savedPieceList
+     * metode som har i oppgave å forandre brettet når man bruker undo eller redo knappene
+     * @param savedPieceList en liste med Brikker som er lagret.
      */
 	public void changeGameState(Piece[][] savedPieceList){
 		System.out.println("forandrer");
