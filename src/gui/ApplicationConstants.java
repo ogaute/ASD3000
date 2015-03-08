@@ -51,6 +51,12 @@ public interface ApplicationConstants {
 			{new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false), new Pawn(false)},
 			{new Rook(false), new Knight(false), new Bishop(false), new Queen(false), King.getWhiteKingInstance(), new Bishop(false), new Knight(false), new Rook(false)}
 	};
+	
+	/**
+	 * Brukes til å legge på riktige kolonnekoordinater rundt brettet
+	 */
+	String[] LETTERS = { "A", "B", "C", "D", "E", "F", "G", "H" };
+	
     /**
      * Brukes til å finne riktige sjakk kordinater på spillebrettet.
      */

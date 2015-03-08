@@ -12,8 +12,8 @@ import java.awt.*;
  */
 public class Centerpane extends JPanel {
 	
+	
 	private GameCoordinator coordinator;
-   private final String[] LETTERS = { "A", "B", "C", "D", "E", "F", "G", "H" };
 
     JPanel southCoordinates;
 	JPanel eastCoordinates;
@@ -53,9 +53,9 @@ public class Centerpane extends JPanel {
 
 		for (int j = 0; j <= 9; j++) {
 			if (j != 9 && j != 0) {
-				southCoordinates.add(new JLabel(LETTERS[j - 1],
+				southCoordinates.add(new JLabel(ApplicationConstants.LETTERS[j - 1],
 						SwingConstants.CENTER));
-				northCoordinates.add(new JLabel(LETTERS[j - 1],
+				northCoordinates.add(new JLabel(ApplicationConstants.LETTERS[j - 1],
 						SwingConstants.CENTER));
 				eastCoordinates.add(new JLabel("  " + (9 - j) + "  ",
 						SwingConstants.CENTER));
@@ -149,4 +149,5 @@ public class Centerpane extends JPanel {
 		coordinator.redoMove();
 	}
 
+	
 }
