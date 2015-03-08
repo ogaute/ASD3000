@@ -2,7 +2,7 @@ package logic;
 
 import controller.Controller;
 import saveLogic.BoardStateList;
-import saveLogic.BoardStateCreator;
+import saveLogic.BoardStateHandler;
 import gui.ApplicationConstants;
 import gui.ChessBoard;
 import gui.Square;
@@ -13,7 +13,7 @@ public class GameHistoryMaker {
 	
 	private ChessBoard board;
 	private Square[][] squareList;
-	BoardStateCreator boardStateCreator = new BoardStateCreator();
+	BoardStateHandler boardStateHandler = new BoardStateHandler();
 	BoardStateList boardStateList = new BoardStateList();
 	int listIndex = 0;
 
@@ -48,8 +48,8 @@ public class GameHistoryMaker {
      *
      */
 	public void saveState(){
-		boardStateCreator.setBoardState(boardToPiecesList());
-		boardStateList.add(boardStateCreator.saveBoardState());
+		boardStateHandler.setBoardState(boardToPiecesList());
+		boardStateList.add(boardStateHandler.saveBoardState());
 		if((boardStateList.length()- 1) > listIndex)
 			listIndex++;
 		setEnableOnUndo();
@@ -82,9 +82,9 @@ public class GameHistoryMaker {
 		if(listIndex >= 0)
 			listIndex--;
 		if (indexFilter(listIndex)) {
-			boardStateCreator.setBoardState(boardStateList.get(listIndex).getBoardState());
+			boardStateHandler.setBoardState(boardStateList.get(listIndex).getBoardState());
 			board.removePieces();
-			board.changeGameState(boardStateCreator.getBoardState());
+			board.changeGameState(boardStateHandler.getBoardState());
 			Controller.changePlayerInTurn();
 			setEnableOnUndo();
 		}
@@ -97,9 +97,9 @@ public class GameHistoryMaker {
 		if((boardStateList.length()- 1) > listIndex)
 			listIndex++;
 		if (indexFilter(listIndex)) {
-			boardStateCreator.setBoardState(boardStateList.get(listIndex).getBoardState());
+			boardStateHandler.setBoardState(boardStateList.get(listIndex).getBoardState());
 			board.removePieces();
-			board.changeGameState(boardStateCreator.getBoardState());
+			board.changeGameState(boardStateHandler.getBoardState());
 			Controller.changePlayerInTurn();
 			setEnableOnUndo();
 		}
