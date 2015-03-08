@@ -2,12 +2,18 @@ package logic.pieceLogic;
 
 import gui.ApplicationConstants;
 
+/**
+ * Logic brikke fabrikk. <p>
+ * Tar ansvar for å generere brikke logikk objekter.
+ * Implementasjon av Factory mønstret
+ */
 public class PieceLogicFactory {
+	
     /**
-     *
-     * @param pieceType
-     * @param pieceColor
-     * @return
+     * Generer brikke logikk obkecter basert på type og farge
+     * @param pieceType brikken typen
+     * @param pieceColor fargen til brikken
+     * @return brikke logikk object av typen PieceMessage interface
      */
 	public PieceMessage getPieceLogic(String pieceType, String pieceColor) {
 		if (pieceType == null) {
