@@ -7,6 +7,11 @@ import javax.swing.*;
 
 import java.awt.*;
 
+/**
+ * ApplicationFrame har ansvar for å lage brukergrensesnittelementer i applikasjonen. <p>
+ * ApplicationFrame har også ansvar for å sende meldinger vidre i systemet og agreggere <p>
+ * flere objekter.
+ */
 public class ApplicationFrame extends JFrame implements ISupercontroller {
 
 
@@ -15,7 +20,8 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
     private MenuController menuController;
 
     /**
-     *
+     *Konstruktøren for denne klassen. legger til paneler, meny linje og setter <p>
+     *lokasjonene på vinduet.
      */
 	public ApplicationFrame() {
 		Controller.init(this);
@@ -31,26 +37,30 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
     }
 
     /**
-     *
+     * Metode som avslutter applikasjonen.
      */
 	public void exit() {
 		System.exit(0);
 	}
 
     /***
-     *
+     * fra easylib.....
      * @param s
      */
     @Override
     public void setStatustext(String s) {
-        // FRA easylib
     }
 
     /**
-     *
+     * Metode som starter en dialogboks som viser litt informasjon om applikasjonen
      */
     public void about() {
-        JOptionPane.showMessageDialog(this, "Chessie 1.1 RC Client");
+        JOptionPane.showMessageDialog(this, "Chessie 1.1 RC Client" +"\n" +"\n" +
+                "Laget av : " +"\n" +
+                "Andrea Bøe Abrahamsen, " +"\n" +
+                "Anders Borg Larsen, "  +"\n" +
+                "Linda Fermann, "  +"\n" +
+                "Øyvind Gatestad");
 	}
 
     /**
@@ -72,8 +82,8 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
     /**
      * CoR meldingsstier
-     * @param column
-     * @param row
+     * @param column kolonne man flytter til
+     * @param row rad man flytter til
      */
 	public void moveTo(int column, int row) {
 		centerpane.moveTo(column, row);
@@ -81,8 +91,8 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
     /**
      * CoR meldingsstier
-     * @param column
-     * @param row
+     * @param column kolonnen på sist trykket
+     * @param row raden på sist trykket
      */
 	public void setLastPressed(int column, int row) {
 		centerpane.setLastPressed(column, row);
@@ -97,7 +107,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
     /**
      * CoR meldingsstier
-     * @return
+     * @return spiller som har sin tur.
      */
 	public String getPlayerInTurn() {
 		return centerpane.getPlayerInTurn();
@@ -105,9 +115,9 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
     /**
      * CoR meldingsstier
-     * @param toColumn
-     * @param toRow
-     * @return
+     * @param toColumn kolonnen der man kan fange en brikke
+     * @param toRow raden der man kan fange en brikke
+     * @return sender tilbake hilken kolone og rad man kan fange
      */
 	public boolean canICapture(int toColumn, int toRow) {
 		return centerpane.canICapture(toColumn, toRow);
@@ -115,6 +125,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
     /**
      * CoR meldingsstier
+     * Hvis sjakk matt oppstår Instansieres GameOverDialog vinduet
      */
 	public void checkMate() {
 		new GameOverDialog(this);
@@ -122,7 +133,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
     /**
      * CoR meldingsstier
-     * @return
+     * @return returnerer hvem som har vunnet spillet
      */
 	public String whoWon() {
 		return centerpane.whoWon();
@@ -134,10 +145,16 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 	public void undoMove() {
 		centerpane.undoMove();
 	}
+    /**
+     * CoR meldingsstier
+     */
+    public void redoMove() {
+        centerpane.redoMove();
+    }
 
     /**
      * CoR meldingsstier
-     * @param b
+     * @param b boolean for å sette knappen til Undo aktiv eller inaktiv.
      */
 	public void setUndoEnable(boolean b) {
         eastpane.setUndoEnable(b);
@@ -145,22 +162,17 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
     /**
      * CoR meldingsstier
-     * @param b
+     * @param b boolean for å sette knappen til Redo aktiv eller inaktiv.
      */
 	public void setRedoEnable(boolean b) {
 		eastpane.setRedoEnable(b);
     }
 
-    /**
-     * CoR meldingsstier
-     */
-	public void redoMove() {
-		centerpane.redoMove();
-	}
+
 
     /**
      * CoR meldingsstier
-     * @param fen
+     * @param fen Tekst streng som blir brukt til utskrift i eastpanel
      */
     public void addFenInfo(String fen) {
         eastpane.addFenInfo(fen);
@@ -168,6 +180,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
     /**
      * CoR meldingsstier
+     * Innstansierer et nytt Dialogvindu  av typen PromotionDialog .Der man kan forfremme brikker.
      * @return
      */
     public String promotionDialog() {
