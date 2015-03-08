@@ -6,6 +6,10 @@ import logic.GameCoordinator;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Klassen Centerpane har ansvar for å lage flere brukergrensesnittelementer, <p>
+ * instansiere flere objekter og sende meldinger vidre i systemet.
+ */
 public class Centerpane extends JPanel {
 	
 	private GameCoordinator coordinator;
@@ -17,7 +21,7 @@ public class Centerpane extends JPanel {
 	JPanel westCoordinates;
 
     /**
-     *
+     * Konstruktørene instansierer klassene ChessBoard , GameCordinator og BorderLayout.
      */
 	public Centerpane() {
 		setLayout(new BorderLayout());
@@ -28,7 +32,7 @@ public class Centerpane extends JPanel {
     }
 
     /**
-     *
+     * Metoden har i oppgave å lage kordinatene rundt sjakkbrettet.
      */
 	public void makeCoordinates() {
         southCoordinates = new JPanel();
@@ -65,8 +69,8 @@ public class Centerpane extends JPanel {
 
     /** CoR meldingsstier
      *
-     * @param column
-     * @param row
+     * @param column kolonene man spør om man kan flytte til
+     * @param row raden man spør om man kan flytte til
      * @return
      */
     public boolean canIMoveTo(int column, int row) {
@@ -82,8 +86,8 @@ public class Centerpane extends JPanel {
 
     /** CoR meldingsstier
      *
-     * @param column
-     * @param row
+     * @param column kolonnen man flytter til
+     * @param row raden man flytter til
      */
 	public void moveTo(int column, int row) {
 		coordinator.moveTo(column, row);
@@ -91,8 +95,8 @@ public class Centerpane extends JPanel {
 
     /** CoR meldingsstier
      *
-     * @param column
-     * @param row
+     * @param column kolonnen på sist presset brikke
+     * @param row raden på sist presset brikke
      */
 	public void setLastPressed(int column, int row) {
 		coordinator.setLastPressed(column, row);
@@ -107,7 +111,7 @@ public class Centerpane extends JPanel {
 
     /** CoR meldingsstier
      *
-     * @return
+     * @return hvem spiller som er i spill
      */
 	public String getPlayerInTurn() {
 		return coordinator.whoIsInTurn();
@@ -115,8 +119,8 @@ public class Centerpane extends JPanel {
 
     /** CoR meldingsstier
      *
-     * @param toColumn
-     * @param toRow
+     * @param toColumn spør om man kan fange en brikke på denne kolonen
+     * @param toRow spør om man kan fange en brikke på denne raden
      * @return
      */
 	public boolean canICapture(int toColumn, int toRow) {
@@ -125,7 +129,7 @@ public class Centerpane extends JPanel {
 
     /** CoR meldingsstier
      *
-     * @return
+     * @return hvem som vant
      */
 	public String whoWon() {
 		return coordinator.whoWon();
