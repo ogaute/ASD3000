@@ -71,7 +71,7 @@ public class Centerpane extends JPanel {
      *
      * @param column kolonene man spør om man kan flytte til
      * @param row raden man spør om man kan flytte til
-     * @return
+     * @return returnerer kordinater som man har supurt om å få flytte til
      */
     public boolean canIMoveTo(int column, int row) {
 		return coordinator.canIMoveTo(column, row);
@@ -121,7 +121,7 @@ public class Centerpane extends JPanel {
      *
      * @param toColumn spør om man kan fange en brikke på denne kolonen
      * @param toRow spør om man kan fange en brikke på denne raden
-     * @return
+     * @return returnerer kordinatene på det feltet man kan ta
      */
 	public boolean canICapture(int toColumn, int toRow) {
 		return coordinator.canICapture(toColumn, toRow);
