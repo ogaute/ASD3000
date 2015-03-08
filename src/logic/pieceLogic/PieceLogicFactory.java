@@ -9,7 +9,7 @@ public class PieceLogicFactory {
      * @param pieceColor
      * @return
      */
-	public PieceMessage getPiece(String pieceType, String pieceColor) {
+	public PieceMessage getPieceLogic(String pieceType, String pieceColor) {
 		if (pieceType == null) {
 			return null;
 		}
