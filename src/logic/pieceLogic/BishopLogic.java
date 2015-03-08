@@ -35,7 +35,7 @@ class BishopLogic extends PieceLogic implements PieceMessage{
 
     /**
      * Metode som tar i mot om brikken er presset på for forflyttning og ser etter
-     * lovlige trekk for løper brikken.
+     * lovlige trekk for løper brikken. 
      * @param column kolonne som brikken er på
      * @param row rad som brikken er på
      */
