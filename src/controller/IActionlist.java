@@ -2,6 +2,8 @@ package controller;
 
 import easylib.controller.Usecase;
 
+import javax.swing.*;
+
 /**
  * Denne klassen muliggjør bruk av nye Usecase utover 
  * Usecase i biblioteket som er inkludert.
@@ -21,7 +23,7 @@ import easylib.controller.Usecase;
  */
 
 interface IActionlist {
-	Usecase UNDO = new Usecase("tilbake", null);
-	Usecase REDO = new Usecase("fremover", null);
-    Usecase STARTNEW = new Usecase("Nytt Spill", null);
+	Usecase UNDO = new Usecase("tilbake", new ImageIcon("img/undo.png"));
+	Usecase REDO = new Usecase("fremover", new ImageIcon("img/redo.png"));
+    Usecase STARTNEW = new Usecase("Nytt Spill", new ImageIcon("img/new.png"));
 }
