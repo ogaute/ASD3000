@@ -19,18 +19,18 @@ public class AUndo extends SuperAction {
      * Setter beskrivelse<p>
      * Bruker eksternt klasse, Usecase, fra easylib
      * 
-     * @param usecase Tar et Usecase objekt som innparameter
+     * @param usecase Tar et Usecase-objekt som innparameter
      */
 	AUndo(Usecase usecase) {
 		super(usecase);
-		putValue(Action.SHORT_DESCRIPTION, "Gå tilbake");
-		putValue(Action.LONG_DESCRIPTION, "Nå kan du gå tilbake");
+		putValue(Action.SHORT_DESCRIPTION, "Gå ett trekk tilbake");
+		putValue(Action.LONG_DESCRIPTION, "Du kan gå ett trekk tilbake");
 	}
 
     /**
      * Sender melding videre til Controller
      * 
-     * @param e Tar et ActionEvent objekt som innparameter
+     * @param e Tar et ActionEvent-objekt som innparameter
      */
 	public void actionPerformed(ActionEvent e) {
 		Controller.undoMove();

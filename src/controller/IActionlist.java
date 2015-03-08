@@ -2,6 +2,11 @@ package controller;
 
 import easylib.controller.Usecase;
 
+/**
+ * Denne klassen muliggjør bruk av nye Usecase utover 
+ * Usecase i biblioteket som er inkludert.
+ */
+
 /*
  * Det er behov for en lett tilgjengelig liste 
  * over brukstilfeller og ikoner

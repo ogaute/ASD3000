@@ -9,7 +9,7 @@ import logic.OutOfBoardFilter;
 /**
  * Klassen Controller har ansvar for å sende meldinger videre i systemet.
  * 
- * Klassen bruker Chain of Responsibility mønsteret - CoR.
+ * Klassens implementering muliggjør bruk av mønsteret Chain of Responsibility - CoR.
  */
 
 public class Controller extends Supercontroller implements IActionlist {
@@ -30,7 +30,7 @@ public class Controller extends Supercontroller implements IActionlist {
 	}
 
     /**
-     * CoR meldingsstier<p>
+     * CoR meldingssti<p>
      * Sender melding videre til ApplicationFrame
      */
 	public static void exit() {
@@ -38,7 +38,7 @@ public class Controller extends Supercontroller implements IActionlist {
 	}
 
     /**
-     * CoR meldingsstier<p>
+     * CoR meldingssti<p>
      * Sender melding videre til OutOfBoardFilter og ApplicationFrame
      * 
      * @param column Kolonne på spillebrettet
@@ -50,7 +50,7 @@ public class Controller extends Supercontroller implements IActionlist {
     }
 
     /**
-     * CoR meldingsstier<p>
+     * CoR meldingssti<p>
      * Sender melding videre til ApplicationFrame<p>
      */
 	public static void resetSquares() {
@@ -58,7 +58,7 @@ public class Controller extends Supercontroller implements IActionlist {
 	}
 
     /**
-     * CoR meldingsstier<p>
+     * CoR meldingssti<p>
      * Sender melding videre til OutOfBoardFilter, og dersom feltet ikke
      * er utenfor brettet, så sendes melding videre til ApplicationFrame
      * 
@@ -71,7 +71,7 @@ public class Controller extends Supercontroller implements IActionlist {
 	}
 
     /**
-     * CoR meldingsstier<p>
+     * CoR meldingssti<p>
      * Sender melding videre til ApplicationFrame
      * 
      * @param column Kolonne på spillebrettet
@@ -82,7 +82,7 @@ public class Controller extends Supercontroller implements IActionlist {
 	}
 
     /**
-     * CoR meldingsstier <p>
+     * CoR meldingssti<p>
      * Sender melding videre til ApplicationFrame
      */
 	public static void changePlayerInTurn() {
@@ -90,7 +90,7 @@ public class Controller extends Supercontroller implements IActionlist {
 	}
 
     /**
-     * CoR meldingsstier <p>
+     * CoR meldingssti<p>
      * Sender melding videre til ApplicationFrame
      * @return Returnerer hvilken spiller som har tur
      */
@@ -99,7 +99,7 @@ public class Controller extends Supercontroller implements IActionlist {
 	}
 
     /**
-     * CoR meldingsstier<p>
+     * CoR meldingssti<p>
      * Sender melding videre til OutOfBoardFilter og ApplicationFrame
      * @param toColumn Kolonne man ønsker sjekke
      * @param toRow Rad man ønsker å sjekke
@@ -110,7 +110,7 @@ public class Controller extends Supercontroller implements IActionlist {
     }
 
     /**
-     * CoR meldingsstier<p>
+     * CoR meldingssti<p>
      * Sender melding videre til ApplicationFrame
      */
 	public static void checkMate() {
@@ -118,7 +118,7 @@ public class Controller extends Supercontroller implements IActionlist {
 	}
 
     /**
-     * CoR meldingsstier<p>
+     * CoR meldingssti<p>
      * Sender melding videre til ApplicationFrame
      * @return Returnerer hvilken spiller som vant
      */
@@ -127,7 +127,7 @@ public class Controller extends Supercontroller implements IActionlist {
 	}
 
     /**
-     * CoR meldingsstier<p>
+     * CoR meldingssti<p>
      * Sender melding videre til ApplicationFrame
      */
 	public static void undoMove() {
@@ -135,7 +135,7 @@ public class Controller extends Supercontroller implements IActionlist {
 	}
 
     /**
-     * CoR meldingsstier<p>
+     * CoR meldingssti<p>
      * Sender melding videre til ApplicationFrame
      * @param b boolean verdi for å sette setEnable til true eller false
      */
@@ -145,7 +145,7 @@ public class Controller extends Supercontroller implements IActionlist {
 	}
 
     /**
-     * CoR meldingsstier<p>
+     * CoR meldingssti<p>
      * Sender melding videre til ApplicationFrame
      * @param b boolean verdi for å sette setEnable til true eller false
      */
@@ -155,7 +155,7 @@ public class Controller extends Supercontroller implements IActionlist {
 	}
 
     /**
-     * CoR meldingsstier<p>
+     * CoR meldingssti<p>
      * Sender melding videre til ApplicationFrame
      */
 	public static void redoMove() {
@@ -163,7 +163,7 @@ public class Controller extends Supercontroller implements IActionlist {
 	}
 
     /**
-     * CoR meldingsstier<p>
+     * CoR meldingssti<p>
      * Sender melding videre til ApplicationFrame
      * @param fen En string med FEN-notasjon
      */
@@ -172,7 +172,7 @@ public class Controller extends Supercontroller implements IActionlist {
     }
 
     /**
-     * CoR meldingsstier<p>
+     * CoR meldingssti<p>
      * Sender melding videre til ApplicationFrame
      * @return
      */

@@ -3,7 +3,7 @@ package gui;
 import gui.pieceGui.*;
 
 /**
- *  ApplicationConstants har ansvar for å sette konstanter i applikasjonen
+ *  ApplicationConstants er et interface og har ansvar for å sette konstanter som brukes i applikasjonen
  */
 public interface ApplicationConstants {
 
@@ -14,7 +14,7 @@ public interface ApplicationConstants {
 	String BLACK = "svart";
 
     /**
-     *Strenger som blir brukt til å sette riktig syboler på brikkene
+     *Strenger som blir brukt til å sette riktig symboler på brikkene. Brukes når det genereres FEN-streng.
      */
     String SYMBOL_BLACK_ROOK = "r";
     String SYMBOL_WHITE_ROOK = "R";
@@ -30,20 +30,22 @@ public interface ApplicationConstants {
     String SYMBOL_WHITE_PAWN = "P";
 	
 	/**
-     * 0 til 7, antall 8
+     * index er 0 til 7, gir et antall på 8
      * Brukes til å sette antall rader og kolonner
      * */
 	int NUMCOLUMNS = 7;
 	int NUMROWS = 7;
 
 	/**
-	 * Brukes for å begrense rekkevidde i flytt
+	 * Brukes for å begrense rekkevidde i flytting. 
+	 * Default er at det er maksimalt 7 flyttinger i retning innenfor brettet for offiserer.
+	 * Kongen har kun ett trekk som maksimalt antall flyttinger i retning innenfor brettet.
 	 */
 	int DEFAULTSTEPS = 7;
 	int KINGSTEPS = 1;
 	
     /**
-     * Brukes til å sette ut brikkene på spillebrettet
+     * Brukes til å sette ut brikkene på spillebrettet ved oppstart av nytt spill.
      */
 	Piece[][] MARSHALLING = {
 			{new Rook(true), new Knight(true), new Bishop(true), new Queen(true), King.getBlackKingInstance(), new Bishop(true), new Knight(true), new Rook(true)},
@@ -64,7 +66,7 @@ public interface ApplicationConstants {
 	String[] LETTERS = { "A", "B", "C", "D", "E", "F", "G", "H" };
 	
     /**
-     * Brukes til å finne riktige sjakk kordinater på spillebrettet.
+     * Brukes til å oversette fra todimensjonalt array bestående av kolonner/rader med indekser til sjakkkoordinater på spillebrettet.
      */
 	String[][] CHESSCOORDINATES = {
 			{"a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8"},
