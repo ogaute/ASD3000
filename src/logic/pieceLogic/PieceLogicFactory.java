@@ -5,6 +5,7 @@ import gui.ApplicationConstants;
 /**
  * Logic brikke fabrikk. <p>
  * Tar ansvar for å generere brikke logikk objekter.
+ * Implementasjon av Factory mønstret
  */
 public class PieceLogicFactory {
 	
