@@ -15,7 +15,7 @@ public class Bishop extends Piece {
 
     /**
      * Bishop<p>
-     * Henter bildefil til en svart eller hvit brikke og forepør en instans av bishopLogic fra PiecLogicFactory
+     * Setter bildefil til en svart eller hvit brikke og forepør en instans av bishopLogic fra PiecLogicFactory
      * @param isBlack hvorvidt en brikke er svart eller ikke
      */
 	public Bishop(boolean isBlack) {

@@ -2,6 +2,11 @@ package stockfish;
 
 import gui.ApplicationConstants;
 
+/**
+ * Klassen LegalMoveValidator har som ansvar å validere om
+ * et trekk er lovlig i gjeldende stilling.
+ */
+
 public class LegalMoveValidator {
 
 	
