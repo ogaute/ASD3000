@@ -7,10 +7,13 @@ import javax.swing.Action;
 import easylib.controller.SuperAction;
 import easylib.controller.Usecase;
 
+/**
+ * ARedo klassen har ansvar får å sette forklaringstekst og håndtere hendelsen
+ */
 public class ARedo extends SuperAction {
     /**
-     *
-     * @param usecase
+     * Bruker eksternt klasse fra easylib
+     * @param usecase Usecase fra easylib
      */
 	ARedo(Usecase usecase){
 		super(usecase);
@@ -19,7 +22,7 @@ public class ARedo extends SuperAction {
 	}
 
     /**
-     * 
+     * Sender melding videre til Controller
      * @param e
      */
 	public void actionPerformed(ActionEvent e) {
