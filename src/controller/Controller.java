@@ -92,8 +92,8 @@ public class Controller extends Supercontroller implements IActionlist {
     /**
      * CoR meldingsstier<p>
      * Sender melding videre til Application frame<p>
-     * @param toColumn Kolonne på spille brettet
-     * @param toRow Rad på spille brettet
+     * @param toColumn Kolone man ønsker  sjekke om kan ta på
+     * @param toRow Rad man ønsker å fange
      * @return
      */
 	public static boolean canICapture(int toColumn, int toRow) {
