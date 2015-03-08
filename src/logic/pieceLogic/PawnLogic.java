@@ -3,6 +3,11 @@ package logic.pieceLogic;
 import controller.Controller;
 import gui.ApplicationConstants;
 
+/**
+ * Logic klasse for bonde brikker. <p>
+ * Tar ansvar for å holde på farge, brikke symbol, forflyttningsretning,
+ * standard rad og se etter lovlige bevegelser ved trykk.
+ */
 class PawnLogic extends PieceLogic implements PieceMessage{
 
 
@@ -12,8 +17,8 @@ class PawnLogic extends PieceLogic implements PieceMessage{
 	private int passantRow;
 
     /**
-     *
-     * @param pieceColor
+     * Konstruktør, tar i mot hvilken farge brikken skal være.
+     * @param pieceColor brikkens farge
      */
 	protected PawnLogic(String pieceColor) {
 		this.pieceColor = pieceColor;
@@ -21,7 +26,7 @@ class PawnLogic extends PieceLogic implements PieceMessage{
 	}
 
     /**
-     *
+     * Setter egenskaper (symbol, retning, starndard rad) til brikkelogikken basert på fargen til brikken
      */
 	private void setPieceProperties(){
 		if(pieceColor.equals(ApplicationConstants.BLACK)){
@@ -39,9 +44,10 @@ class PawnLogic extends PieceLogic implements PieceMessage{
 	}
 
     /**
-     *
-     * @param column
-     * @param row
+     * Metode som tar i mot om brikken er presset på gitt kolonne og rad for forflyttning og ser etter
+     * lovlige trekk for bonde brikken. Utnytter CoR for å spørre om lovlig trekk.
+     * @param column kolonne som brikken er på
+     * @param row rad som brikken er på
      */
 	public void pressed(int column, int row) {
 		if(pieceColor.equals(Controller.getPlayerInTurn())){

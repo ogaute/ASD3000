@@ -8,6 +8,9 @@ import gui.ChessBoard;
 import gui.Square;
 import gui.pieceGui.Piece;
 
+/**
+ * Klasse som har ansvar for å håndtere spillets historikk.
+ */
 public class GameHistoryMaker {
 	
 	
@@ -18,9 +21,9 @@ public class GameHistoryMaker {
 	int listIndex = 0;
 
     /**
-     *
-     * @param board
-     * @param squares
+     * Konstruktør - setter verdi i klassefelt
+     * @param board mottar peker til objekt av klassen ChessBoard
+     * @param squares mottar peker til liste med squares
      */
 	public GameHistoryMaker(ChessBoard board, Square[][] squares) {
 		this.board = board;
@@ -28,8 +31,8 @@ public class GameHistoryMaker {
 	}
 
     /**
-     *
-     * @return
+     * Metode som henter ut piece fra hver enkelt square i squareliste som har dette og legger dette i en liste med pieces
+     * @return liste med pieces
      */
 	private Piece[][] boardToPiecesList(){
 		Piece[][] piecesList = new Piece[8][8];
@@ -45,7 +48,7 @@ public class GameHistoryMaker {
 	}
 
     /**
-     *
+     * Metode som lager tilstand til boardStateHandler
      */
 	public void saveState(){
 		boardStateHandler.setBoardState(boardToPiecesList());
@@ -56,7 +59,7 @@ public class GameHistoryMaker {
 	}
 
     /**
-     *
+     * Metode som enabler undo/redo knapp hvis det finnes historikk
      */
 	private void setEnableOnUndo() {
 		if(listIndex == (boardStateList.length() - 1)){
@@ -75,7 +78,7 @@ public class GameHistoryMaker {
 	}
 
     /**
-     *
+     * Metode som ufører tilbakerulling av trekk
      */
 	public void undo(){
 		//listIndex--;
@@ -91,7 +94,7 @@ public class GameHistoryMaker {
 	}
 
     /**
-     *
+     * Metode som gjøre tilbakerullet trekk om igjen
      */
 	public void redo(){
 		if((boardStateList.length()- 1) > listIndex)
@@ -106,9 +109,9 @@ public class GameHistoryMaker {
 	}
 
     /**
-     *
-     * @param index
-     * @return
+     * Metode som filtrere bort ulovlige indexer
+     * @param index index som skal valideres
+     * @return om index er lovlig eller ikke
      */
 	private boolean indexFilter(int index){
 		boolean indexLegal = false;
