@@ -45,7 +45,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
     /***
      * fra easylib.....
-     * @param s
+     * @param s Strubg til status tekst
      */
     @Override
     public void setStatustext(String s) {
@@ -65,8 +65,8 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
     /**
      * CoR meldingsstier
-     * @param column
-     * @param row
+     * @param column Spør om man kan flytte en brikken til denne kolonen
+     * @param row Spær om man kan flytte en brikke til denne raden
      * @return
      */
     public boolean canIMoveTo(int column, int row) {
@@ -167,8 +167,6 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 	public void setRedoEnable(boolean b) {
 		eastpane.setRedoEnable(b);
     }
-
-
 
     /**
      * CoR meldingsstier
