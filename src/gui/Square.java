@@ -9,6 +9,11 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+/**
+ * Denne klassen har ansvar for å håndtere egen farge/bord/plassering
+ Vite om og håndtere brikker på seg selv
+ Lytte på om den blir trykket på og sende melding videre.
+ */
 public class Square extends JPanel implements MouseListener{
 
 
@@ -19,13 +24,13 @@ public class Square extends JPanel implements MouseListener{
     private Border legalBorder = BorderFactory.createLineBorder(Color.green, 4);
 
     /**
-     *
-     * @param c
-     * @param column
-     * @param row
+     *Konstruktøren til Square, setter utsenden til objektet.
+     * @param color bakgrunnsafargen til Square
+     * @param column Kolonen Squere tilhører
+     * @param row Raden Square tilhører
      */
-	public Square(Color c, int column, int row) {
-		setBackground(c);
+	public Square(Color color, int column, int row) {
+		setBackground(color);
 		addMouseListener(this);
 		this.column = column;
 		this.row = row;
@@ -34,7 +39,7 @@ public class Square extends JPanel implements MouseListener{
 
     /**
      *
-     * @return
+     * @return returnerer en boolean på om Square har et "barn"
      */
 	public boolean hasChild(){
 		return hasChildren;
@@ -42,7 +47,7 @@ public class Square extends JPanel implements MouseListener{
 
     /**
      *
-     * @return
+     * @return en spiller brikke
      */
 	public Piece getPiece(){
 		Piece piece = null;
@@ -53,9 +58,9 @@ public class Square extends JPanel implements MouseListener{
 	}
 
     /**
-     *
+     * legger til en komponent
      * @param c
-     * @return
+     * @return en Komponent
      */
 	public Component add(Component c){
 		super.removeAll();
@@ -65,8 +70,8 @@ public class Square extends JPanel implements MouseListener{
 	}
 
     /**
-     *
-     * @param c
+     * Fjerner en komponent
+     * @param c komponent variabelen
      */
 	public void remove(Component c){
 		super.remove(c);
@@ -75,7 +80,7 @@ public class Square extends JPanel implements MouseListener{
 	}
 
     /**
-     *
+     *Fjerner alle på brettet
      */
 	public void removeAll(){
 		super.removeAll();
@@ -83,7 +88,7 @@ public class Square extends JPanel implements MouseListener{
 	}
 
     /**
-     *
+     *Enventhandler for at man har klikket med musen på et felt
      * @param arg0
      */
 	@Override
@@ -105,7 +110,7 @@ public class Square extends JPanel implements MouseListener{
 
     /**
      *
-     * @return
+     * @return at det er et lovlig sted å plasere brikken
      */
 	public boolean isLegalSquare() {
 		return legalSquare;
@@ -113,7 +118,7 @@ public class Square extends JPanel implements MouseListener{
 
     /**
      *
-     * @param b
+     * @param b en boolean som siere om et felt er lovlig å flytte på eller ikke
      */
 	public void setLegalSquare(boolean b){
 		legalSquare = b;
@@ -121,7 +126,7 @@ public class Square extends JPanel implements MouseListener{
 	}
 
     /**
-     *
+     * tegner den grønne rammen rundt felter som er lovlige trekk.
      */
 	@Override
 	public void repaint() {
@@ -134,8 +139,7 @@ public class Square extends JPanel implements MouseListener{
 	}
 
     /**
-     * Methods that are not in use, but must be added
-     * as a part om implementing MouseListner
+     * Metoder som ikke er i bruk, men må være med da de er en del av implementasjonen av MouseListener
      * @param arg0
      */
     @Override
