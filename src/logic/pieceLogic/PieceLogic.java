@@ -13,10 +13,10 @@ import logic.OutOfBoardFilter;
 abstract class PieceLogic {
 	
 
-    private int north;
-    private int east;
-    private int south;
-    private int west;
+    private int north = -1;
+    private int east = +1;
+    private int south = +1;
+    private int west = -1;
     private int iteration;
 	private int toColumn;
 	private int toRow;
@@ -35,8 +35,7 @@ abstract class PieceLogic {
     * @param secondDirection retning man skal gå i raden
     * @return returnerer true vis man kan gå i denne retingen
     */
-    private boolean checkDirection(
-    		int column, int row, int steps, int firstDirection, int secondDirection){
+    private boolean checkDirection(int column, int row, int steps, int firstDirection, int secondDirection){
         int firstCardinal = column + firstDirection;
         int secondCardinal = row + secondDirection;
         boolean directionCheck = false;
@@ -69,9 +68,6 @@ abstract class PieceLogic {
      * @return returnerer true vis man kan gå i denne retingen
      */
     protected boolean checkNorth(int column, int row, int steps){
-		toColumn = column;
-		toRow = row;
-        north = -1;
         return checkDirection(column, row, steps, 0, north);
 	}
 
@@ -83,11 +79,7 @@ abstract class PieceLogic {
      * @param steps antall trinn som man skal gå i en gitt retning
      * @return returnerer true vis man kan gå i denne retingen
      */
-	public boolean checkNorthEast(int column, int row, int steps){
-		toColumn = column;
-		toRow = row;		
-        north = -1;
-        east = +1;
+	public boolean checkNorthEast(int column, int row, int steps){	
         return checkDirection(column, row, steps, east, north);
 	}
 
@@ -99,10 +91,7 @@ abstract class PieceLogic {
      * @param steps antall trinn som man skal gå i en gitt retning
      * @return returnerer true vis man kan gå i denne retingen
      */
-	public boolean checkEast(int column, int row, int steps){
-		toColumn = column;
-		toRow = row;		
-        east = +1;
+	public boolean checkEast(int column, int row, int steps){	
         return checkDirection(column, row, steps, east, 0);
 	}
 
@@ -115,10 +104,6 @@ abstract class PieceLogic {
      * @return returnerer true vis man kan gå i denne retingen
      */
 	public boolean checkSouthEast(int column, int row, int steps){
-		toColumn = column;
-		toRow = row;
-        east = +1;
-        south = +1;
         return checkDirection(column, row, steps, east, south);
 	}
 
@@ -131,9 +116,6 @@ abstract class PieceLogic {
      * @return returnerer true vis man kan gå i denne retingen
      */
 	public boolean checkSouth(int column, int row, int steps){
-		toColumn = column;
-		toRow = row;
-        south = +1;
         return checkDirection(column, row, steps, 0, south);
 	}
 
@@ -146,10 +128,6 @@ abstract class PieceLogic {
      * @return returnerer true vis man kan gå i denne retingen
      */
 	public boolean checkSouthWest(int column, int row, int steps){
-		toColumn = column;
-		toRow = row;
-		west = -1;
-        south = +1;
         return checkDirection(column, row, steps, west, south);
 	}
 
@@ -162,9 +140,6 @@ abstract class PieceLogic {
      * @return returnerer true vis man kan gå i denne retingen
      */
 	public boolean checkWest(int column, int row, int steps){
-		toColumn = column;
-		toRow = row;
-		west = -1;
         return checkDirection(column, row, steps, west, 0);
 	}
 
@@ -177,10 +152,6 @@ abstract class PieceLogic {
      * @return returnerer true vis man kan gå i denne retingen
      */
 	public boolean checkNorthWest(int column, int row, int steps){
-		toColumn = column;
-		toRow = row;
-        west = -1;
-        north = -1;
         return checkDirection(column, row, steps, west, north);
 	}
 
