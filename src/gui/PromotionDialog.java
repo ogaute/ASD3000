@@ -8,33 +8,31 @@ import javax.swing.*;
 public class PromotionDialog {
     /**
      * Konstruktørene til dialogvinduet
-     * @param promotionFrame
      * @return returnerer det valget man har gjort i dialogvinduet
      */
-    public String makePromotionWindow(JFrame promotionFrame) {
-        String promotionChoice = "";
-        Object[] options = {"Queen", "Rook" ,"Knight","Bishop"};
-        int n = JOptionPane.showOptionDialog(promotionFrame,
-                "Du kan forfremme bonden din !!",
-                "Forfremmelse",
-                JOptionPane.DEFAULT_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                options,
-                options[0]);
+    public String makePromotionWindow( ) {
 
-        if (n == 0) {
+        String promotionChoice = "";
+        Object [] options1 = {"Queen", "Rook" ,"Knight","Bishop"};
+        JOptionPane promotionDialog = new JOptionPane("Du kan forfremme bonden din !!", JOptionPane.PLAIN_MESSAGE, JOptionPane.YES_NO_OPTION, null, options1, options1[0]);
+        JDialog dialog = promotionDialog.createDialog(null, "Forfremmelse");
+        dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        dialog.setVisible(true);
+        String chosenType = (String) promotionDialog.getValue();
+        if (chosenType.equals("Queen")) {
             promotionChoice = "Queen";
-        } else if (n == 1) {
+        } else if (chosenType.equals("Rook")) {
             promotionChoice = "Rook";
-        }
-        else if (n == 2) {
+        } else if (chosenType.equals("Knight")){
             promotionChoice = "Knight";
-        }
-        else if (n == 3) {
+        }else if (chosenType.equals("Bishop")){
             promotionChoice = "Bishop";
-            ;
         }
+
         return promotionChoice;
+
+
     }
+
 }
+

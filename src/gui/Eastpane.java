@@ -13,7 +13,8 @@ public class Eastpane extends JPanel{
 	
 	private JButton undo;
 	private JButton redo;
-    private JTextArea infobox;
+    private JTextArea legalMoveTextArea;
+
     private String infoText = "";
 
     /**
@@ -27,15 +28,15 @@ public class Eastpane extends JPanel{
         redo = new JButton("Redo");
         redo.addActionListener(Controller.actionredo);
 
-        infobox = new JTextArea();
-        JScrollPane jScrollPane = new JScrollPane(infobox);
+        legalMoveTextArea = new JTextArea();
+        JScrollPane jScrollPane = new JScrollPane(legalMoveTextArea);
 
-        infobox.setSize(200,200);
-        infobox.setLineWrap(true);
-        infobox.setMargin(new Insets(5,5,5,5));
-        infobox.setVisible(true);
-        infobox.setEditable(false);
-        infobox.setText(infoText);
+        legalMoveTextArea.setSize(200, 200);
+        legalMoveTextArea.setLineWrap(true);
+        legalMoveTextArea.setMargin(new Insets(5, 5, 5, 5));
+        legalMoveTextArea.setVisible(true);
+        legalMoveTextArea.setEditable(false);
+        legalMoveTextArea.setText(infoText);
 
         JPanel northpanel = new JPanel();
         JPanel centerpanel = new JPanel(new BorderLayout());
@@ -73,7 +74,7 @@ public class Eastpane extends JPanel{
      * @param legalMoves En tekstren som inneholder alle lovlige trekk til den aktive spilleren
      */
     public void addLegalMovesInfo(String legalMoves) {
-        infobox.setText(legalMoves + "\n");
+        legalMoveTextArea.setText(legalMoves + "\n");
     }
 
 

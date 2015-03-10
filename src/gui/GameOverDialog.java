@@ -1,7 +1,6 @@
 package gui;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 import controller.Controller;
 
@@ -16,22 +15,22 @@ public class GameOverDialog {
      */
 	public GameOverDialog(JFrame frame) {
 		String player = Controller.whoWon();
-		Object[] options = {"Nytt spill", "Avslutt"};
-		int n = JOptionPane.showOptionDialog(frame,
-		"Spiller " +  player + " har vunnet!",
-		"Sjakkmatt",
-		JOptionPane.YES_NO_OPTION,
-		JOptionPane.QUESTION_MESSAGE,
-		null,
-		options,
-		options[1]);
-		
-		if(n == JOptionPane.YES_OPTION){
+
+        Object[] options = {"Nytt spill", "Avslutt"};
+        JOptionPane gameOverDialog = new JOptionPane("Spiller \" +  player + \" har vunnet!",
+                JOptionPane.PLAIN_MESSAGE, JOptionPane.YES_NO_OPTION, null, options, options[0]);
+        JDialog dialog = gameOverDialog.createDialog(null, "Sjakkmatt");
+        dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        dialog.setVisible(true);
+        String chosenType = (String) gameOverDialog.getValue();
+
+        if(chosenType.equals("Nytt spill")){
 			Chessie.restart();
 		}
 		else{
 			Controller.exit();
 		}
+
 	}
 	
 

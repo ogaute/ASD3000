@@ -34,6 +34,8 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 		setSize(1000,800);
 		setVisible(true);
 		setResizable(false);
+
+
     }
 
     /**
@@ -182,7 +184,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
      * @return
      */
     public String promotionDialog() {
-        return new PromotionDialog().makePromotionWindow(this);
+        return new PromotionDialog().makePromotionWindow();
 
     }
 
