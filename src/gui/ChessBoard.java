@@ -87,7 +87,6 @@ public class ChessBoard extends JPanel {
      * @param savedPieceList en liste med Brikker som er lagret.
      */
 	public void changeGameState(Piece[][] savedPieceList){
-		System.out.println("forandrer");
 		for (int row = 0; row <= ApplicationConstants.NUMROWS; row++) {
 			for (int column = 0; column <= ApplicationConstants.NUMCOLUMNS; column++) {
 				Piece pieceToAdd = savedPieceList[column][row];
