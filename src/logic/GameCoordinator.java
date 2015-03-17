@@ -59,8 +59,8 @@ public class GameCoordinator implements Observer {
 	}
 
     /**
-     * Metode som sender en forespørsel om valiering av om en capture, at en brikke kan slå en annen, er lovlig.
-     * Sender melding til square om at brukkeforflytning er lovlig
+     * Metode som sender en forespørsel om valiering av om en capture, at en bonde kan slå en annen brikke, er lovlig.
+     * Sender melding til square om at capture er lovlig
      * @param toColumn kolonne i sjakkbrett hvor det skal slås
      * @param toRow rad i sjakkbrett hvor det skal slås
      * @return
