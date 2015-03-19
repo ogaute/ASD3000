@@ -47,14 +47,14 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
 
     /***
      * fra easylib.....
-     * @param s Strubg til status tekst
+     * @param s String til statustekst
      */
     @Override
     public void setStatustext(String s) {
     }
 
     /**
-     * Metode som starter en dialogboks som viser litt informasjon om applikasjonen
+     * Metode som starter en dialogboks som viser informasjon om applikasjonen
      */
     public void about() {
         JOptionPane.showMessageDialog(this, "Chessie 1.1 RC Client" +"\n" +"\n" +
@@ -62,7 +62,7 @@ public class ApplicationFrame extends JFrame implements ISupercontroller {
                 "Andrea Bøe Abrahamsen, " +"\n" +
                 "Anders Borg Larsen, "  +"\n" +
                 "Linda Fermann, "  +"\n" +
-                "Øyvind Gatestad");
+                "Øyvind Gautestad");
 	}
 
     /**

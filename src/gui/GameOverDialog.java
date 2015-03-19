@@ -17,7 +17,7 @@ public class GameOverDialog {
 		String player = Controller.whoWon();
 
         Object[] options = {"Nytt spill", "Avslutt"};
-        JOptionPane gameOverDialog = new JOptionPane("Spiller \" +  player + \" har vunnet!",
+        JOptionPane gameOverDialog = new JOptionPane("Spiller \"" +  player + "\" har vunnet!",
                 JOptionPane.PLAIN_MESSAGE, JOptionPane.YES_NO_OPTION, null, options, options[0]);
         JDialog dialog = gameOverDialog.createDialog(null, "Sjakkmatt");
         dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
